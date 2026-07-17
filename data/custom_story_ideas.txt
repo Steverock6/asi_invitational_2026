@@ -1,0 +1,6 @@
+# Add one story idea per line below, in plain English.
+# Example: Team Gamble and Ice Cold Blooded have a running feud and
+# face off this week — write it up as a grudge match.
+#
+# Lines starting with # are ignored. This file clears itself after
+# each weekly run, so add new ideas any time before Tuesday.
