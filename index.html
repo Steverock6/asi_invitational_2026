@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>League Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b1220;
+    --surface: #121b2e;
+    --surface-2: #1a2540;
+    --line: rgba(255,255,255,0.08);
+    --text: #f1f3f6;
+    --text-dim: #93a0b8;
+    --text-faint: #5c6a86;
+    --accent: #f4b93e;
+    --accent-dim: #7a601f;
+    --tier-s: #f4b93e;
+    --tier-a: #6fd08c;
+    --tier-b: #6fb0f4;
+    --tier-c: #93a0b8;
+    --tier-d: #d98a5f;
+    --tier-f: #e0616f;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  a { color: var(--accent); }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  header {
+    border-bottom: 1px solid var(--line);
