@@ -1,0 +1,4 @@
+espn_api
+pandas
+scipy
+anthropic
