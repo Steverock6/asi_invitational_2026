@@ -57,3 +57,386 @@
 
   header {
     border-bottom: 1px solid var(--line);
+    padding: 28px 0 20px;
+  }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .meta {
+    text-align: right;
+    color: var(--text-dim);
+    font-size: 13px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .ticker-outer {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .ticker-outer::before,
+  .ticker-outer::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 40px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ticker-outer::before { left: 0; background: linear-gradient(90deg, var(--surface-2), transparent); }
+  .ticker-outer::after { right: 0; background: linear-gradient(270deg, var(--surface-2), transparent); }
+
+  .ticker-track {
+    display: inline-flex;
+    align-items: center;
+    animation: scroll-left 45s linear infinite;
+    padding: 10px 0;
+  }
+
+  .ticker-track:hover { animation-play-state: paused; }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    padding: 0 28px;
+  }
+
+  .ticker-item .dot {
+    color: var(--accent);
+    margin-right: 10px;
+  }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  section { padding: 36px 0; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--text-faint);
+    margin-bottom: 18px;
+  }
+
+  .news-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .news-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+
+  .news-card.custom { border-left-color: var(--tier-b); }
+
+  .news-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .news-body {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    margin: 0;
+  }
+
+  .news-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 720px) {
+    .two-col { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+    .header-row { flex-direction: column; align-items: flex-start; }
+    .meta { text-align: left; }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  th {
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    font-weight: 500;
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  td {
+    padding: 9px 6px;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+  }
+
+  td.num, th.num { text-align: right; font-family: 'IBM Plex Mono', monospace; }
+
+  .team-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rank-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-faint);
+    width: 18px;
+    display: inline-block;
+  }
+
+  .tier-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--bg);
+  }
+
+  .tier-S { background: var(--tier-s); }
+  .tier-A { background: var(--tier-a); }
+  .tier-B { background: var(--tier-b); }
+  .tier-C { background: var(--tier-c); color: var(--bg); }
+  .tier-D { background: var(--tier-d); }
+  .tier-F { background: var(--tier-f); }
+
+  .empty-state {
+    color: var(--text-faint);
+    font-size: 14px;
+    font-style: italic;
+    padding: 8px 0;
+  }
+
+  footer {
+    padding: 30px 0 50px;
+    color: var(--text-faint);
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+  }
+
+  .loading {
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--text-faint);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="loading">Loading league data…</div>
+</div>
+
+<script>
+async function loadData() {
+  const app = document.getElementById('app');
+  try {
+    const res = await fetch('data/data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('data.json not found');
+    const data = await res.json();
+    render(data);
+  } catch (err) {
+    app.innerHTML = `
+      <div class="loading">
+        Couldn't load league data yet.<br>
+        <span style="font-size:12px">(${err.message} — has the weekly job run at least once?)</span>
+      </div>`;
+  }
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str ?? '';
+  return div.innerHTML;
+}
+
+function formatDate(iso) {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleString('en-US', {
+      weekday: 'short', month: 'short', day: 'numeric',
+      hour: 'numeric', minute: '2-digit'
+    });
+  } catch {
+    return iso;
+  }
+}
+
+function render(data) {
+  const app = document.getElementById('app');
+
+  const tickerItems = (data.news || []).length
+    ? data.news.map(n => `<span class="ticker-item"><span class="dot">●</span>${escapeHtml(n.headline)}</span>`).join('')
+    : '<span class="ticker-item"><span class="dot">●</span>No news yet this week</span>';
+  const tickerHtml = tickerItems + tickerItems;
+
+  const newsHtml = (data.news || []).length
+    ? data.news.map(n => `
+        <div class="news-card ${n.source === 'custom' ? 'custom' : ''}">
+          <div class="news-tag">${escapeHtml((n.type || '').replace(/_/g, ' '))}</div>
+          <div class="news-headline">${escapeHtml(n.headline)}</div>
+          <p class="news-body">${escapeHtml(n.body)}</p>
+        </div>
+      `).join('')
+    : '<div class="empty-state">No news generated this week.</div>';
+
+  const rankingsHtml = (data.power_rankings || []).length ? `
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Team</th><th class="num">Score</th><th>Tier</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${data.power_rankings.map(r => `
+          <tr>
+            <td class="rank-badge">${r.Rank}</td>
+            <td>${escapeHtml(r.Team)}</td>
+            <td class="num">${Number(r['Power Rank Score']).toFixed(2)}</td>
+            <td><span class="tier-chip tier-${r.Tier}">${r.Tier}</span></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  ` : '<div class="empty-state">No power rankings yet.</div>';
+
+  const standingsHtml = (data.standings || []).length ? `
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Team</th><th class="num">W-L</th><th class="num">PF</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${data.standings.map(s => `
+          <tr>
+            <td class="rank-badge">${s.rank}</td>
+            <td>${escapeHtml(s.team)}</td>
+            <td class="num">${s.wins}-${s.losses}</td>
+            <td class="num">${Number(s.points_for).toFixed(1)}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  ` : '<div class="empty-state">No standings yet.</div>';
+
+  const transactionsHtml = (data.transactions || []).length
+    ? data.transactions.map(t => `<div>${escapeHtml(JSON.stringify(t))}</div>`).join('')
+    : '<div class="empty-state">Transactions coming soon.</div>';
+
+  app.innerHTML = `
+    <header>
+      <div class="wrap header-row">
+        <div>
+          <div class="eyebrow">Week ${data.current_week ?? '—'} · Season report</div>
+          <h1>${escapeHtml(data.league_name || 'League Hub')}</h1>
+        </div>
+        <div class="meta">Updated<br>${formatDate(data.generated_at)}</div>
+      </div>
+    </header>
+
+    <div class="ticker-outer">
+      <div class="ticker-track">${tickerHtml}</div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="section-title">LEAGUE NEWS</div>
+        <div class="news-grid">${newsHtml}</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div>
+          <div class="section-title">POWER RANKINGS</div>
+          ${rankingsHtml}
+        </div>
+        <div>
+          <div class="section-title">STANDINGS</div>
+          ${standingsHtml}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-title">RECENT TRANSACTIONS</div>
+        ${transactionsHtml}
+      </div>
+    </section>
+
+    <footer class="wrap">
+      Built for the league. Updates every Tuesday.
+    </footer>
+  `;
+}
+
+loadData();
+</script>
+
+</body>
+</html>
