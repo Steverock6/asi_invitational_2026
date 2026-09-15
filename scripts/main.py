@@ -17,8 +17,10 @@ from news_events import get_weekly_events
 from news_generator import generate_news_stories
 from custom_stories import ensure_file_exists, load_custom_events, clear_custom_events
 from rankings_history import load_previous_rankings, save_current_rankings
+from transactions import get_transactions
 
 OUTPUT_PATH = "data/data.json"
+TRANSACTIONS_LIMIT = 20  # most recent N shown on the site
 
 
 def build_standings(league):
@@ -36,6 +38,21 @@ def build_standings(league):
         }
         for i, t in enumerate(standings)
     ]
+
+
+def build_transactions(league):
+    """
+    Returns the most recent transactions (adds/drops/trades) for the site,
+    most recent first. Failures here (e.g. ESPN's communication endpoint
+    hiccups) shouldn't take down the whole weekly job, so this just warns
+    and falls back to an empty list rather than raising.
+    """
+    try:
+        transactions = get_transactions(league)
+    except Exception as e:
+        print(f"  Warning: couldn't fetch transactions ({e}). Leaving transactions empty for this run.")
+        return []
+    return transactions[:TRANSACTIONS_LIMIT]
 
 
 def build_news(auto_events, custom_events):
@@ -83,6 +100,10 @@ def run():
     print("Building standings...")
     standings = build_standings(league)
 
+    print("Fetching recent transactions...")
+    transactions = build_transactions(league)
+    print(f"  Found {len(transactions)} transaction(s).")
+
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "league_name": league.settings.name,
@@ -90,7 +111,7 @@ def run():
         "standings": standings,
         "power_rankings": rankings_df.to_dict(orient="records"),
         "news": news,
-        "transactions": [],  # placeholder until the transactions module is revisited
+        "transactions": transactions,
     }
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
