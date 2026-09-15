@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T12:40:06.364057+00:00",
+  "generated_at": "2026-09-15T15:20:49.346000+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 2,
   "standings": [
@@ -23,8 +23,8 @@
     },
     {
       "rank": 3,
-      "team": "Brian's Best Team",
-      "abbrev": "BBT",
+      "team": "Silence of the Lamb",
+      "abbrev": "BN",
       "wins": 1,
       "losses": 0,
       "points_for": 149.8,
@@ -163,8 +163,8 @@
     },
     {
       "Rank": 3,
-      "Team": "Brian's Best Team",
-      "Abbrev": "BBT",
+      "Team": "Silence of the Lamb",
+      "Abbrev": "BN",
       "Wins": 1,
       "Losses": 0,
       "Points For": 149.76,
@@ -344,91 +344,37 @@
   ],
   "news": [
     {
-      "headline": "Jefferson Airplane Demolishes Combat Knife in Week 1 Rout",
-      "body": "Jefferson Airplane came out swinging in the season opener, crushing Combat Knife Bald Eagle 143.06 to 74.7 for a devastating 68.4-point blowout. A statement win if there ever was one.",
+      "headline": "Jefferson Airplane Takes Flight in Week 1 Demolition",
+      "body": "Jefferson Airplane soared to a dominant 143.06-74.7 victory over Combat Knife Bald Eagle in a lopsided Week 1 matchup. The 68.4-point margin sets an early tone as the season kicks off with fireworks.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Brian's Best Team Flexes Early with Dominant Week 1 Victory",
-      "body": "Brian's Best Team announced their presence with authority, dismantling Diddy's Oilers 149.76 to 95.3. The 54.5-point margin signals serious intent from this squad.",
+      "headline": "Silence of the Lamb Silences Diddy's Oilers",
+      "body": "Silence of the Lamb made a statement in Week 1, cruising past Diddy's Oilers 149.76-95.3. The dominant 54.5-point performance is a strong opening statement for the season.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Who?? Makes Immediate Impact with Commanding Week 1 Win",
-      "body": "Who?? put the league on notice in Week 1, defeating Jacob's Right Hook 155.26 to 113.74. A 41.5-point victory to kick off the season on the right foot.",
+      "headline": "Who?? Announces Arrival with Crushing Week 1 Win",
+      "body": "Who?? is here and ready to play, dismantling Jacob's Right Hook 155.26-113.74 in Week 1. The 41.5-point victory shows this team means business from day one.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Hair of the Dog Arrives with Explosive Week 1 Domination",
-      "body": "Hair of the Dog came to play, absolutely overwhelming Nabers be Tuten 170.36 to 100.16. A jaw-dropping 70.2-point blowout that sent shockwaves through the league.",
+      "headline": "Hair of the Dog Bites Hard in Week 1 Blowout",
+      "body": "Hair of the Dog delivered the most punishing performance of Week 1, crushing Nabers be Tuten 170.36-100.16. The massive 70.2-point margin is a statement win to open the season.",
       "type": "blowout",
-      "source": "auto"
-    },
-    {
-      "headline": "Hair of the Dog Catapults to Top of Power Rankings",
-      "body": "Hair of the Dog's dominant Week 1 showing propelled them from 6th all the way to 1st in the power rankings. A stunning 5-spot jump after that explosive outing.",
-      "type": "rank_jump",
-      "source": "auto"
-    },
-    {
-      "headline": "Who?? Climbs into Elite Tier with Massive Power Rank Jump",
-      "body": "Who?? surged 7 spots in the power rankings following their Week 1 victory, vaulting from 9th to 2nd. Early-season statement firmly made.",
-      "type": "rank_jump",
-      "source": "auto"
-    },
-    {
-      "headline": "Brian's Best Team Soars 10 Spots After Opening Week Explosion",
-      "body": "Brian's Best Team made the most dramatic climb on the board, jumping 10 spots from 13th to 3rd in the power rankings. An incredible Week 1 turnaround.",
-      "type": "rank_jump",
-      "source": "auto"
-    },
-    {
-      "headline": "A Work of Dart Stumbles: Defending Top Spot Relinquished",
-      "body": "A Work of Dart's fall from grace began immediately, dropping 4 spots from 1st to 5th in the power rankings. The defending leader will need to regroup quickly.",
-      "type": "rank_drop",
-      "source": "auto"
-    },
-    {
-      "headline": "Hurtin For A Curtin Rising: Another Big Jump Up the Rankings",
-      "body": "Hurtin For A Curtin climbed 4 spots in the power rankings, moving from 10th to 6th. Early momentum building in the right direction.",
-      "type": "rank_jump",
-      "source": "auto"
-    },
-    {
-      "headline": "John's Supreme Team Rockets 7 Spots in Power Rankings Shakeup",
-      "body": "John's Supreme Team made waves with a 7-spot jump from 14th to 7th in the power rankings. A strong start to the season has them trending up.",
-      "type": "rank_jump",
-      "source": "auto"
-    },
-    {
-      "headline": "Jacob's Right Hook Slides After Week 1 Loss to Who??",
-      "body": "Jacob's Right Hook plummeted 4 spots in the power rankings, falling from 5th to 9th following their opening-week defeat. A tough start for the formerly elite squad.",
-      "type": "rank_drop",
-      "source": "auto"
-    },
-    {
-      "headline": "Diddy's Oilers Tumble Down Power Rankings After Week 1 Loss",
-      "body": "Diddy's Oilers dropped 4 spots, sliding from 8th to 12th in the power rankings after their lopsided defeat to Brian's Best Team. Early season struggles mounting.",
-      "type": "rank_drop",
-      "source": "auto"
-    },
-    {
-      "headline": "WR Witness Protection in Free Fall: Massive 10-Spot Power Rank Collapse",
-      "body": "WR Witness Protection suffered an earth-shattering collapse, plummeting 10 spots from 3rd to 13th in the power rankings. An unexpected and jarring week one descent.",
-      "type": "rank_drop",
-      "source": "auto"
-    },
-    {
-      "headline": "Combat Knife Bald Eagle Crashes to Bottom After Blowout Loss",
-      "body": "Combat Knife Bald Eagle's season started in the worst possible way, dropping 10 spots from 4th to 14th in the power rankings after the Jefferson Airplane beatdown. Nowhere to go but up.",
-      "type": "rank_drop",
       "source": "auto"
     }
   ],
   "transactions": [
+    {
+      "date": 1789484481149,
+      "team": "WR Witness Protection",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #3917315"
+    },
     {
       "date": 1789230504765,
       "team": "Unknown",
@@ -542,12 +488,6 @@
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
       "player": "Kaelon Black"
-    },
-    {
-      "date": 1788115387983,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #15818"
     }
   ]
 }
