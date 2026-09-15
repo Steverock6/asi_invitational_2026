@@ -268,6 +268,29 @@
     padding: 8px 0;
   }
 
+  .action-tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 3px;
+    background: var(--surface-2);
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .action-tag.add { color: var(--tier-a); }
+  .action-tag.drop { color: var(--tier-f); }
+  .action-tag.trade { color: var(--tier-b); }
+
+  td.date-cell {
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
   footer {
     padding: 30px 0 50px;
     color: var(--text-faint);
@@ -323,6 +346,30 @@ function formatDate(iso) {
   } catch {
     return iso;
   }
+}
+
+function formatShortDate(ts) {
+  try {
+    const d = new Date(ts);
+    if (isNaN(d.getTime())) return '—';
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  } catch {
+    return '—';
+  }
+}
+
+function formatActionType(type) {
+  const label = String(type ?? '').replace(/_/g, ' ').trim();
+  if (!label) return 'Transaction';
+  return label.replace(/\w\S*/g, w => w[0].toUpperCase() + w.slice(1).toLowerCase());
+}
+
+function actionClass(type) {
+  const t = String(type ?? '').toUpperCase();
+  if (t.includes('TRADE')) return 'trade';
+  if (t.includes('DROP')) return 'drop';
+  if (t.includes('ADD') || t.includes('WAIVER') || t.includes('FA') || t.includes('FREEAGENT')) return 'add';
+  return '';
 }
 
 function render(data) {
@@ -383,9 +430,25 @@ function render(data) {
     </table>
   ` : '<div class="empty-state">No standings yet.</div>';
 
-  const transactionsHtml = (data.transactions || []).length
-    ? data.transactions.map(t => `<div>${escapeHtml(JSON.stringify(t))}</div>`).join('')
-    : '<div class="empty-state">Transactions coming soon.</div>';
+  const transactionsHtml = (data.transactions || []).length ? `
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th><th>Team</th><th>Action</th><th>Player</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${data.transactions.map(t => `
+          <tr>
+            <td class="date-cell mono">${formatShortDate(t.date)}</td>
+            <td>${escapeHtml(t.team)}</td>
+            <td><span class="action-tag ${actionClass(t.action_type)}">${escapeHtml(formatActionType(t.action_type))}</span></td>
+            <td>${escapeHtml(t.player)}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  ` : '<div class="empty-state">No transactions yet this season.</div>';
 
   app.innerHTML = `
     <header>
