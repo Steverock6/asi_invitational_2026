@@ -56,34 +56,28 @@ commissioner wants covered. Still keep it to a headline + 2-3 sentence body, \
 and don't invent specific stats or scores that weren't in the note."""
 
 
-def _build_user_prompt(events):
-    return (
+def _build_user_prompt(events, retry_note=None):
+    prompt = (
         "Write one news story for each of these fantasy football league events. "
         "Return a JSON array with one {\"headline\": ..., \"body\": ...} object "
         "per event, in the same order:\n\n" + json.dumps(events, indent=2)
     )
+    if retry_note:
+        prompt = f"{retry_note}\n\n{prompt}"
+    return prompt
 
 
-def generate_news_stories(events):
+def _call_model(client, events, retry_note=None):
+    """Makes one request to the model and returns the parsed stories list.
+
+    Raises json.JSONDecodeError if the response isn't valid JSON — callers
+    decide whether that's worth retrying.
     """
-    Takes a list of event fact dicts (from news_events.py) and returns a
-    list of {"headline": ..., "body": ...} dicts, same length and order.
-    Returns an empty list if there are no events to write about.
-    """
-    if not events:
-        return []
-
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise RuntimeError("Missing ANTHROPIC_API_KEY environment variable.")
-
-    client = Anthropic(api_key=api_key)
-
     response = client.messages.create(
         model=MODEL,
         max_tokens=2000,
         system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": _build_user_prompt(events)}],
+        messages=[{"role": "user", "content": _build_user_prompt(events, retry_note)}],
     )
 
     raw_text = response.content[0].text.strip()
@@ -96,15 +90,56 @@ def generate_news_stories(events):
             raw_text = raw_text[4:]
         raw_text = raw_text.strip()
 
+    return json.loads(raw_text)
+
+
+def generate_news_stories(events):
+    """
+    Takes a list of event fact dicts (from news_events.py) and returns a
+    list of {"headline": ..., "body": ...} dicts, same length and order.
+    Returns an empty list if there are no events to write about.
+
+    A busy week can have a lot of events (a full slate of matchups, upsets,
+    and rank movement all at once), and small/fast models don't always
+    return exactly one story per event on the first try. Rather than fail
+    the whole weekly job over that, this retries once with a stricter
+    instruction, and if it still doesn't line up, skips news for this run
+    instead of risking a headline getting attached to the wrong event.
+    """
+    if not events:
+        return []
+
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise RuntimeError("Missing ANTHROPIC_API_KEY environment variable.")
+
+    client = Anthropic(api_key=api_key)
+
     try:
-        stories = json.loads(raw_text)
+        stories = _call_model(client, events)
     except json.JSONDecodeError as e:
-        raise RuntimeError(f"Could not parse AI response as JSON: {e}\nRaw response: {raw_text[:500]}")
+        print(f"  Warning: AI response wasn't valid JSON ({e}). Skipping news for this run.")
+        return []
 
     if len(stories) != len(events):
-        raise RuntimeError(
-            f"Expected {len(events)} stories back, got {len(stories)}. Raw response: {raw_text[:500]}"
+        print(f"  Warning: asked for {len(events)} stories, got {len(stories)}. Retrying once...")
+        retry_note = (
+            f"Your last response had {len(stories)} stories but there are {len(events)} events "
+            f"below. Return EXACTLY {len(events)} stories, one per event, in the same order — "
+            "don't skip or merge any."
         )
+        try:
+            stories = _call_model(client, events, retry_note=retry_note)
+        except json.JSONDecodeError as e:
+            print(f"  Warning: retry response wasn't valid JSON ({e}). Skipping news for this run.")
+            return []
+
+    if len(stories) != len(events):
+        print(
+            f"  Warning: still got {len(stories)} stories for {len(events)} events after retry. "
+            "Skipping news for this run rather than risk mismatched headlines."
+        )
+        return []
 
     return stories
 
