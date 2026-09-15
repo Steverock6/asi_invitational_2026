@@ -56,12 +56,22 @@ def build_transactions(league):
 
 
 def build_news(auto_events, custom_events):
-    """Generates AI stories for both auto-detected and custom events, tagged by source."""
+    """
+    Generates AI stories for both auto-detected and custom events, tagged by source.
+
+    Any failure here (bad/missing API key, Anthropic outage, etc.) is caught
+    so it can't take down the whole weekly job — standings, power rankings,
+    and transactions should still update even when news generation can't.
+    """
     all_events = auto_events + custom_events
     if not all_events:
         return []
 
-    stories = generate_news_stories(all_events)
+    try:
+        stories = generate_news_stories(all_events)
+    except Exception as e:
+        print(f"  Warning: news generation failed ({e}). Leaving news empty for this run.")
+        return []
 
     news = []
     for event, story in zip(all_events, stories):
