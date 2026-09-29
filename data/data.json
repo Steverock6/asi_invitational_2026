@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T10:19:14.969817+00:00",
+  "generated_at": "2026-09-29T13:09:34.882263+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 4,
   "standings": [
@@ -345,45 +345,39 @@
   "news": [
     {
       "headline": "Combat Knife Bald Eagle Demolishes Sack Lunch",
-      "body": "Combat Knife Bald Eagle put on a clinic in Week 3, cruising to a 42.6-point victory over Sack Lunch with a dominant 140.3-97.74 performance. The blowout leaves little doubt about which team came to play this week.",
+      "body": "Combat Knife Bald Eagle put on an offensive showcase in Week 3, crushing Sack Lunch 140.3 to 97.74 with a staggering 42.6-point margin. The blowout victory sends a statement to the rest of the league.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Who?? Runs Away From Jefferson Airplane",
-      "body": "Who?? absolutely dominated Week 3, dismantling Jefferson Airplane by 58.1 points in a lopsided affair. The 142.16-84.08 thrashing puts Jefferson Airplane in the rearview mirror.",
+      "headline": "Who?? Obliterates Jefferson Airplane by 58",
+      "body": "Who?? turned in a dominant Week 3 performance, steamrolling Jefferson Airplane 142.16 to 84.08. The 58.1-point beatdown ranks among the most lopsided matchups of the young season.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Jacob's Right Hook Delivers a Knockout Blow",
-      "body": "Jacob's Right Hook unleashed a Week 3 masterclass against Annexation of LaPorta Rico, posting a staggering 64.7-point victory margin. The 111.94-47.26 destruction was one of the league's most lopsided wins yet.",
+      "headline": "Jacob's Right Hook Delivers Knockout Blow",
+      "body": "Jacob's Right Hook absolutely dismantled Annexation of LaPorta Rico in Week 3, winning 111.94 to 47.26 for a staggering 64.7-point margin. One of the most dominant performances of the season.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Hurtin For A Curtin Stuns 2nd-Ranked Silence",
-      "body": "In a stunning upset, 8th-ranked Hurtin For A Curtin toppled 2nd-ranked Silence of the Lamb in Week 3. The power rankings just got turned upside down.",
+      "headline": "Cinderella Story: 8th-Ranked Hurtin Stuns Elite 2nd-Ranked Silence",
+      "body": "Hurtin For A Curtin pulled off a massive upset in Week 3, knocking off the 2nd-ranked Silence of the Lamb as the 8th-ranked team in the power rankings. A shocking result that reshuffles the competitive landscape.",
       "type": "upset",
       "source": "auto"
     },
     {
-      "headline": "Nabers be Tuten Tumbles Three Spots",
-      "body": "Nabers be Tuten suffered a rough week, dropping three places in the power rankings from 7th to 10th. The fall from grace is a significant jolt for the once-climbing squad.",
-      "type": "rank_drop",
-      "source": "auto"
+      "headline": "Diddy's Oilers Repeat Championship Rematch Victory",
+      "body": "Diddy's Oilers get their revenge, defeating Hair of the Dog once again in the championship rematch. Lightning strikes twice as the Oilers prove their dominance over their familiar foe.",
+      "type": "custom_prompt",
+      "source": "custom"
     },
     {
-      "headline": "Trump Wall Climbing Back Into Contention",
-      "body": "Trump Wall made a bold statement this week, jumping three spots in the power rankings from 14th to 11th. The upward trajectory has the squad clawing back into serious relevance.",
-      "type": "rank_jump",
-      "source": "auto"
-    },
-    {
-      "headline": "Annexation of LaPorta Rico Plummets Three Spots",
-      "body": "Following a brutal Week 3 blowout loss, Annexation of LaPorta Rico dropped three spots in the power rankings, sliding from 10th to 13th. The freefall leaves the team searching for answers.",
-      "type": "rank_drop",
-      "source": "auto"
+      "headline": "Giants Trade for JJ Number 9 Sparks Uproar",
+      "body": "A blockbuster trade brings JJ Number 9 to the Giants, but Jameis backers are up in arms over the move. The controversial acquisition has the league talking.",
+      "type": "custom_prompt",
+      "source": "custom"
     }
   ],
   "transactions": [
