@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T13:09:34.882263+00:00",
+  "generated_at": "2026-09-29T16:41:48.184805+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 4,
   "standings": [
@@ -345,42 +345,36 @@
   "news": [
     {
       "headline": "Combat Knife Bald Eagle Demolishes Sack Lunch",
-      "body": "Combat Knife Bald Eagle put on an offensive showcase in Week 3, crushing Sack Lunch 140.3 to 97.74 with a staggering 42.6-point margin. The blowout victory sends a statement to the rest of the league.",
+      "body": "Combat Knife Bald Eagle put on a offensive clinic in Week 3, crushing Sack Lunch 140.3-97.74 in a lopsided affair. The 42.6-point blowout leaves no doubt about who showed up ready to play this week.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Who?? Obliterates Jefferson Airplane by 58",
-      "body": "Who?? turned in a dominant Week 3 performance, steamrolling Jefferson Airplane 142.16 to 84.08. The 58.1-point beatdown ranks among the most lopsided matchups of the young season.",
+      "headline": "Who?? Obliterates Jefferson Airplane in Week 3",
+      "body": "Who?? delivered a statement performance, throttling Jefferson Airplane 142.16-84.08 in a dominant Week 3 showdown. A devastating 58.1-point margin puts the league on notice.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Jacob's Right Hook Delivers Knockout Blow",
-      "body": "Jacob's Right Hook absolutely dismantled Annexation of LaPorta Rico in Week 3, winning 111.94 to 47.26 for a staggering 64.7-point margin. One of the most dominant performances of the season.",
+      "headline": "Jacob's Right Hook Lands Knockout Punch",
+      "body": "Jacob's Right Hook absolutely dismantled Annexation of LaPorta Rico in Week 3, winning 111.94-47.26 in a complete blowout. The 64.7-point shellacking was one of the most lopsided performances of the young season.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Cinderella Story: 8th-Ranked Hurtin Stuns Elite 2nd-Ranked Silence",
-      "body": "Hurtin For A Curtin pulled off a massive upset in Week 3, knocking off the 2nd-ranked Silence of the Lamb as the 8th-ranked team in the power rankings. A shocking result that reshuffles the competitive landscape.",
+      "headline": "Hurtin For A Curtin Stuns 2nd-Ranked Silence of the Lamb",
+      "body": "In a shocking Week 3 upset, Hurtin For A Curtin knocked off Silence of the Lamb, ranked 2nd in the power rankings. The 8th-ranked upset special proves nobody's safe in this league.",
       "type": "upset",
       "source": "auto"
-    },
-    {
-      "headline": "Diddy's Oilers Repeat Championship Rematch Victory",
-      "body": "Diddy's Oilers get their revenge, defeating Hair of the Dog once again in the championship rematch. Lightning strikes twice as the Oilers prove their dominance over their familiar foe.",
-      "type": "custom_prompt",
-      "source": "custom"
-    },
-    {
-      "headline": "Giants Trade for JJ Number 9 Sparks Uproar",
-      "body": "A blockbuster trade brings JJ Number 9 to the Giants, but Jameis backers are up in arms over the move. The controversial acquisition has the league talking.",
-      "type": "custom_prompt",
-      "source": "custom"
     }
   ],
   "transactions": [
+    {
+      "date": 1790694437025,
+      "team": "Annexation of LaPorta Rico ",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4429160"
+    },
     {
       "date": 1790528106891,
       "team": "Annexation of LaPorta Rico ",
@@ -494,12 +488,6 @@
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
       "player": "Player #-16033"
-    },
-    {
-      "date": 1790159260800,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Giants D/ST"
     }
   ]
 }
