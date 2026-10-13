@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T12:02:37.202391+00:00",
+  "generated_at": "2026-10-13T17:51:28.291473+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 6,
   "standings": [
@@ -344,37 +344,31 @@
   ],
   "news": [
     {
-      "headline": "Combat Knife Bald Eagle Stuns #1 Who?? in Week 5",
-      "body": "In a massive upset, the 5th-ranked Combat Knife Bald Eagle took down the league-leading Who?? on Sunday. The victory signals that the upper echelon is far from settled as we hit the midpoint of the season.",
+      "headline": "Combat Knife Bald Eagle Stuns League-Leading Who??",
+      "body": "In a shocking Week 5 upset, the 5th-ranked Combat Knife Bald Eagle took down the top-ranked Who??, proving that power rankings don't guarantee wins on any given Sunday. The upset victory sends ripples through the standings and puts the league on notice that anyone can be beaten.",
       "type": "upset",
       "source": "auto"
     },
     {
-      "headline": "WR Witness Protection Shocks 4th-Ranked Silence of the Lamb",
-      "body": "Long shot WR Witness Protection pulled off another shocker, upsetting the 4th-ranked Silence of the Lamb in Week 5. The 13th-ranked team is making noise at exactly the right time.",
+      "headline": "WR Witness Protection Pulls Off Massive Week 5 Shocker",
+      "body": "The 13th-ranked WR Witness Protection delivered one of the week's biggest surprises by knocking off the 4th-ranked Silence of the Lamb in a stunning upset. A career-defining performance for the underdog has everyone talking heading into Week 6.",
       "type": "upset",
-      "source": "auto"
-    },
-    {
-      "headline": "Combat Knife Bald Eagle Rockets Up Power Rankings",
-      "body": "Following their statement win over the top team, Combat Knife Bald Eagle has climbed three spots to 5th in the power rankings. The momentum is real for this rising squad.",
-      "type": "rank_jump",
-      "source": "auto"
-    },
-    {
-      "headline": "Hurtin For A Curtin Slides Three Spots in Power Rankings",
-      "body": "The formerly 5th-ranked Hurtin For A Curtin has tumbled to 8th after a rough stretch. Questions are mounting about whether this team can right the ship.",
-      "type": "rank_drop",
-      "source": "auto"
-    },
-    {
-      "headline": "Jefferson Airplane Drops Three Spots Down Power Rankings",
-      "body": "Jefferson Airplane couldn't hold ground, falling from 6th to 9th in the latest power rankings update. The 6th-ranked team is now in a free fall.",
-      "type": "rank_drop",
       "source": "auto"
     }
   ],
   "transactions": [
+    {
+      "date": 1791908710299,
+      "team": "Nabers B. Tuten",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #-16030"
+    },
+    {
+      "date": 1791904501487,
+      "team": "Annexation of LaPorta Rico ",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4431545"
+    },
     {
       "date": 1791892243587,
       "team": "WR Witness Protection",
@@ -482,18 +476,6 @@
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
       "player": "Player #4360763"
-    },
-    {
-      "date": 1791370900211,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #-16028"
-    },
-    {
-      "date": 1791368283506,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Jacoby Brissett"
     }
   ]
 }
