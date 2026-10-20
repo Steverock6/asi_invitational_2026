@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T10:28:43.344188+00:00",
+  "generated_at": "2026-10-20T15:28:19.676104+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 7,
   "standings": [
@@ -345,24 +345,30 @@
   "news": [
     {
       "headline": "Hurtin For A Curtin Edges Jacob's Right Hook",
-      "body": "A back-and-forth battle in Week 6 came down to the final points as Hurtin For A Curtin held off Jacob's Right Hook 86.36 to 81.08. The 5.3-point margin keeps both teams in the mix as the season progresses.",
+      "body": "Week 6 delivered the thriller we've been waiting for. Hurtin For A Curtin survived a back-and-forth battle, outlasting Jacob's Right Hook 86.36-81.08 in a nail-biter that came down to the final points. Just 5.3 points separated the two teams in one of the week's closest matchups.",
       "type": "nail_biter",
       "source": "auto"
     },
     {
       "headline": "WR Witness Protection Stuns Ranked Opponent",
-      "body": "Ranked 11th in the power rankings, WR Witness Protection pulled off a Week 6 upset over 7th-ranked Combat Knife Bald Eagle. The surprise victory signals that the middle of this league's talent pool is tighter than expected.",
+      "body": "WR Witness Protection pulled off the upset in Week 6, downing the 7th-ranked Combat Knife Bald Eagle despite being ranked 11th in the power rankings. The victory proves that on any given Sunday, power rankings mean nothing.",
       "type": "upset",
-      "source": "auto"
-    },
-    {
-      "headline": "Jefferson Airplane Climbs Into Top Six",
-      "body": "Jefferson Airplane made a three-spot leap in the power rankings, jumping from 9th to 6th and entering the league's elite tier. The sharp ascent suggests the team has found its groove at precisely the right time.",
-      "type": "rank_jump",
       "source": "auto"
     }
   ],
   "transactions": [
+    {
+      "date": 1792508913261,
+      "team": "Annexation of LaPorta Rico ",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4259619"
+    },
+    {
+      "date": 1792501480707,
+      "team": "Hurtin For A Curtin",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4362081"
+    },
     {
       "date": 1792486658331,
       "team": "RB Graveyard",
@@ -470,18 +476,6 @@
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
       "player": "Ty Johnson"
-    },
-    {
-      "date": 1792329143623,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "DeMario Douglas"
-    },
-    {
-      "date": 1792329143623,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4686612"
     }
   ]
 }
