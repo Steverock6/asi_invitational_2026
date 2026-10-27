@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T11:34:19.235897+00:00",
+  "generated_at": "2026-10-27T16:06:27.515038+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 8,
   "standings": [
@@ -344,25 +344,55 @@
   ],
   "news": [
     {
-      "headline": "Hair of the Dog Demolishes WR Witness Protection",
-      "body": "Hair of the Dog turned Week 7 into a rout, posting 142.42 points to absolutely dismantle WR Witness Protection's 87.76. The 54.7-point beatdown was one for the history books, leaving no doubt about who owned the scoreboard this week.",
+      "headline": "Hair of the Dog Delivers Devastating 54-Point Beatdown",
+      "body": "Hair of the Dog put on a clinic in Week 7, absolutely dismantling WR Witness Protection with a commanding 142.42-87.76 victory. The dominant performance leaves WR Witness Protection searching for answers heading into the second half of the season.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "RB Graveyard Buries Sack Lunch in 45-Point Explosion",
-      "body": "RB Graveyard fired on all cylinders in Week 7, torching Sack Lunch with a commanding 118.62-73.32 victory. The 45.3-point margin was a statement performance that sent a clear message to the rest of the league.",
+      "headline": "RB Graveyard Buries Sack Lunch in Week 7 Blowout",
+      "body": "RB Graveyard flexed its depth and firepower on Sunday, cruising past Sack Lunch 118.62-73.32 in a thoroughly convincing 45-point dismantling. Sack Lunch's offense couldn't get off the ground as RB Graveyard continues to assert itself as a serious threat.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "For Jaxson Edges Past Hurtin For A Curtin in Thriller",
-      "body": "For Jaxson survived a Week 7 nail-biter, holding off Hurtin For A Curtin by the slimmest of margins: 100.82 to 98.82. Just 2 points separated triumph from heartbreak, and For Jaxson took the win.",
+      "headline": "For Jaxson Survives Thriller Over Hurtin For A Curtin",
+      "body": "For Jaxson needed every last point to escape Hurtin For A Curtin's grasp in an absolute Week 7 nail-biter, squeaking out a 100.82-98.82 victory by just 2 points. Both teams left everything on the field, but For Jaxson's late heroics secured the gutsy win.",
       "type": "nail_biter",
       "source": "auto"
     }
   ],
   "transactions": [
+    {
+      "date": 1793107190831,
+      "team": "For Jaxson",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #5082424"
+    },
+    {
+      "date": 1793107185856,
+      "team": "For Jaxson",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #-16029"
+    },
+    {
+      "date": 1793106400903,
+      "team": "Jefferson Airplane",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #-16005"
+    },
+    {
+      "date": 1793104561208,
+      "team": "WR Witness Protection",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #5220680"
+    },
+    {
+      "date": 1793100862867,
+      "team": "Hurtin For A Curtin",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #-16033"
+    },
     {
       "date": 1792946962364,
       "team": "Unknown",
@@ -452,36 +482,6 @@
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
       "player": "Emanuel Wilson"
-    },
-    {
-      "date": 1792790204658,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Ted Hurst III"
-    },
-    {
-      "date": 1792790204658,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Ryan Flournoy"
-    },
-    {
-      "date": 1792741746178,
-      "team": "For Jaxson",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Harrison Butker"
-    },
-    {
-      "date": 1792741746178,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #3917232"
-    },
-    {
-      "date": 1792706011751,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #2573401"
     }
   ]
 }
