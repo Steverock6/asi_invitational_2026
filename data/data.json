@@ -1,224 +1,224 @@
 {
-  "generated_at": "2026-10-20T15:28:19.676104+00:00",
+  "generated_at": "2026-10-27T11:33:08.709919+00:00",
   "league_name": "The Adam Szachara Invitational",
-  "current_week": 7,
+  "current_week": 8,
   "standings": [
     {
       "rank": 1,
       "team": "For Jaxson",
       "abbrev": "BILL",
-      "wins": 5,
+      "wins": 6,
       "losses": 1,
-      "points_for": 792.4,
-      "points_against": 679.8
+      "points_for": 893.3,
+      "points_against": 778.6
     },
     {
       "rank": 2,
       "team": "Hair of the Dog",
       "abbrev": "ROCK",
-      "wins": 5,
+      "wins": 6,
       "losses": 1,
-      "points_for": 733.3,
-      "points_against": 612.9
+      "points_for": 875.7,
+      "points_against": 700.7
     },
     {
       "rank": 3,
       "team": "Who??",
       "abbrev": "RASP",
-      "wins": 4,
+      "wins": 5,
       "losses": 2,
-      "points_for": 782.4,
-      "points_against": 660.3
+      "points_for": 908.2,
+      "points_against": 750.4
     },
     {
       "rank": 4,
       "team": "Nabers B. Tuten",
       "abbrev": "DELA",
-      "wins": 4,
+      "wins": 5,
       "losses": 2,
-      "points_for": 686.1,
-      "points_against": 716.6
+      "points_for": 832.8,
+      "points_against": 826.2
     },
     {
       "rank": 5,
-      "team": "Hurtin For A Curtin",
-      "abbrev": "GTRS",
+      "team": "Jefferson Airplane",
+      "abbrev": "JA",
       "wins": 4,
-      "losses": 2,
-      "points_for": 624.0,
-      "points_against": 645.9
+      "losses": 3,
+      "points_for": 804.9,
+      "points_against": 716.3
     },
     {
       "rank": 6,
-      "team": "Silence of the Lamb",
-      "abbrev": "BN",
-      "wins": 3,
+      "team": "Hurtin For A Curtin",
+      "abbrev": "GTRS",
+      "wins": 4,
       "losses": 3,
-      "points_for": 728.4,
-      "points_against": 616.3
+      "points_for": 722.8,
+      "points_against": 746.7
     },
     {
       "rank": 7,
-      "team": "Jefferson Airplane",
-      "abbrev": "JA",
+      "team": "Silence of the Lamb",
+      "abbrev": "BN",
       "wins": 3,
-      "losses": 3,
-      "points_for": 697.4,
-      "points_against": 631.9
+      "losses": 4,
+      "points_for": 828.4,
+      "points_against": 728.8
     },
     {
       "rank": 8,
       "team": "Combat Knife Bald Eagle",
       "abbrev": "OFYA",
       "wins": 3,
-      "losses": 3,
-      "points_for": 677.1,
-      "points_against": 716.3
+      "losses": 4,
+      "points_for": 786.7,
+      "points_against": 863.1
     },
     {
       "rank": 9,
       "team": "RB Graveyard",
       "abbrev": "MULL",
-      "wins": 2,
+      "wins": 3,
       "losses": 4,
-      "points_for": 667.8,
-      "points_against": 778.3
+      "points_for": 786.4,
+      "points_against": 851.7
     },
     {
       "rank": 10,
       "team": "Jacob's Right Hook",
       "abbrev": "BARZ",
-      "wins": 2,
+      "wins": 3,
       "losses": 4,
-      "points_for": 641.2,
-      "points_against": 633.7
+      "points_for": 753.7,
+      "points_against": 733.6
     },
     {
       "rank": 11,
       "team": "Trump Wall",
       "abbrev": "HUES",
       "wins": 2,
-      "losses": 4,
-      "points_for": 630.7,
-      "points_against": 692.3
+      "losses": 5,
+      "points_for": 715.1,
+      "points_against": 799.9
     },
     {
       "rank": 12,
       "team": "WR Witness Protection",
       "abbrev": "CORY",
       "wins": 2,
-      "losses": 4,
-      "points_for": 626.7,
-      "points_against": 659.7
+      "losses": 5,
+      "points_for": 714.4,
+      "points_against": 802.1
     },
     {
       "rank": 13,
       "team": "Annexation of LaPorta Rico ",
       "abbrev": "Piff",
       "wins": 2,
-      "losses": 4,
-      "points_for": 548.0,
-      "points_against": 675.4
+      "losses": 5,
+      "points_for": 638.1,
+      "points_against": 801.2
     },
     {
       "rank": 14,
       "team": "Sack Lunch",
       "abbrev": "PERK",
       "wins": 1,
-      "losses": 5,
-      "points_for": 640.5,
-      "points_against": 756.4
+      "losses": 6,
+      "points_for": 713.9,
+      "points_against": 875.0
     }
   ],
   "power_rankings": [
     {
       "Rank": 1,
-      "Team": "For Jaxson",
-      "Abbrev": "BILL",
-      "Wins": 5,
+      "Team": "Hair of the Dog",
+      "Abbrev": "ROCK",
+      "Wins": 6,
       "Losses": 1,
-      "Points For": 792.44,
-      "Points Against": 679.8199999999999,
-      "Win %": 0.8333333333333334,
-      "All Play %": 0.6794871794871795,
+      "Points For": 875.6800000000001,
+      "Points Against": 700.66,
+      "Win %": 0.8571428571428571,
+      "All Play %": 0.6923076923076923,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 665.9985714285715,
-      "Power Rank Score": 1.3555459049878387,
+      "Schedule Strength": 780.8257142857143,
+      "Power Rank Score": 1.335954264287734,
       "Tier": "S"
     },
     {
       "Rank": 2,
       "Team": "Who??",
       "Abbrev": "RASP",
-      "Wins": 4,
+      "Wins": 5,
       "Losses": 2,
-      "Points For": 782.4399999999999,
-      "Points Against": 660.3000000000001,
-      "Win %": 0.6666666666666666,
-      "All Play %": 0.782051282051282,
+      "Points For": 908.2199999999999,
+      "Points Against": 750.44,
+      "Win %": 0.7142857142857143,
+      "All Play %": 0.7912087912087912,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 666.7614285714286,
-      "Power Rank Score": 1.259670202803733,
-      "Tier": "S"
+      "Schedule Strength": 772.8500000000001,
+      "Power Rank Score": 1.2845981829481818,
+      "Tier": "A"
     },
     {
       "Rank": 3,
-      "Team": "Hair of the Dog",
-      "Abbrev": "ROCK",
-      "Wins": 5,
+      "Team": "For Jaxson",
+      "Abbrev": "BILL",
+      "Wins": 6,
       "Losses": 1,
-      "Points For": 733.2600000000001,
-      "Points Against": 612.9,
-      "Win %": 0.8333333333333334,
-      "All Play %": 0.6538461538461539,
+      "Points For": 893.26,
+      "Points Against": 778.6399999999999,
+      "Win %": 0.8571428571428571,
+      "All Play %": 0.6483516483516484,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 673.4771428571429,
-      "Power Rank Score": 1.1982589214785184,
+      "Schedule Strength": 771.0714285714286,
+      "Power Rank Score": 1.1569171785155667,
       "Tier": "A"
     },
     {
       "Rank": 4,
-      "Team": "Silence of the Lamb",
-      "Abbrev": "BN",
-      "Wins": 3,
-      "Losses": 3,
-      "Points For": 728.38,
-      "Points Against": 616.34,
-      "Win %": 0.5,
-      "All Play %": 0.5256410256410257,
+      "Team": "Nabers B. Tuten",
+      "Abbrev": "DELA",
+      "Wins": 5,
+      "Losses": 2,
+      "Points For": 832.84,
+      "Points Against": 826.1600000000001,
+      "Win %": 0.7142857142857143,
+      "All Play %": 0.5934065934065934,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 672.5185714285715,
-      "Power Rank Score": 0.3546215415925751,
-      "Tier": "B"
+      "Schedule Strength": 786.9457142857144,
+      "Power Rank Score": 0.651517979352508,
+      "Tier": "A"
     },
     {
       "Rank": 5,
-      "Team": "Nabers B. Tuten",
-      "Abbrev": "DELA",
+      "Team": "Jefferson Airplane",
+      "Abbrev": "JA",
       "Wins": 4,
-      "Losses": 2,
-      "Points For": 686.0600000000001,
-      "Points Against": 716.5600000000001,
-      "Win %": 0.6666666666666666,
-      "All Play %": 0.5256410256410257,
+      "Losses": 3,
+      "Points For": 804.94,
+      "Points Against": 716.3199999999999,
+      "Win %": 0.5714285714285714,
+      "All Play %": 0.5164835164835165,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 680.2200000000001,
-      "Power Rank Score": 0.33409911773700846,
+      "Schedule Strength": 782.5799999999999,
+      "Power Rank Score": 0.30292583736769285,
       "Tier": "B"
     },
     {
       "Rank": 6,
-      "Team": "Jefferson Airplane",
-      "Abbrev": "JA",
+      "Team": "Silence of the Lamb",
+      "Abbrev": "BN",
       "Wins": 3,
-      "Losses": 3,
-      "Points For": 697.36,
-      "Points Against": 631.92,
-      "Win %": 0.5,
-      "All Play %": 0.5128205128205128,
+      "Losses": 4,
+      "Points For": 828.36,
+      "Points Against": 728.84,
+      "Win %": 0.42857142857142855,
+      "All Play %": 0.5054945054945055,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 675.3985714285715,
-      "Power Rank Score": 0.18238488438855574,
+      "Schedule Strength": 780.8871428571429,
+      "Power Rank Score": 0.12132381290781706,
       "Tier": "B"
     },
     {
@@ -226,104 +226,104 @@
       "Team": "Combat Knife Bald Eagle",
       "Abbrev": "OFYA",
       "Wins": 3,
-      "Losses": 3,
-      "Points For": 677.0600000000001,
-      "Points Against": 716.28,
-      "Win %": 0.5,
-      "All Play %": 0.5384615384615384,
+      "Losses": 4,
+      "Points For": 786.6600000000001,
+      "Points Against": 863.06,
+      "Win %": 0.42857142857142855,
+      "All Play %": 0.5494505494505495,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 678.2985714285716,
-      "Power Rank Score": 0.020390320990659107,
+      "Schedule Strength": 785.1914285714287,
+      "Power Rank Score": -0.1133071602192614,
       "Tier": "B"
     },
     {
       "Rank": 8,
-      "Team": "Hurtin For A Curtin",
-      "Abbrev": "GTRS",
-      "Wins": 4,
-      "Losses": 2,
-      "Points For": 624.0,
-      "Points Against": 645.9200000000001,
-      "Win %": 0.6666666666666666,
-      "All Play %": 0.38461538461538464,
+      "Team": "Jacob's Right Hook",
+      "Abbrev": "BARZ",
+      "Wins": 3,
+      "Losses": 4,
+      "Points For": 753.72,
+      "Points Against": 733.64,
+      "Win %": 0.42857142857142855,
+      "All Play %": 0.4725274725274725,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 677.3271428571428,
-      "Power Rank Score": -0.1283254447592599,
+      "Schedule Strength": 794.9214285714286,
+      "Power Rank Score": -0.13244149800421046,
       "Tier": "B"
     },
     {
       "Rank": 9,
-      "Team": "Jacob's Right Hook",
-      "Abbrev": "BARZ",
-      "Wins": 2,
+      "Team": "RB Graveyard",
+      "Abbrev": "MULL",
+      "Wins": 3,
       "Losses": 4,
-      "Points For": 641.22,
-      "Points Against": 633.66,
-      "Win %": 0.3333333333333333,
-      "All Play %": 0.4358974358974359,
+      "Points For": 786.38,
+      "Points Against": 851.6599999999999,
+      "Win %": 0.42857142857142855,
+      "All Play %": 0.4945054945054945,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 686.9357142857144,
-      "Power Rank Score": -0.42234087533582154,
-      "Tier": "C"
+      "Schedule Strength": 786.884285714286,
+      "Power Rank Score": -0.1815884001230278,
+      "Tier": "B"
     },
     {
       "Rank": 10,
-      "Team": "RB Graveyard",
-      "Abbrev": "MULL",
-      "Wins": 2,
-      "Losses": 4,
-      "Points For": 667.76,
-      "Points Against": 778.3399999999999,
-      "Win %": 0.3333333333333333,
-      "All Play %": 0.44871794871794873,
+      "Team": "Hurtin For A Curtin",
+      "Abbrev": "GTRS",
+      "Wins": 4,
+      "Losses": 3,
+      "Points For": 722.8199999999999,
+      "Points Against": 746.74,
+      "Win %": 0.5714285714285714,
+      "All Play %": 0.37362637362637363,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 681.1785714285714,
-      "Power Rank Score": -0.5555868450210444,
-      "Tier": "C"
+      "Schedule Strength": 783.3342857142858,
+      "Power Rank Score": -0.2945109104718511,
+      "Tier": "B"
     },
     {
       "Rank": 11,
       "Team": "WR Witness Protection",
       "Abbrev": "CORY",
       "Wins": 2,
-      "Losses": 4,
-      "Points For": 626.66,
-      "Points Against": 659.7,
-      "Win %": 0.3333333333333333,
-      "All Play %": 0.41025641025641024,
+      "Losses": 5,
+      "Points For": 714.42,
+      "Points Against": 802.12,
+      "Win %": 0.2857142857142857,
+      "All Play %": 0.37362637362637363,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 671.2299999999999,
-      "Power Rank Score": -0.7003505387098867,
-      "Tier": "C"
+      "Schedule Strength": 778.4371428571429,
+      "Power Rank Score": -0.8844610157928829,
+      "Tier": "D"
     },
     {
       "Rank": 12,
       "Team": "Trump Wall",
       "Abbrev": "HUES",
       "Wins": 2,
-      "Losses": 4,
-      "Points For": 630.6999999999999,
-      "Points Against": 692.3400000000001,
-      "Win %": 0.3333333333333333,
-      "All Play %": 0.38461538461538464,
+      "Losses": 5,
+      "Points For": 715.0999999999999,
+      "Points Against": 799.9200000000002,
+      "Win %": 0.2857142857142857,
+      "All Play %": 0.34065934065934067,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 676.37,
-      "Power Rank Score": -0.744949153274114,
-      "Tier": "C"
+      "Schedule Strength": 784.4371428571429,
+      "Power Rank Score": -0.8936703018978664,
+      "Tier": "D"
     },
     {
       "Rank": 13,
       "Team": "Sack Lunch",
       "Abbrev": "PERK",
       "Wins": 1,
-      "Losses": 5,
-      "Points For": 640.5400000000001,
-      "Points Against": 756.4,
-      "Win %": 0.16666666666666666,
-      "All Play %": 0.41025641025641024,
+      "Losses": 6,
+      "Points For": 713.8600000000001,
+      "Points Against": 875.02,
+      "Win %": 0.14285714285714285,
+      "All Play %": 0.3516483516483517,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 687.6985714285714,
-      "Power Rank Score": -0.9519842304118054,
+      "Schedule Strength": 796.6999999999999,
+      "Power Rank Score": -1.1192004485867673,
       "Tier": "D"
     },
     {
@@ -331,151 +331,157 @@
       "Team": "Annexation of LaPorta Rico ",
       "Abbrev": "Piff",
       "Wins": 2,
-      "Losses": 4,
-      "Points For": 548.0,
-      "Points Against": 675.4,
-      "Win %": 0.3333333333333333,
-      "All Play %": 0.3076923076923077,
+      "Losses": 5,
+      "Points For": 638.14,
+      "Points Against": 801.18,
+      "Win %": 0.2857142857142857,
+      "All Play %": 0.2967032967032967,
       "Recent Momentum": 0.0,
-      "Schedule Strength": 682.4671428571428,
-      "Power Rank Score": -1.2014338064669685,
+      "Schedule Strength": 789.3342857142858,
+      "Power Rank Score": -1.2340575202836295,
       "Tier": "D"
     }
   ],
   "news": [
     {
-      "headline": "Hurtin For A Curtin Edges Jacob's Right Hook",
-      "body": "Week 6 delivered the thriller we've been waiting for. Hurtin For A Curtin survived a back-and-forth battle, outlasting Jacob's Right Hook 86.36-81.08 in a nail-biter that came down to the final points. Just 5.3 points separated the two teams in one of the week's closest matchups.",
-      "type": "nail_biter",
+      "headline": "Hair of the Dog Demolishes WR Witness Protection",
+      "body": "Hair of the Dog put on a offensive clinic in Week 7, cruising to a 142.42-87.76 victory over WR Witness Protection. The 54.7-point margin of defeat marks an absolute blowout, leaving little doubt about which team came to play.",
+      "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "WR Witness Protection Stuns Ranked Opponent",
-      "body": "WR Witness Protection pulled off the upset in Week 6, downing the 7th-ranked Combat Knife Bald Eagle despite being ranked 11th in the power rankings. The victory proves that on any given Sunday, power rankings mean nothing.",
-      "type": "upset",
+      "headline": "RB Graveyard Buries Sack Lunch with 45-Point Win",
+      "body": "RB Graveyard flexed its muscles in Week 7, dominating Sack Lunch 118.62-73.32 in a lopsided affair. The 45.3-point drubbing sends a message: this team is a force to be reckoned with.",
+      "type": "blowout",
+      "source": "auto"
+    },
+    {
+      "headline": "For Jaxson Edges Hurtin For A Curtin in Photo Finish",
+      "body": "For Jaxson survived a nail-biter against Hurtin For A Curtin in Week 7, winning 100.82-98.82 in one of the closest contests of the day. Just 2 points separated the two teams in a matchup that came down to the final scoring play.",
+      "type": "nail_biter",
       "source": "auto"
     }
   ],
   "transactions": [
     {
-      "date": 1792508913261,
-      "team": "Annexation of LaPorta Rico ",
+      "date": 1792946962364,
+      "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4259619"
+      "player": "Dalton Schultz"
     },
     {
-      "date": 1792501480707,
-      "team": "Hurtin For A Curtin",
+      "date": 1792946962364,
+      "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4362081"
+      "player": "Player #4428850"
     },
     {
-      "date": 1792486658331,
-      "team": "RB Graveyard",
+      "date": 1792946267221,
+      "team": "Nabers B. Tuten",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4429835"
+      "player": "Player #3116164"
     },
     {
-      "date": 1792486579574,
-      "team": "RB Graveyard",
+      "date": 1792935766542,
+      "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #-16011"
+      "player": "Player #4249836"
     },
     {
-      "date": 1792481101034,
-      "team": "WR Witness Protection",
+      "date": 1792935766542,
+      "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4040715"
+      "player": "Tez Johnson"
     },
     {
-      "date": 1792394957527,
+      "date": 1792931059821,
+      "team": "Unknown",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Ryan Flournoy"
+    },
+    {
+      "date": 1792931043244,
+      "team": "For Jaxson",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4689114"
+    },
+    {
+      "date": 1792914583659,
+      "team": "For Jaxson",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Emanuel Wilson"
+    },
+    {
+      "date": 1792914583659,
+      "team": "Unknown",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4433970"
+    },
+    {
+      "date": 1792902146980,
+      "team": "Unknown",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Makai Lemon"
+    },
+    {
+      "date": 1792902146980,
+      "team": "Unknown",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4597500"
+    },
+    {
+      "date": 1792872404792,
+      "team": "Unknown",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Konata Mumpfield"
+    },
+    {
+      "date": 1792872404792,
+      "team": "Unknown",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4432773"
+    },
+    {
+      "date": 1792826437206,
       "team": "For Jaxson",
       "action_type": "ACTIVITY_TRANSACTIONS",
       "player": "Rachaad White"
     },
     {
-      "date": 1792394957527,
+      "date": 1792826437206,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #5081432"
+      "player": "Emanuel Wilson"
     },
     {
-      "date": 1792349997059,
+      "date": 1792790204658,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Kaelon Black"
+      "player": "Ted Hurst III"
     },
     {
-      "date": 1792338794393,
-      "team": "Annexation of LaPorta Rico ",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4870653"
-    },
-    {
-      "date": 1792338549828,
+      "date": 1792790204658,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Giants D/ST"
+      "player": "Ryan Flournoy"
     },
     {
-      "date": 1792338549828,
+      "date": 1792741746178,
+      "team": "For Jaxson",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Harrison Butker"
+    },
+    {
+      "date": 1792741746178,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #-16002"
+      "player": "Player #3917232"
     },
     {
-      "date": 1792338198955,
+      "date": 1792706011751,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4685397"
-    },
-    {
-      "date": 1792338198955,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Hunter Henry"
-    },
-    {
-      "date": 1792338044833,
-      "team": "Hair of the Dog",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4360689"
-    },
-    {
-      "date": 1792337595254,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4722893"
-    },
-    {
-      "date": 1792337595254,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Cairo Santos"
-    },
-    {
-      "date": 1792334767584,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #3116406"
-    },
-    {
-      "date": 1792334767584,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Tyrone Tracy Jr."
-    },
-    {
-      "date": 1792331354186,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4635008"
-    },
-    {
-      "date": 1792331354186,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Ty Johnson"
+      "player": "Player #2573401"
     }
   ]
 }
