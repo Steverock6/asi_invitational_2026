@@ -545,6 +545,14 @@ function recordCard(rec) {
   return `<div class="rb-card"><h3>${escapeHtml(rec.title)}</h3><table><tbody>${rows}</tbody></table></div>`;
 }
 
+function historyGroups(recs) {
+  const groups = [...new Set(recs.map(r => r.section || ''))];
+  return groups.map(g =>
+    (g ? `<div class="section-title" style="margin-top:32px">${escapeHtml(g.toUpperCase())}</div>` : '') +
+    `<div class="rb-grid">${recs.filter(r => (r.section || '') === g).map(recordCard).join('')}</div>`
+  ).join('');
+}
+
 async function loadHistory(host) {
   try {
     const res = await fetch('data/records.json', { cache: 'no-store' });
@@ -554,7 +562,7 @@ async function loadHistory(host) {
     const span = yrs.length ? ` · ${yrs[0]}–${yrs[yrs.length - 1]} · REGULAR SEASON` : '';
     host.innerHTML = `
       <div class="section-title">ALL-TIME RECORD BOOK${span}</div>
-      <div class="rb-grid">${(d.records || []).map(recordCard).join('')}</div>`;
+      ${historyGroups(d.records || [])}`;
   } catch (err) {
     host.innerHTML = `<div class="empty-state">Couldn't load the record book (${escapeHtml(err.message)}). Has the weekly job run since it was added?</div>`;
   }
