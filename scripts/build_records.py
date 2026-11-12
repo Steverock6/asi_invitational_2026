@@ -15,7 +15,7 @@ Optional files (both live in scripts/):
                     e.g. {"{OLD-ID}": "Steve Rock", "Stephen Rock": "Steve Rock"}
   champions.json    only if a champion comes out wrong, e.g. {"2019": "Steve Rock"}
 
-Also writes data/owners.json, data/champions.json and data/playoff_games.json, data/transactions_summary.json and data/trades.json so you can sanity-check the results.
+Also writes data/owners.json, data/champions.json and data/playoff_games.json, data/transactions_summary.json, data/trades.json and data/trade_debug.json so you can sanity-check the results.
 Transactions: ESPN only exposes trades from 2019 on, and older pickups may be missing; the record titles show the seasons actually covered.
   MIN_FAAB_SEASONS optional, seasons an owner needs to qualify for the "least FAAB" record (default 3)
   MIN_PLAYOFF_GAMES optional, minimum playoff games to qualify for the playoff win % record (default 3)
@@ -97,27 +97,54 @@ def get_playoffs(league, year, key_by_team_id):
         return []
 
 
+DEBUG = {}  # written to data/trade_debug.json so we can see what ESPN actually returns
+KNOWN_PICKUP_TYPES = {178, 179, 180, 181, 239}
+
+
+def probe_feed(league, year, key_by_team_id):
+    """Looks at ESPN's raw activity feed with no type filter, only to record which message types exist."""
+    info = DEBUG.setdefault(str(year), {})
+    types, samples, topics_seen = defaultdict(int), [], 0
+    try:
+        for offset in range(0, 200, 50):
+            filters = {"topics": {"filterType": {"value": ["ACTIVITY_TRANSACTIONS"]}, "limit": 50,
+                                  "limitPerMessageSet": {"value": 25}, "offset": offset,
+                                  "sortMessageDate": {"sortPriority": 1, "sortAsc": False},
+                                  "sortFor": {"sortPriority": 2, "sortAsc": False},
+                                  "filterIncludeMessageTypeIds": {"value": list(range(170, 260))}}}
+            data = league.espn_request.league_get(
+                extend="/communication/", params={"view": "kona_league_communication"},
+                headers={"x-fantasy-filter": json.dumps(filters)})
+            topics = data.get("topics", [])
+            topics_seen += len(topics)
+            for tp in topics:
+                for m in tp.get("messages", []):
+                    mt = m.get("messageTypeId")
+                    types[str(mt)] += 1
+                    if (mt not in KNOWN_PICKUP_TYPES and len(samples) < 3
+                            and m.get("from") in key_by_team_id and m.get("to") in key_by_team_id):
+                        samples.append(dict(messageTypeId=mt, **{k: m.get(k) for k in ("from", "to", "targetId")}))
+            if len(topics) < 50:
+                break
+        info["feed_topics_checked"] = topics_seen
+        info["feed_message_types"] = dict(types)
+        info["feed_team_to_team_samples"] = samples
+    except Exception as e:
+        info["feed_error"] = str(e)[:300]
+
+
 def get_transactions(league, year, key_by_team_id):
     """Returns (pickups, trades).
     pickups: executed free-agent/waiver moves, one row per add/drop. FAAB comes from the winning bid.
     trades:  completed trades found in the transaction log (used when the activity feed has none)."""
-    rows, seen = [], set()
+    rows, seen, seen_ids_trade = [], set(), set()
     proposals, accepts, vetoed = {}, {}, set()
-    types = {"FREEAGENT", "WAIVER", "TRADE_PROPOSAL", "TRADE_ACCEPT", "TRADE_VETO"}
     for period in range(1, 19):
         try:
-            txns = league.transactions(scoring_period=period, types=types)
+            txns = league.transactions(scoring_period=period, types={"FREEAGENT", "WAIVER"})
         except Exception:
             continue
         for t in txns:
-            if t.type == "TRADE_PROPOSAL":
-                proposals[t.id] = t
-            elif t.type == "TRADE_ACCEPT" and t.status == "EXECUTED":
-                accepts[t.id] = t
-            elif t.type == "TRADE_VETO":
-                vetoed.update({t.id, t.related_transaction_id})
-            if t.type not in ("FREEAGENT", "WAIVER"):
-                continue
             if t.status != "EXECUTED" or t.id in seen or t.team_id not in key_by_team_id:
                 continue
             seen.add(t.id)
@@ -129,6 +156,26 @@ def get_transactions(league, year, key_by_team_id):
                                  move=it.type, player=it.player, bid=bid if it.type == "ADD" else 0))
     if not rows:
         print(f"  no transactions found for {year}")
+    # Trades live in a separate request so a problem there can never cost us pickups.
+    seen_types = defaultdict(int)
+    for period in range(1, 19):
+        try:
+            txns = league.transactions(scoring_period=period,
+                                       types={"TRADE_PROPOSAL", "TRADE_ACCEPT", "TRADE_VETO"})
+        except Exception:
+            continue
+        for t in txns:
+            if (t.type, t.id) in seen_ids_trade:
+                continue
+            seen_ids_trade.add((t.type, t.id))
+            seen_types[f"{t.type}/{t.status}"] += 1
+            if t.type == "TRADE_PROPOSAL":
+                proposals[t.id] = t
+            elif t.type == "TRADE_ACCEPT" and t.status == "EXECUTED":
+                accepts[t.id] = t
+            elif t.type == "TRADE_VETO":
+                vetoed.update({t.id, t.related_transaction_id})
+    DEBUG.setdefault(str(year), {})["transaction_log_trade_rows"] = dict(seen_types)
     trades, seen_t = [], set()
     for tid, a_ in accepts.items():
         if tid in vetoed or a_.related_transaction_id in vetoed:
@@ -168,6 +215,7 @@ def get_trades(league, year, key_by_team_id):
             offset += 50
     except Exception as e:
         print(f"  trade data unavailable for {year}: {e}")
+        DEBUG.setdefault(str(year), {})["trade_feed_error"] = str(e)[:300]
     return rows
 
 
@@ -186,6 +234,7 @@ def load_rows():
         playoffs.extend(get_playoffs(league, year, key_by_team_id))
         pickups, log_trades = get_transactions(league, year, key_by_team_id)
         feed_trades = get_trades(league, year, key_by_team_id)
+        probe_feed(league, year, key_by_team_id)
         txns.extend(pickups)
         trades.extend(feed_trades or log_trades)  # prefer the activity feed, fall back to the transaction log
         print(f"  {year}: {len({p['txn_id'] for p in pickups})} pickups, trades: "
@@ -455,6 +504,8 @@ if __name__ == "__main__":
         summary[tr["season"]]["trades"] += 1
     with open("data/transactions_summary.json", "w") as f:
         json.dump({str(k): v for k, v in sorted(summary.items())}, f, indent=2)
+    with open("data/trade_debug.json", "w") as f:
+        json.dump(DEBUG, f, indent=2, sort_keys=True)
     with open("data/trades.json", "w") as f:
         json.dump([dict(season=t["season"], date=t["date"], teams=t["owners"], source=t.get("source")) for t in trades], f, indent=2)
     out = dict(generated=datetime.now(timezone.utc).isoformat(),
