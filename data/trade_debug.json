@@ -1,28 +1,37 @@
 {
   "2016": {
     "row_shapes": {},
-    "trade_groups": {
-      "counted_as_trades": 0,
-      "total": 0,
-      "vetoed": 0
+    "trade_summary": {
+      "accepted_trades_seen": 0,
+      "cancelled_by_vote": 0,
+      "counted": 0,
+      "other_team_unknown": 0,
+      "veto_votes_per_trade": [],
+      "veto_votes_required": 7
     },
     "transaction_log_trade_rows": {}
   },
   "2017": {
     "row_shapes": {},
-    "trade_groups": {
-      "counted_as_trades": 0,
-      "total": 0,
-      "vetoed": 0
+    "trade_summary": {
+      "accepted_trades_seen": 0,
+      "cancelled_by_vote": 0,
+      "counted": 0,
+      "other_team_unknown": 0,
+      "veto_votes_per_trade": [],
+      "veto_votes_required": 7
     },
     "transaction_log_trade_rows": {}
   },
   "2018": {
     "row_shapes": {},
-    "trade_groups": {
-      "counted_as_trades": 0,
-      "total": 0,
-      "vetoed": 0
+    "trade_summary": {
+      "accepted_trades_seen": 0,
+      "cancelled_by_vote": 0,
+      "counted": 0,
+      "other_team_unknown": 0,
+      "veto_votes_per_trade": [],
+      "veto_votes_required": 7
     },
     "transaction_log_trade_rows": {}
   },
@@ -119,10 +128,22 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 0,
-      "total": 26,
-      "vetoed": 7
+    "trade_summary": {
+      "accepted_trades_seen": 8,
+      "cancelled_by_vote": 0,
+      "counted": 0,
+      "other_team_unknown": 8,
+      "veto_votes_per_trade": [
+        0,
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        4
+      ],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_ACCEPT/None": 8,
@@ -224,10 +245,16 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 0,
-      "total": 11,
-      "vetoed": 2
+    "trade_summary": {
+      "accepted_trades_seen": 2,
+      "cancelled_by_vote": 1,
+      "counted": 0,
+      "other_team_unknown": 1,
+      "veto_votes_per_trade": [
+        2,
+        6
+      ],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_ACCEPT/None": 2,
@@ -338,10 +365,20 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 1,
-      "total": 22,
-      "vetoed": 5
+    "trade_summary": {
+      "accepted_trades_seen": 6,
+      "cancelled_by_vote": 2,
+      "counted": 0,
+      "other_team_unknown": 4,
+      "veto_votes_per_trade": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        6
+      ],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_ACCEPT/None": 6,
@@ -458,10 +495,20 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 0,
-      "total": 33,
-      "vetoed": 6
+    "trade_summary": {
+      "accepted_trades_seen": 6,
+      "cancelled_by_vote": 0,
+      "counted": 2,
+      "other_team_unknown": 4,
+      "veto_votes_per_trade": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        4
+      ],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_ACCEPT/EXECUTED": 2,
@@ -565,10 +612,19 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 1,
-      "total": 24,
-      "vetoed": 4
+    "trade_summary": {
+      "accepted_trades_seen": 5,
+      "cancelled_by_vote": 0,
+      "counted": 0,
+      "other_team_unknown": 5,
+      "veto_votes_per_trade": [
+        0,
+        1,
+        1,
+        2,
+        5
+      ],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_ACCEPT/None": 5,
@@ -651,10 +707,15 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 1,
-      "total": 22,
-      "vetoed": 0
+    "trade_summary": {
+      "accepted_trades_seen": 1,
+      "cancelled_by_vote": 0,
+      "counted": 0,
+      "other_team_unknown": 1,
+      "veto_votes_per_trade": [
+        0
+      ],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_ACCEPT/None": 1,
@@ -767,10 +828,16 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 1,
-      "total": 14,
-      "vetoed": 1
+    "trade_summary": {
+      "accepted_trades_seen": 2,
+      "cancelled_by_vote": 0,
+      "counted": 1,
+      "other_team_unknown": 1,
+      "veto_votes_per_trade": [
+        0,
+        1
+      ],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_ACCEPT/EXECUTED": 1,
@@ -814,10 +881,13 @@
         ]
       }
     },
-    "trade_groups": {
-      "counted_as_trades": 0,
-      "total": 1,
-      "vetoed": 0
+    "trade_summary": {
+      "accepted_trades_seen": 0,
+      "cancelled_by_vote": 0,
+      "counted": 0,
+      "other_team_unknown": 0,
+      "veto_votes_per_trade": [],
+      "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
       "TRADE_PROPOSAL/CANCELED": 1

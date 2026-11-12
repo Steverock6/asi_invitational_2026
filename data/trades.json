@@ -1,34 +1,28 @@
 [
   {
-    "season": 2021,
-    "date": 1634921998879,
+    "season": 2022,
+    "date": 1663851841981,
+    "date_iso": "2022-09-22",
     "teams": [
       "Cory Fowler",
-      "Joe Porcelli"
+      "Steve Rock"
     ],
     "source": "transaction log"
   },
   {
-    "season": 2023,
-    "date": 1698192751179,
+    "season": 2022,
+    "date": 1664472664079,
+    "date_iso": "2022-09-29",
     "teams": [
-      "Cory Fowler",
-      "Mike Procaccini"
-    ],
-    "source": "transaction log"
-  },
-  {
-    "season": 2024,
-    "date": 1729805569181,
-    "teams": [
-      "Matthew Rasp",
+      "Steve Rock",
       "Joe Porcelli"
     ],
     "source": "transaction log"
   },
   {
     "season": 2025,
-    "date": 1760809091053,
+    "date": 1760796800717,
+    "date_iso": "2025-10-18",
     "teams": [
       "Bill Justis",
       "Steve Rock"
