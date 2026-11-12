@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T18:22:13.473793+00:00",
+  "generated_at": "2026-11-12T21:06:58.598999+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 10,
   "standings": [
@@ -344,150 +344,150 @@
   ],
   "news": [
     {
-      "headline": "Combat Knife Bald Eagle Edges Annexation of LaPorta Rico",
-      "body": "It came down to the wire in Week 9 as Combat Knife Bald Eagle barely survived a furious late push from Annexation of LaPorta Rico, winning 97.32 to 90.96. The 6.4-point thriller had all the drama of a playoff matchup, but both teams live to fight another day.",
+      "headline": "Combat Knife Bald Eagle Edges Past LaPorta Rico in Week 9 Thriller",
+      "body": "Combat Knife Bald Eagle survived a close call against Annexation of LaPorta Rico, pulling out a 97.32-90.96 victory in a tightly contested Week 9 matchup. The 6.4-point margin came down to the wire, but Combat Knife Bald Eagle's depth proved just enough to secure the win.",
       "type": "nail_biter",
       "source": "auto"
     },
     {
-      "headline": "Jacob's Right Hook Demolishes Hair of the Dog",
-      "body": "Jacob's Right Hook put on an absolute clinic in Week 9, obliterating Hair of the Dog 166.1 to 123.96 in a 42.1-point landslide. This wasn't a contest\u2014it was a statement win from one of the league's hottest teams.",
+      "headline": "Jacob's Right Hook Demolishes Hair of the Dog in 42-Point Rout",
+      "body": "Jacob's Right Hook put on an offensive clinic in Week 9, absolutely dismantling Hair of the Dog with a dominant 166.1-123.96 performance. The 42.1-point blowout was a statement win that sent shockwaves through the league.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "RB Graveyard Buries Nabers B. Tuten",
-      "body": "RB Graveyard left no doubt in Week 9, dismantling Nabers B. Tuten by a staggering 51.7 points with a final score of 151.3 to 99.56. The dominant performance puts the league on notice.",
+      "headline": "RB Graveyard Buries Nabers B. Tuten in Lopsided Week 9 Battle",
+      "body": "RB Graveyard left no doubt in Week 9, crushing Nabers B. Tuten by a staggering 51.7 points, 151.3-99.56. The dominant performance puts RB Graveyard firmly in control as the season pushes toward the stretch run.",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Who?? Shocks Trump Wall With Historic Blowout",
-      "body": "Who?? came out of nowhere in Week 9 to deliver a jaw-dropping 53.9-point beatdown of Trump Wall, 124.36 to 70.48. One of the most lopsided victories of the season left everyone asking: Who indeed?",
+      "headline": "Who?? Overwhelms Trump Wall in Historic 53.9-Point Demolition",
+      "body": "Who?? delivered one of the most lopsided victories of the season, obliterating Trump Wall 124.36-70.48 in Week 9. The 53.9-point margin of victory stands as a defining moment in an explosive week across the league.",
       "type": "blowout",
       "source": "auto"
     }
   ],
   "transactions": [
     {
-      "date": 1794317680524,
-      "team": "Combat Knife Bald Eagle",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4241555"
-    },
-    {
-      "date": 1794156514433,
+      "date": 1794435526979,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #3117256"
+      "player": "Andre Szmyt"
     },
     {
-      "date": 1794156514433,
+      "date": 1794435332752,
+      "team": "Jacob's Right Hook",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #3917315"
+    },
+    {
+      "date": 1794420375202,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Darius Cooper"
+      "player": "Charlie Smyth"
     },
     {
-      "date": 1794151937761,
-      "team": "RB Graveyard",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4432577"
-    },
-    {
-      "date": 1794146467053,
-      "team": "Combat Knife Bald Eagle",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4685279"
-    },
-    {
-      "date": 1794142478123,
+      "date": 1794420375202,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Cairo Santos"
+      "player": "Player #-16017"
     },
     {
-      "date": 1794083599374,
+      "date": 1794414220688,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Audric Estime"
+      "player": "Malachi Fields"
     },
     {
-      "date": 1794083599374,
+      "date": 1794414220688,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4599739"
+      "player": "Player #4032473"
     },
     {
-      "date": 1794066229370,
+      "date": 1794405927101,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Samaje Perine"
+      "player": "Pat Freiermuth"
     },
     {
-      "date": 1794066229370,
+      "date": 1794405927101,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4567156"
+      "player": "Player #-16003"
     },
     {
-      "date": 1793901491731,
+      "date": 1794405851286,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4870847"
+      "player": "Cooper Kupp"
     },
     {
-      "date": 1793901491731,
+      "date": 1794405473299,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Demarcus Robinson"
+      "player": "Packers D/ST"
     },
     {
-      "date": 1793866841292,
-      "team": "For Jaxson",
+      "date": 1794405435490,
+      "team": "Jacob's Right Hook",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Keon Coleman"
+      "player": "Player #17427"
     },
     {
-      "date": 1793858655585,
+      "date": 1794402970443,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Saints D/ST"
+      "player": "Player #2985659"
     },
     {
-      "date": 1793827821736,
+      "date": 1794402970443,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Austin Ekeler"
+      "player": "Chris Boswell"
     },
     {
-      "date": 1793827821736,
+      "date": 1794390554383,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4426386"
+      "player": "Player #4426338"
     },
     {
-      "date": 1793802027602,
+      "date": 1794390554383,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Darius Cooper"
+      "player": "Drew Lock"
     },
     {
-      "date": 1793802027602,
+      "date": 1794388465781,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Brandon Aiyuk"
+      "player": "Player #4249087"
     },
     {
-      "date": 1793802001108,
+      "date": 1794388465781,
       "team": "Unknown",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Devin Singletary"
+      "player": "Dominic Zvada"
     },
     {
-      "date": 1793801951087,
+      "date": 1794387008441,
+      "team": "Unknown",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "Player #4686658"
+    },
+    {
+      "date": 1794387008441,
       "team": "Sack Lunch",
       "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4035687"
+      "player": "Darren Waller"
+    },
+    {
+      "date": 1794387008441,
+      "team": "Hair of the Dog",
+      "action_type": "ACTIVITY_TRANSACTIONS",
+      "player": "MarShawn Lloyd"
     }
   ]
 }
