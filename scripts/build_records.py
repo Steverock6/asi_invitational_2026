@@ -100,12 +100,17 @@ def get_playoffs(league, year, key_by_team_id):
 DEBUG = {}  # written to data/trade_debug.json so we can see what ESPN actually returned
 
 
+PERIODS = [None, 0] + list(range(1, 19))  # whole season, offseason, then each week
+
+
 def raw_txns(league, period, types):
     """Raw ESPN transaction rows for one week. We read ESPN's data directly instead of going through
     the library's parser, which throws away a whole week if a single row is shaped unexpectedly."""
     headers = {"x-fantasy-filter": json.dumps({"transactions": {"filterType": {"value": sorted(types)}}})}
-    data = league.espn_request.league_get(
-        params={"view": "mTransactions2", "scoringPeriodId": period}, headers=headers)
+    params = {"view": "mTransactions2"}
+    if period is not None:
+        params["scoringPeriodId"] = period
+    data = league.espn_request.league_get(params=params, headers=headers)
     return data.get("transactions") or []
 
 
@@ -117,7 +122,7 @@ def get_transactions(league, year, key_by_team_id):
     errors = []
     rows, seen = [], set()
     pmap = league.player_map
-    for period in range(1, 19):
+    for period in PERIODS:
         try:
             batch = raw_txns(league, period, {"FREEAGENT", "WAIVER"})
         except Exception as e:
@@ -140,7 +145,7 @@ def get_transactions(league, year, key_by_team_id):
 
     # ---- trades: gather every trade-related row, then group each proposal with its accept/uphold/veto ----
     allrows, counts, shapes = {}, defaultdict(int), {}
-    for period in range(1, 19):
+    for period in PERIODS:
         try:
             batch = raw_txns(league, period, {"TRADE_PROPOSAL", "TRADE_ACCEPT", "TRADE_UPHOLD", "TRADE_VETO"})
         except Exception as e:
@@ -156,36 +161,42 @@ def get_transactions(league, year, key_by_team_id):
                 shapes[t.get("type")] = dict(row_keys=sorted(t.keys()), n_items=len(items),
                                              item_keys=sorted(items[0].keys()) if items else [])
 
-    def root(i):
-        for _ in range(6):
-            r = allrows.get(i)
-            if not r or not r.get("relatedTransactionId"):
-                return i
-            i = r["relatedTransactionId"]
-        return i
-
-    groups = defaultdict(list)
-    for i, r in allrows.items():
-        groups[root(i)].append(r)
-    trades, vetoed = [], 0
-    for g in groups.values():
-        done = any(r.get("type") in ("TRADE_ACCEPT", "TRADE_UPHOLD") and r.get("status") == "EXECUTED" for r in g)
-        if any(r.get("type") == "TRADE_VETO" and r.get("status") == "EXECUTED" for r in g):
+    # Every accepted trade has one TRADE_ACCEPT row. League members then cast TRADE_VETO / TRADE_UPHOLD
+    # votes on it, and the league's setting for "veto votes required" decides whether it is cancelled.
+    required = getattr(league.settings, "veto_votes_required", 0) or 0
+    votes = defaultdict(lambda: [0, 0])  # linked id -> [vetoes, upholds]
+    for r in allrows.values():
+        if r.get("type") in ("TRADE_VETO", "TRADE_UPHOLD") and r.get("status") in (None, "EXECUTED"):
+            votes[r.get("relatedTransactionId")][0 if r["type"] == "TRADE_VETO" else 1] += 1
+    trades, seen_trade, veto_counts, vetoed, unresolved = [], set(), [], 0, 0
+    for a_ in allrows.values():
+        if a_.get("type") != "TRADE_ACCEPT" or a_.get("status") not in (None, "EXECUTED"):
+            continue
+        key = a_.get("relatedTransactionId") or a_.get("id")
+        if key in seen_trade:
+            continue
+        seen_trade.add(key)
+        vz = votes[a_.get("id")][0] + (votes[key][0] if key != a_.get("id") else 0)
+        veto_counts.append(vz)
+        if a_.get("status") != "EXECUTED" and required and vz >= required:
             vetoed += 1
             continue
-        if not done:
-            continue
         team_ids = set()
-        for r in g:
-            team_ids.add(r.get("teamId"))
-            for it in r.get("items") or []:
-                team_ids.update(x for x in (it.get("fromTeamId"), it.get("toTeamId")) if x)
+        for r in (a_, allrows.get(a_.get("relatedTransactionId"))):
+            if r:
+                team_ids.add(r.get("teamId"))
+                for it in r.get("items") or []:
+                    team_ids.update(x for x in (it.get("fromTeamId"), it.get("toTeamId")) if x)
         ids = sorted({key_by_team_id[x] for x in team_ids if x in key_by_team_id})
-        date = max((r.get("processDate") or r.get("acceptedDate") or r.get("proposedDate") or 0) for r in g)
-        if len(ids) >= 2:
-            trades.append(dict(season=year, date=date, owner_ids=ids, source="transaction log"))
+        if len(ids) < 2:
+            unresolved += 1  # we know a trade happened but not who was on the other side
+            continue
+        ms = a_.get("processDate") or a_.get("acceptedDate") or a_.get("proposedDate") or 0
+        trades.append(dict(season=year, date=ms, owner_ids=ids, source="transaction log"))
+    info["trade_summary"] = dict(accepted_trades_seen=len(seen_trade), veto_votes_required=required,
+                                 veto_votes_per_trade=sorted(veto_counts), cancelled_by_vote=vetoed,
+                                 counted=len(trades), other_team_unknown=unresolved)
     info["transaction_log_trade_rows"] = dict(counts)
-    info["trade_groups"] = dict(total=len(groups), counted_as_trades=len(trades), vetoed=vetoed)
     info["row_shapes"] = shapes
     if errors:
         info["request_errors"] = errors[:6]
@@ -503,7 +514,7 @@ if __name__ == "__main__":
     with open("data/trade_debug.json", "w") as f:
         json.dump(DEBUG, f, indent=2, sort_keys=True)
     with open("data/trades.json", "w") as f:
-        json.dump([dict(season=t["season"], date=t["date"], teams=t["owners"], source=t.get("source")) for t in trades], f, indent=2)
+        json.dump([dict(season=t["season"], date=t["date"], date_iso=(datetime.fromtimestamp(t["date"] / 1000, timezone.utc).strftime("%Y-%m-%d") if t["date"] else None), teams=t["owners"], source=t.get("source")) for t in trades], f, indent=2)
     out = dict(generated=datetime.now(timezone.utc).isoformat(),
                seasons=sorted({s["season"] for s in seasons}),
                records=build(games, seasons, playoffs, txns, trades))
