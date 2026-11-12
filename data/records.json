@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T21:22:21.862954+00:00",
+  "generated": "2026-11-12T21:38:54.981488+00:00",
   "seasons": [
     2016,
     2017,
@@ -62,6 +62,147 @@
       ]
     },
     {
+      "id": "week_low",
+      "title": "Fewest points in a single week",
+      "unit": "pts",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "John Lansing",
+          "value": 47.26,
+          "season": 2026,
+          "week": 3,
+          "team": "Annexation of LaPorta Rico "
+        },
+        {
+          "rank": 2,
+          "owner": "Matthew Rasp",
+          "value": 49.44,
+          "season": 2024,
+          "week": 1,
+          "team": "Ah ****, Here We Go Again "
+        },
+        {
+          "rank": 3,
+          "owner": "Matthew Rasp",
+          "value": 51.12,
+          "season": 2016,
+          "week": 4,
+          "team": "A team has no name"
+        },
+        {
+          "rank": 4,
+          "owner": "Zachary Wellington",
+          "value": 54.0,
+          "season": 2026,
+          "week": 8,
+          "team": "Sack Lunch"
+        },
+        {
+          "rank": 5,
+          "owner": "Joe Porcelli",
+          "value": 55.02,
+          "season": 2017,
+          "week": 1,
+          "team": "Poe Top, Troy Bottom"
+        }
+      ]
+    },
+    {
+      "id": "blowout",
+      "title": "Biggest blowout",
+      "unit": "pts",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Mike Procaccini",
+          "value": 120.62,
+          "season": 2018,
+          "week": 1,
+          "team": "over Cory Fowler (179.26\u201358.64)"
+        },
+        {
+          "rank": 2,
+          "owner": "Zachary Wellington",
+          "value": 110.74,
+          "season": 2017,
+          "week": 12,
+          "team": "over Bill Justis (179.82\u201369.08)"
+        },
+        {
+          "rank": 3,
+          "owner": "Travis Delarosa",
+          "value": 104.64,
+          "season": 2017,
+          "week": 4,
+          "team": "over Zachary Wellington (176.62\u201371.98)"
+        },
+        {
+          "rank": 4,
+          "owner": "Joe Porcelli",
+          "value": 100.74,
+          "season": 2024,
+          "week": 10,
+          "team": "over Cory Fowler (166.42\u201365.68)"
+        },
+        {
+          "rank": 5,
+          "owner": "Troy Flood",
+          "value": 98.02,
+          "season": 2024,
+          "week": 4,
+          "team": "over Travis Delarosa (181.02\u201383.00)"
+        }
+      ]
+    },
+    {
+      "id": "closest",
+      "title": "Closest game",
+      "unit": "pts",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Cory Fowler",
+          "value": 0.06,
+          "season": 2016,
+          "week": 8,
+          "team": "over Travis Delarosa (137.56\u2013137.50)"
+        },
+        {
+          "rank": 1,
+          "owner": "Thomas Huesser",
+          "value": 0.06,
+          "season": 2019,
+          "week": 2,
+          "team": "over Joe Porcelli (104.52\u2013104.46)"
+        },
+        {
+          "rank": 3,
+          "owner": "Zachary Wellington",
+          "value": 0.14,
+          "season": 2018,
+          "week": 11,
+          "team": "over Steve Rock (134.02\u2013133.88)"
+        },
+        {
+          "rank": 4,
+          "owner": "Cory Fowler",
+          "value": 0.2,
+          "season": 2023,
+          "week": 5,
+          "team": "over Tom Muller (95.32\u201395.12)"
+        },
+        {
+          "rank": 5,
+          "owner": "Travis Delarosa",
+          "value": 0.24,
+          "season": 2025,
+          "week": 1,
+          "team": "over Zach Curtis (102.82\u2013102.58)"
+        }
+      ]
+    },
+    {
       "id": "season_points",
       "title": "Most points in a single season",
       "unit": "pts",
@@ -116,7 +257,7 @@
           "team": "Straight Outta Coughlin"
         },
         {
-          "rank": 2,
+          "rank": 1,
           "owner": "Tom Muller",
           "value": 12,
           "season": 2020,
@@ -130,7 +271,7 @@
           "team": "Alvin and The SHIP-Munks"
         },
         {
-          "rank": 4,
+          "rank": 3,
           "owner": "Zachary Wellington",
           "value": 11,
           "season": 2024,
@@ -166,7 +307,7 @@
           "value": 77.0
         },
         {
-          "rank": 4,
+          "rank": 3,
           "owner": "Mike Procaccini",
           "value": 77.0
         },
@@ -206,6 +347,118 @@
           "rank": 5,
           "owner": "Matthew Rasp",
           "value": 16875.12
+        }
+      ]
+    },
+    {
+      "id": "win_streak",
+      "title": "Longest win streak",
+      "unit": "wins",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Tom Muller",
+          "value": 13,
+          "team": "2020 Wk 2 to 2021 Wk 1"
+        },
+        {
+          "rank": 2,
+          "owner": "Matthew Rasp",
+          "value": 12,
+          "team": "2025 Wk 7 to 2026 Wk 4"
+        },
+        {
+          "rank": 3,
+          "owner": "Cory Fowler",
+          "value": 9,
+          "team": "2019 Wk 12 to 2020 Wk 7"
+        },
+        {
+          "rank": 4,
+          "owner": "Bill Justis",
+          "value": 8,
+          "team": "2017 Wk 13 to 2018 Wk 7"
+        },
+        {
+          "rank": 4,
+          "owner": "Joe Porcelli",
+          "value": 8,
+          "team": "2022 Wk 9 to 2023 Wk 2"
+        }
+      ]
+    },
+    {
+      "id": "championships",
+      "title": "Most championships",
+      "unit": "titles",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Zachary Wellington",
+          "value": 2,
+          "team": "2019, 2024"
+        },
+        {
+          "rank": 1,
+          "owner": "Steve Rock",
+          "value": 2,
+          "team": "2018, 2022"
+        },
+        {
+          "rank": 1,
+          "owner": "Cory Fowler",
+          "value": 2,
+          "team": "2020, 2021"
+        },
+        {
+          "rank": 4,
+          "owner": "Tom Muller",
+          "value": 1,
+          "team": "2025"
+        },
+        {
+          "rank": 4,
+          "owner": "Bill Justis",
+          "value": 1,
+          "team": "2023"
+        }
+      ]
+    },
+    {
+      "id": "playoff_pct",
+      "title": "Best playoff win % (min 3 games)",
+      "unit": "win %",
+      "decimals": 3,
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Cory Fowler",
+          "value": 1.0,
+          "team": "6-0"
+        },
+        {
+          "rank": 2,
+          "owner": "Zachary Wellington",
+          "value": 0.727,
+          "team": "8-3"
+        },
+        {
+          "rank": 3,
+          "owner": "Steve Rock",
+          "value": 0.667,
+          "team": "8-4"
+        },
+        {
+          "rank": 4,
+          "owner": "Travis Delarosa",
+          "value": 0.6,
+          "team": "6-4"
+        },
+        {
+          "rank": 5,
+          "owner": "Thomas Huesser",
+          "value": 0.5,
+          "team": "3-3"
         }
       ]
     }
