@@ -539,7 +539,7 @@ function recordCard(rec) {
     return `<tr>
       <td class="rb-rank">${e.rank}</td>
       <td>${escapeHtml(e.owner)}${where ? `<div class="rb-sub">${escapeHtml(where)}</div>` : ''}</td>
-      <td class="num">${Number(e.value).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
+      <td class="num">${Number(e.value).toLocaleString('en-US', rec.decimals ? { minimumFractionDigits: rec.decimals, maximumFractionDigits: rec.decimals } : { maximumFractionDigits: 2 })}</td>
     </tr>`;
   }).join('');
   return `<div class="rb-card"><h3>${escapeHtml(rec.title)}</h3><table><tbody>${rows}</tbody></table></div>`;
