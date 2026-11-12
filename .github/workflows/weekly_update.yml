@@ -40,6 +40,15 @@ jobs:
           PYTHONPATH: scripts
         run: python scripts/main.py
 
+      - name: Build all-time record book
+        env:
+          LEAGUE_ID: ${{ secrets.LEAGUE_ID }}
+          LEAGUE_YEAR: ${{ secrets.LEAGUE_YEAR }}
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          ESPN_SWID: ${{ secrets.ESPN_SWID }}
+          START_YEAR: '2015'  # <-- change to the first season of your league
+        run: python scripts/build_records.py
+
       - name: Commit and push updated data
         run: |
           git config user.name "github-actions[bot]"
