@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T21:38:54.981488+00:00",
+  "generated": "2026-11-12T22:12:05.861577+00:00",
   "seasons": [
     2016,
     2017,
@@ -459,6 +459,201 @@
           "owner": "Thomas Huesser",
           "value": 0.5,
           "team": "3-3"
+        }
+      ]
+    },
+    {
+      "id": "most_txns",
+      "section": "Transactions",
+      "title": "Most transactions (2019\u20132026)",
+      "unit": "moves",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Joe Porcelli",
+          "value": 429,
+          "team": "429 pickups + 0 trades"
+        },
+        {
+          "rank": 2,
+          "owner": "Cory Fowler",
+          "value": 382,
+          "team": "382 pickups + 0 trades"
+        },
+        {
+          "rank": 3,
+          "owner": "Matthew Rasp",
+          "value": 306,
+          "team": "306 pickups + 0 trades"
+        },
+        {
+          "rank": 4,
+          "owner": "Tom Muller",
+          "value": 283,
+          "team": "283 pickups + 0 trades"
+        },
+        {
+          "rank": 5,
+          "owner": "Bill Justis",
+          "value": 229,
+          "team": "229 pickups + 0 trades"
+        }
+      ]
+    },
+    {
+      "id": "top_player",
+      "section": "Transactions",
+      "title": "Most-transacted player (2019\u20132026)",
+      "unit": "moves",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Packers D/ST",
+          "value": 45,
+          "team": "29 adds, 16 drops"
+        },
+        {
+          "rank": 2,
+          "owner": "Browns D/ST",
+          "value": 36,
+          "team": "24 adds, 12 drops"
+        },
+        {
+          "rank": 3,
+          "owner": "Titans D/ST",
+          "value": 35,
+          "team": "19 adds, 16 drops"
+        },
+        {
+          "rank": 3,
+          "owner": "Chargers D/ST",
+          "value": 35,
+          "team": "19 adds, 16 drops"
+        },
+        {
+          "rank": 5,
+          "owner": "Colts D/ST",
+          "value": 34,
+          "team": "20 adds, 14 drops"
+        }
+      ]
+    },
+    {
+      "id": "faab_single",
+      "section": "Transactions",
+      "title": "Most FAAB spent on one player (2019\u20132026)",
+      "unit": "$",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Joe Porcelli",
+          "value": 100,
+          "season": 2023,
+          "team": "Jerome Ford"
+        },
+        {
+          "rank": 2,
+          "owner": "Cory Fowler",
+          "value": 93,
+          "season": 2023,
+          "team": "Jeff Wilson Jr."
+        },
+        {
+          "rank": 3,
+          "owner": "Tom Muller",
+          "value": 87,
+          "season": 2020,
+          "team": "D'Andre Swift"
+        },
+        {
+          "rank": 4,
+          "owner": "Thomas Huesser",
+          "value": 84,
+          "season": 2024,
+          "team": "Isaac Guerendo"
+        },
+        {
+          "rank": 5,
+          "owner": "Joe Porcelli",
+          "value": 67,
+          "season": 2021,
+          "team": "Jeremy McNichols"
+        }
+      ]
+    },
+    {
+      "id": "faab_most",
+      "section": "Transactions",
+      "title": "Most FAAB spent all time (2019\u20132026)",
+      "unit": "$",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Cory Fowler",
+          "value": 757.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 2,
+          "owner": "Bill Justis",
+          "value": 739.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 3,
+          "owner": "Travis Delarosa",
+          "value": 728.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 4,
+          "owner": "Mike Procaccini",
+          "value": 721.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 5,
+          "owner": "Joe Porcelli",
+          "value": 719.0,
+          "team": "8 seasons"
+        }
+      ]
+    },
+    {
+      "id": "faab_least",
+      "section": "Transactions",
+      "title": "Least FAAB spent all time (2019\u20132026, min 3 seasons)",
+      "unit": "$",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Thomas Huesser",
+          "value": 193.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 2,
+          "owner": "Zachary Wellington",
+          "value": 366.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 3,
+          "owner": "Tom Muller",
+          "value": 546.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 4,
+          "owner": "Troy Flood",
+          "value": 567.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 5,
+          "owner": "Zach Curtis",
+          "value": 576.0,
+          "team": "8 seasons"
         }
       ]
     }
