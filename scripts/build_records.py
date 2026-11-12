@@ -9,6 +9,9 @@ Env vars:
   ESPN_S2, ESPN_SWID   only needed if the league is private
   LEAGUE_YEAR optional, last season to include (default: current year)
   OWNER_NAMES optional JSON, e.g. {"{ABC-123}": "Steve"} to override display names
+  scripts/owner_names.json  optional file to merge one person who shows up under two
+      accounts/names, e.g. {"{OLD-ID}": "Steve Rock", "Stephen Rock": "Steve Rock"}
+  Also writes data/owners.json: every person found, with all ids/names/seasons, for review.
 """
 import json
 import os
@@ -26,15 +29,26 @@ NAME_OVERRIDES = json.loads(os.environ.get("OWNER_NAMES", "{}"))
 TOP_N = 5
 
 
+ALIAS_FILE = "scripts/owner_names.json"
+ALIASES = json.load(open(ALIAS_FILE)) if os.path.exists(ALIAS_FILE) else {}
+people = defaultdict(lambda: {"names": set(), "ids": set(), "seasons": set()})
+
+
 def owner_of(team):
-    """Stable owner id + display name (team names change every year)."""
+    """Returns (key, display_name, raw_id, raw_name).
+    key is what records group on: a manual alias if you set one, else ESPN's member id
+    (team names change every year, so they are never used when an id exists)."""
     o = team.owners[0] if getattr(team, "owners", None) else None
     if isinstance(o, dict):
-        oid = o.get("id", team.team_name)
-        name = f"{o.get('firstName', '').strip()} {o.get('lastName', '').strip()}".strip()
+        raw_id = o.get("id", team.team_name)
+        raw_name = f"{o.get('firstName', '').strip()} {o.get('lastName', '').strip()}".strip()
     else:
-        oid, name = (o or team.team_name), (o or team.team_name)
-    return oid, NAME_OVERRIDES.get(oid, name or team.team_name)
+        raw_id = raw_name = (o or team.team_name)
+    raw_name = NAME_OVERRIDES.get(raw_id, raw_name) or team.team_name
+    canon = ALIASES.get(raw_id) or ALIASES.get(raw_name)
+    if canon:
+        return canon, canon, raw_id, raw_name
+    return raw_id, raw_name, raw_id, raw_name
 
 
 def load_rows():
@@ -49,7 +63,10 @@ def load_rows():
             continue
         reg_weeks = league.settings.reg_season_count
         for t in league.teams:
-            oid, name = owner_of(t)
+            oid, name, raw_id, raw_name = owner_of(t)
+            people[oid]["names"].add(raw_name)
+            people[oid]["ids"].add(str(raw_id))
+            people[oid]["seasons"].add(year)
             scores = [s for s in t.scores[:reg_weeks]]
             played = [(w + 1, s) for w, s in enumerate(scores) if s > 0]
             if not played:  # season not started / no data
@@ -60,6 +77,11 @@ def load_rows():
             seasons.append(dict(owner_id=oid, owner=name, team=t.team_name,
                                 season=year, wins=t.wins, points=round(t.points_for, 2)))
         print(f"loaded {year}")
+    # One display name per person everywhere (their most recent one), so
+    # "Steve Rock" and "Stephen Rock" on the same account never look like two people.
+    latest = {r["owner_id"]: r["owner"] for r in seasons}
+    for r in games + seasons:
+        r["owner"] = latest.get(r["owner_id"], r["owner"])
     return games, seasons
 
 
@@ -100,6 +122,12 @@ if __name__ == "__main__":
                seasons=sorted({s["season"] for s in seasons}),
                records=build(games, seasons))
     os.makedirs("data", exist_ok=True)
+    review = sorted(
+        [dict(owner=sorted(v["names"])[-1], names=sorted(v["names"]), ids=sorted(v["ids"]),
+              seasons=sorted(v["seasons"])) for v in people.values()],
+        key=lambda r: r["owner"].lower())
+    with open("data/owners.json", "w") as f:
+        json.dump(review, f, indent=2)
     with open("data/records.json", "w") as f:
         json.dump(out, f, indent=2)
     print("wrote data/records.json")
