@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "season": 2021,
+    "date": 1634921998879,
+    "teams": [
+      "Cory Fowler",
+      "Joe Porcelli"
+    ],
+    "source": "transaction log"
+  },
+  {
+    "season": 2023,
+    "date": 1698192751179,
+    "teams": [
+      "Cory Fowler",
+      "Mike Procaccini"
+    ],
+    "source": "transaction log"
+  },
+  {
+    "season": 2024,
+    "date": 1729805569181,
+    "teams": [
+      "Matthew Rasp",
+      "Joe Porcelli"
+    ],
+    "source": "transaction log"
+  },
+  {
+    "season": 2025,
+    "date": 1760809091053,
+    "teams": [
+      "Bill Justis",
+      "Steve Rock"
+    ],
+    "source": "transaction log"
+  }
+]

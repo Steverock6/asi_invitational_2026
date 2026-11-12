@@ -15,7 +15,7 @@
     "pickups": 429,
     "drops": 277,
     "faab_bids": 126,
-    "trades": 0
+    "trades": 1
   },
   "2022": {
     "pickups": 359,
@@ -27,19 +27,19 @@
     "pickups": 375,
     "drops": 252,
     "faab_bids": 88,
-    "trades": 0
+    "trades": 1
   },
   "2024": {
     "pickups": 342,
     "drops": 238,
     "faab_bids": 106,
-    "trades": 0
+    "trades": 1
   },
   "2025": {
     "pickups": 302,
     "drops": 195,
     "faab_bids": 104,
-    "trades": 0
+    "trades": 1
   },
   "2026": {
     "pickups": 238,

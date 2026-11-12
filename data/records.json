@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T22:26:16.510299+00:00",
+  "generated": "2026-11-12T22:33:26.024934+00:00",
   "seasons": [
     2016,
     2017,
@@ -471,20 +471,20 @@
         {
           "rank": 1,
           "owner": "Joe Porcelli",
-          "value": 429,
-          "team": "429 pickups + 0 trades"
+          "value": 431,
+          "team": "429 pickups + 2 trades"
         },
         {
           "rank": 2,
           "owner": "Cory Fowler",
-          "value": 382,
-          "team": "382 pickups + 0 trades"
+          "value": 384,
+          "team": "382 pickups + 2 trades"
         },
         {
           "rank": 3,
           "owner": "Matthew Rasp",
-          "value": 306,
-          "team": "306 pickups + 0 trades"
+          "value": 307,
+          "team": "306 pickups + 1 trades"
         },
         {
           "rank": 4,
@@ -495,8 +495,8 @@
         {
           "rank": 5,
           "owner": "Bill Justis",
-          "value": 229,
-          "team": "229 pickups + 0 trades"
+          "value": 230,
+          "team": "229 pickups + 1 trades"
         }
       ]
     },
@@ -654,6 +654,39 @@
           "owner": "Zach Curtis",
           "value": 576.0,
           "team": "8 seasons"
+        }
+      ]
+    },
+    {
+      "id": "most_trades",
+      "section": "Transactions",
+      "title": "Most trades (2021\u20132025)",
+      "unit": "trades",
+      "entries": [
+        {
+          "rank": 1,
+          "owner": "Cory Fowler",
+          "value": 2
+        },
+        {
+          "rank": 1,
+          "owner": "Joe Porcelli",
+          "value": 2
+        },
+        {
+          "rank": 3,
+          "owner": "Mike Procaccini",
+          "value": 1
+        },
+        {
+          "rank": 3,
+          "owner": "Matthew Rasp",
+          "value": 1
+        },
+        {
+          "rank": 3,
+          "owner": "Bill Justis",
+          "value": 1
         }
       ]
     }

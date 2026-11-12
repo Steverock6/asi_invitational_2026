@@ -1,89 +1,824 @@
 {
   "2016": {
-    "feed_error": "ESPN returned an HTTP 400",
+    "row_shapes": {},
+    "trade_groups": {
+      "counted_as_trades": 0,
+      "total": 0,
+      "vetoed": 0
+    },
     "transaction_log_trade_rows": {}
   },
   "2017": {
-    "feed_error": "ESPN returned an HTTP 400",
+    "row_shapes": {},
+    "trade_groups": {
+      "counted_as_trades": 0,
+      "total": 0,
+      "vetoed": 0
+    },
     "transaction_log_trade_rows": {}
   },
   "2018": {
-    "feed_error": "ESPN returned an HTTP 400",
+    "row_shapes": {},
+    "trade_groups": {
+      "counted_as_trades": 0,
+      "total": 0,
+      "vetoed": 0
+    },
     "transaction_log_trade_rows": {}
   },
   "2019": {
-    "feed_message_types": {},
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 0,
+    "row_shapes": {
+      "TRADE_ACCEPT": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 2,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_UPHOLD": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_VETO": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
+    },
+    "trade_groups": {
+      "counted_as_trades": 0,
+      "total": 26,
+      "vetoed": 7
+    },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 5
+      "TRADE_ACCEPT/None": 8,
+      "TRADE_PROPOSAL/CANCELED": 18,
+      "TRADE_UPHOLD/EXECUTED": 5,
+      "TRADE_VETO/EXECUTED": 18
     }
   },
   "2020": {
-    "feed_message_types": {},
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 0,
+    "row_shapes": {
+      "TRADE_ACCEPT": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 2,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_UPHOLD": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_VETO": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
+    },
+    "trade_groups": {
+      "counted_as_trades": 0,
+      "total": 11,
+      "vetoed": 2
+    },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 4
+      "TRADE_ACCEPT/None": 2,
+      "TRADE_PROPOSAL/CANCELED": 9,
+      "TRADE_UPHOLD/EXECUTED": 1,
+      "TRADE_VETO/EXECUTED": 8
     }
   },
   "2021": {
-    "feed_message_types": {},
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 0,
+    "row_shapes": {
+      "TRADE_ACCEPT": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 1,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 2,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_UPHOLD": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_VETO": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
+    },
+    "trade_groups": {
+      "counted_as_trades": 1,
+      "total": 22,
+      "vetoed": 5
+    },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 5,
-      "TRADE_PROPOSAL/PENDING": 2
+      "TRADE_ACCEPT/None": 6,
+      "TRADE_PROPOSAL/CANCELED": 16,
+      "TRADE_PROPOSAL/PENDING": 3,
+      "TRADE_UPHOLD/EXECUTED": 9,
+      "TRADE_VETO/EXECUTED": 21
     }
   },
   "2022": {
-    "feed_message_types": {},
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 0,
+    "row_shapes": {
+      "TRADE_ACCEPT": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 2,
+        "row_keys": [
+          "acceptedDate",
+          "bidAmount",
+          "executionType",
+          "expirationDate",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "processDate",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamActions",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 2,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_UPHOLD": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_VETO": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
+    },
+    "trade_groups": {
+      "counted_as_trades": 0,
+      "total": 33,
+      "vetoed": 6
+    },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 15,
-      "TRADE_PROPOSAL/PENDING": 6,
-      "TRADE_VETO/EXECUTED": 1
+      "TRADE_ACCEPT/EXECUTED": 2,
+      "TRADE_ACCEPT/None": 6,
+      "TRADE_PROPOSAL/CANCELED": 27,
+      "TRADE_PROPOSAL/PENDING": 16,
+      "TRADE_UPHOLD/EXECUTED": 8,
+      "TRADE_VETO/EXECUTED": 14
     }
   },
   "2023": {
-    "feed_message_types": {},
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 0,
+    "row_shapes": {
+      "TRADE_ACCEPT": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 2,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_UPHOLD": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_VETO": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
+    },
+    "trade_groups": {
+      "counted_as_trades": 1,
+      "total": 24,
+      "vetoed": 4
+    },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 6,
-      "TRADE_PROPOSAL/PENDING": 2
+      "TRADE_ACCEPT/None": 5,
+      "TRADE_PROPOSAL/CANCELED": 19,
+      "TRADE_PROPOSAL/PENDING": 7,
+      "TRADE_UPHOLD/EXECUTED": 7,
+      "TRADE_VETO/EXECUTED": 9
     }
   },
   "2024": {
-    "feed_message_types": {},
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 0,
+    "row_shapes": {
+      "TRADE_ACCEPT": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 4,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_UPHOLD": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
+    },
+    "trade_groups": {
+      "counted_as_trades": 1,
+      "total": 22,
+      "vetoed": 0
+    },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 17,
-      "TRADE_PROPOSAL/PENDING": 14
+      "TRADE_ACCEPT/None": 1,
+      "TRADE_PROPOSAL/CANCELED": 21,
+      "TRADE_PROPOSAL/PENDING": 15,
+      "TRADE_UPHOLD/EXECUTED": 2
     }
   },
   "2025": {
-    "feed_message_types": {},
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 0,
+    "row_shapes": {
+      "TRADE_ACCEPT": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 1,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 3,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "expirationDate",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamActions",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_UPHOLD": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      },
+      "TRADE_VETO": {
+        "item_keys": [],
+        "n_items": 0,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
+    },
+    "trade_groups": {
+      "counted_as_trades": 1,
+      "total": 14,
+      "vetoed": 1
+    },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 10,
-      "TRADE_PROPOSAL/PENDING": 10
+      "TRADE_ACCEPT/EXECUTED": 1,
+      "TRADE_ACCEPT/None": 2,
+      "TRADE_PROPOSAL/CANCELED": 12,
+      "TRADE_PROPOSAL/PENDING": 12,
+      "TRADE_UPHOLD/EXECUTED": 2,
+      "TRADE_VETO/EXECUTED": 1
     }
   },
   "2026": {
-    "feed_message_types": {
-      "178": 41,
-      "179": 30,
-      "180": 18,
-      "181": 13,
-      "188": 253,
-      "239": 11
+    "row_shapes": {
+      "TRADE_PROPOSAL": {
+        "item_keys": [
+          "fromLineupSlotId",
+          "fromTeamId",
+          "isKeeper",
+          "overallPickNumber",
+          "playerId",
+          "toLineupSlotId",
+          "toTeamId",
+          "type"
+        ],
+        "n_items": 2,
+        "row_keys": [
+          "bidAmount",
+          "executionType",
+          "id",
+          "isActingAsTeamOwner",
+          "isLeagueManager",
+          "isPending",
+          "items",
+          "memberId",
+          "proposedDate",
+          "rating",
+          "relatedTransactionId",
+          "scoringPeriodId",
+          "status",
+          "teamId",
+          "type"
+        ]
+      }
     },
-    "feed_team_to_team_samples": [],
-    "feed_topics_checked": 200,
+    "trade_groups": {
+      "counted_as_trades": 0,
+      "total": 1,
+      "vetoed": 0
+    },
     "transaction_log_trade_rows": {
       "TRADE_PROPOSAL/CANCELED": 1
     }
