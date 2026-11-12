@@ -1,13 +1,18 @@
 [
   {
-    "owner": "Bill Justis",
+    "owner": "Billy Justis",
     "names": [
-      "Bill Justis"
+      "Bill Justis",
+      "Billy Justis"
     ],
     "ids": [
-      "{7862DF88-2460-41BF-87F8-EC0EC0E98B86}"
+      "{7862DF88-2460-41BF-87F8-EC0EC0E98B86}",
+      "{E13A1F03-D11B-41E1-BA1F-03D11B21E166}"
     ],
     "seasons": [
+      2016,
+      2017,
+      2018,
       2019,
       2020,
       2021,
@@ -16,20 +21,6 @@
       2024,
       2025,
       2026
-    ]
-  },
-  {
-    "owner": "Billy Justis",
-    "names": [
-      "Billy Justis"
-    ],
-    "ids": [
-      "{E13A1F03-D11B-41E1-BA1F-03D11B21E166}"
-    ],
-    "seasons": [
-      2016,
-      2017,
-      2018
     ]
   },
   {
@@ -153,42 +144,11 @@
       "Steve Rock"
     ],
     "ids": [
+      "{94C6B1F6-9FEB-46BF-9416-A4BA3C777F78}",
       "{AC99C27F-5D4C-419E-99C2-7F5D4C319EA9}"
     ],
     "seasons": [
       2016,
-      2017,
-      2018,
-      2019,
-      2020
-    ]
-  },
-  {
-    "owner": "Steve Rock",
-    "names": [
-      "Steve Rock"
-    ],
-    "ids": [
-      "{94C6B1F6-9FEB-46BF-9416-A4BA3C777F78}"
-    ],
-    "seasons": [
-      2021,
-      2022,
-      2023,
-      2024,
-      2025,
-      2026
-    ]
-  },
-  {
-    "owner": "Thomas Huesser",
-    "names": [
-      "Thomas Huesser"
-    ],
-    "ids": [
-      "{CC3E08D4-C2AE-4894-86CE-B40A819CD5DD}"
-    ],
-    "seasons": [
       2017,
       2018,
       2019,
@@ -204,13 +164,25 @@
   {
     "owner": "Tom Huesser",
     "names": [
+      "Thomas Huesser",
       "Tom Huesser"
     ],
     "ids": [
+      "{CC3E08D4-C2AE-4894-86CE-B40A819CD5DD}",
       "{CE2FF3E0-0726-40B5-A043-3777C391D27C}"
     ],
     "seasons": [
-      2016
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
     ]
   },
   {
@@ -263,6 +235,7 @@
       "Troy Flood"
     ],
     "ids": [
+      "{4CFB4DFA-F6C0-440F-8D05-DFAAE35CD27F}",
       "{C8AAF8CA-29B9-4A98-AAF8-CA29B9FA98BA}"
     ],
     "seasons": [
@@ -271,18 +244,7 @@
       2018,
       2019,
       2020,
-      2021
-    ]
-  },
-  {
-    "owner": "Troy Flood",
-    "names": [
-      "Troy Flood"
-    ],
-    "ids": [
-      "{4CFB4DFA-F6C0-440F-8D05-DFAAE35CD27F}"
-    ],
-    "seasons": [
+      2021,
       2022,
       2023,
       2024,

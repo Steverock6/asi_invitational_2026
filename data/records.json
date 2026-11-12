@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T21:18:25.794193+00:00",
+  "generated": "2026-11-12T21:22:21.862954+00:00",
   "seasons": [
     2016,
     2017,
@@ -75,7 +75,7 @@
         },
         {
           "rank": 2,
-          "owner": "Billy Justis",
+          "owner": "Bill Justis",
           "value": 1910.26,
           "season": 2018,
           "team": "Alvin and The SHIP-Munks"
@@ -89,7 +89,7 @@
         },
         {
           "rank": 4,
-          "owner": "travis delarosa",
+          "owner": "Travis Delarosa",
           "value": 1826.74,
           "season": 2023,
           "team": "Travis and MaHomies"
@@ -124,7 +124,7 @@
         },
         {
           "rank": 3,
-          "owner": "Billy Justis",
+          "owner": "Bill Justis",
           "value": 11,
           "season": 2018,
           "team": "Alvin and The SHIP-Munks"
@@ -157,23 +157,23 @@
         },
         {
           "rank": 2,
+          "owner": "Bill Justis",
+          "value": 78.0
+        },
+        {
+          "rank": 3,
           "owner": "Joe Porcelli",
           "value": 77.0
         },
         {
-          "rank": 3,
+          "rank": 4,
           "owner": "Mike Procaccini",
           "value": 77.0
         },
         {
-          "rank": 4,
-          "owner": "Zachary Wellington",
-          "value": 76.0
-        },
-        {
           "rank": 5,
-          "owner": "Tom Muller",
-          "value": 73.0
+          "owner": "Steve Rock",
+          "value": 76.0
         }
       ]
     },
@@ -184,28 +184,28 @@
       "entries": [
         {
           "rank": 1,
+          "owner": "Steve Rock",
+          "value": 17470.94
+        },
+        {
+          "rank": 2,
+          "owner": "Bill Justis",
+          "value": 17312.34
+        },
+        {
+          "rank": 3,
           "owner": "Mike Procaccini",
           "value": 17089.1
         },
         {
-          "rank": 2,
+          "rank": 4,
           "owner": "Zach Curtis",
           "value": 17058.14
         },
         {
-          "rank": 3,
+          "rank": 5,
           "owner": "Matthew Rasp",
           "value": 16875.12
-        },
-        {
-          "rank": 4,
-          "owner": "travis delarosa",
-          "value": 16821.08
-        },
-        {
-          "rank": 5,
-          "owner": "Tom Muller",
-          "value": 16743.58
         }
       ]
     }
