@@ -15,7 +15,9 @@ Optional files (both live in scripts/):
                     e.g. {"{OLD-ID}": "Steve Rock", "Stephen Rock": "Steve Rock"}
   champions.json    only if a champion comes out wrong, e.g. {"2019": "Steve Rock"}
 
-Also writes data/owners.json, data/champions.json and data/playoff_games.json so you can sanity-check the results.
+Also writes data/owners.json, data/champions.json and data/playoff_games.json, data/transactions_summary.json and data/trades.json so you can sanity-check the results.
+Transactions: ESPN only exposes trades from 2019 on, and older pickups may be missing; the record titles show the seasons actually covered.
+  MIN_FAAB_SEASONS optional, seasons an owner needs to qualify for the "least FAAB" record (default 3)
   MIN_PLAYOFF_GAMES optional, minimum playoff games to qualify for the playoff win % record (default 3)
 
 Game-level records use regular-season games only. Streaks run across seasons.
@@ -36,6 +38,7 @@ ESPN_S2 = os.environ.get("ESPN_S2")
 SWID = os.environ.get("ESPN_SWID") or os.environ.get("SWID")
 NAME_OVERRIDES = json.loads(os.environ.get("OWNER_NAMES", "{}"))
 TOP_N = 5
+MIN_FAAB_SEASONS = int(os.environ.get("MIN_FAAB_SEASONS", 3))  # keeps brand-new owners off the "least FAAB" list
 MIN_PLAYOFF_GAMES = int(os.environ.get("MIN_PLAYOFF_GAMES", 3))  # keeps a lone 1-0 off the list
 
 
@@ -94,10 +97,56 @@ def get_playoffs(league, year, key_by_team_id):
         return []
 
 
+def get_transactions(league, year, key_by_team_id):
+    """Executed free-agent and waiver pickups, one row per add/drop. FAAB comes from the winning bid."""
+    rows, seen = [], set()
+    for period in range(1, 19):
+        try:
+            txns = league.transactions(scoring_period=period, types={"FREEAGENT", "WAIVER"})
+        except Exception:
+            continue
+        for t in txns:
+            if t.status != "EXECUTED" or t.id in seen or t.team_id not in key_by_team_id:
+                continue
+            seen.add(t.id)
+            bid = t.bid_amount or 0
+            for it in t.items:
+                if it.type not in ("ADD", "DROP") or not isinstance(it.player, str) or it.player == "Unknown":
+                    continue
+                rows.append(dict(txn_id=t.id, owner_id=key_by_team_id[t.team_id], season=year, kind=t.type,
+                                 move=it.type, player=it.player, bid=bid if it.type == "ADD" else 0))
+    if not rows:
+        print(f"  no transactions found for {year}")
+    return rows
+
+
+def get_trades(league, year, key_by_team_id):
+    """Completed trades (ESPN's activity feed only goes back to 2019). One row per trade."""
+    if year < 2019:
+        return []
+    rows, seen, offset = [], set(), 0
+    try:
+        while offset < 2000:
+            batch = league.recent_activity(size=50, msg_type="TRADED", offset=offset)
+            for act in batch:
+                ids = sorted({key_by_team_id[a[0].team_id] for a in act.actions
+                              if a[0] and a[0].team_id in key_by_team_id})
+                sig = (act.date, tuple(ids))
+                if len(ids) >= 2 and sig not in seen:
+                    seen.add(sig)
+                    rows.append(dict(season=year, date=act.date, owner_ids=ids))
+            if len(batch) < 50:
+                break
+            offset += 50
+    except Exception as e:
+        print(f"  trade data unavailable for {year}: {e}")
+    return rows
+
+
 def load_rows():
     """games   = one row per team per regular-season week (with opponent's score)
     seasons = one row per team per season"""
-    games, seasons, playoffs = [], [], []
+    games, seasons, playoffs, txns, trades = [], [], [], [], []
     for year in range(START_YEAR, END_YEAR + 1):
         try:
             league = League(league_id=LEAGUE_ID, year=year, espn_s2=ESPN_S2, swid=SWID)
@@ -107,6 +156,8 @@ def load_rows():
         reg_weeks = league.settings.reg_season_count
         key_by_team_id = {t.team_id: owner_of(t)[0] for t in league.teams}
         playoffs.extend(get_playoffs(league, year, key_by_team_id))
+        txns.extend(get_transactions(league, year, key_by_team_id))
+        trades.extend(get_trades(league, year, key_by_team_id))
         for t in league.teams:
             key, name, raw_id, raw_name = owner_of(t)
             scores = list(t.scores[:reg_weeks])
@@ -143,7 +194,11 @@ def load_rows():
     for p in playoffs:
         p["owner"] = latest.get(p["owner_id"], "Unknown")
         p["opp_owner"] = latest.get(p["opp_id"], "Unknown")
-    return games, seasons, playoffs
+    for x in txns:
+        x["owner"] = latest.get(x["owner_id"], "Unknown")
+    for x in trades:
+        x["owners"] = [latest.get(o, "Unknown") for o in x["owner_ids"]]
+    return games, seasons, playoffs, txns, trades
 
 
 def top(rows, key, fmt=lambda v: v, extra=(), reverse=True):
@@ -237,8 +292,71 @@ def playoff_record(playoffs):
     return top(rows, "sort", fmt=lambda v: round(v[0], 3), extra=("team",))
 
 
+def span(rows):
+    yrs = sorted({r["season"] for r in rows})
+    return f"{yrs[0]}\u2013{yrs[-1]}" if len(yrs) > 1 else (str(yrs[0]) if yrs else "")
+
+
+def txn_records(seasons, txns, trades):
+    out, sect = [], "Transactions"
+    if txns:
+        span_t = span(txns)
+        names = {x["owner_id"]: x["owner"] for x in txns}
+        tcount = defaultdict(int)
+        for tr in trades:
+            for o in tr["owner_ids"]:
+                tcount[o] += 1
+        # a pickup and its paired drop share a txn id, so count each executed transaction once
+        all_ids = defaultdict(set)
+        for x in txns:
+            all_ids[x["owner_id"]].add(x["txn_id"])
+        rows = [dict(owner=names[o], total=len(ids) + tcount.get(o, 0),
+                     team=f"{len(ids)} pickups + {tcount.get(o, 0)} trades") for o, ids in all_ids.items()]
+        out.append(dict(id="most_txns", section=sect, title=f"Most transactions ({span_t})", unit="moves",
+                        entries=top(rows, "total", extra=("team",))))
+        # players
+        pl = defaultdict(lambda: [0, 0])
+        for x in txns:
+            pl[x["player"]][0 if x["move"] == "ADD" else 1] += 1
+        rows = [dict(owner=n, total=a + d, team=f"{a} adds, {d} drops") for n, (a, d) in pl.items()]
+        out.append(dict(id="top_player", section=sect, title=f"Most-transacted player ({span_t})", unit="moves",
+                        entries=top(rows, "total", extra=("team",))))
+        # FAAB
+        bids = [dict(x, team=x["player"]) for x in txns if x["move"] == "ADD" and x["bid"] > 0]
+        if bids:
+            faab_years = {b["season"] for b in bids}
+            span_f = span(bids)
+            out.append(dict(id="faab_single", section=sect, title=f"Most FAAB spent on one player ({span_f})",
+                            unit="$", entries=top(bids, "bid", extra=("season", "team"))))
+            spent = defaultdict(float)
+            for b in bids:
+                spent[b["owner_id"]] += b["bid"]
+            yrs = defaultdict(set)
+            for s_ in seasons:
+                if s_["season"] in faab_years:
+                    yrs[s_["owner_id"]].add(s_["season"])
+            nm = {s_["owner_id"]: s_["owner"] for s_ in seasons}
+            rows = [dict(owner=nm[o], total=round(spent.get(o, 0), 2), team=f"{len(y)} seasons")
+                    for o, y in yrs.items() if len(y) >= MIN_FAAB_SEASONS]
+            out.append(dict(id="faab_most", section=sect, title=f"Most FAAB spent all time ({span_f})", unit="$",
+                            entries=top(rows, "total", extra=("team",))))
+            out.append(dict(id="faab_least", section=sect,
+                            title=f"Least FAAB spent all time ({span_f}, min {MIN_FAAB_SEASONS} seasons)", unit="$",
+                            entries=top(rows, "total", extra=("team",), reverse=False)))
+    if trades:
+        tc, nm = defaultdict(int), {}
+        for tr in trades:
+            for o, n in zip(tr["owner_ids"], tr["owners"]):
+                tc[o] += 1
+                nm[o] = n
+        rows = [dict(owner=nm[o], total=c) for o, c in tc.items()]
+        out.append(dict(id="most_trades", section=sect, title=f"Most trades ({span(trades)})", unit="trades",
+                        entries=top(rows, "total")))
+    return out
+
+
 # --- Record registry: add a new record = add one dict here ---------------
-def build(games, seasons, playoffs):
+def build(games, seasons, playoffs, txns, trades):
     wins = decided_games(games)
     records = [
         dict(id="week_points", title="Most points in a single week", unit="pts",
@@ -267,11 +385,12 @@ def build(games, seasons, playoffs):
     if pr:
         records.append(dict(id="playoff_pct", title=f"Best playoff win % (min {MIN_PLAYOFF_GAMES} games)",
                             unit="win %", decimals=3, entries=pr))
+    records.extend(txn_records(seasons, txns, trades))
     return records
 
 
 if __name__ == "__main__":
-    games, seasons, playoffs = load_rows()
+    games, seasons, playoffs, txns, trades = load_rows()
     os.makedirs("data", exist_ok=True)
     review = sorted(
         [dict(owner=sorted(v["names"])[-1], names=sorted(v["names"]), ids=sorted(v["ids"]),
@@ -286,9 +405,23 @@ if __name__ == "__main__":
         json.dump([dict(season=p["season"], week=p["week"], winner=p["owner"], loser=p["opp_owner"],
                         score=f"{p['pts']:.2f}-{p['opp_pts']:.2f}") for p in playoffs if p["won"]],
                   f, indent=2)
+    summary = defaultdict(lambda: dict(pickups=0, drops=0, faab_bids=0, trades=0))
+    for x in txns:
+        sm = summary[x["season"]]
+        if x["move"] == "ADD":
+            sm["pickups"] += 1
+            sm["faab_bids"] += 1 if x["bid"] > 0 else 0
+        else:
+            sm["drops"] += 1
+    for tr in trades:
+        summary[tr["season"]]["trades"] += 1
+    with open("data/transactions_summary.json", "w") as f:
+        json.dump({str(k): v for k, v in sorted(summary.items())}, f, indent=2)
+    with open("data/trades.json", "w") as f:
+        json.dump([dict(season=t["season"], date=t["date"], teams=t["owners"]) for t in trades], f, indent=2)
     out = dict(generated=datetime.now(timezone.utc).isoformat(),
                seasons=sorted({s["season"] for s in seasons}),
-               records=build(games, seasons, playoffs))
+               records=build(games, seasons, playoffs, txns, trades))
     with open("data/records.json", "w") as f:
         json.dump(out, f, indent=2)
     print("wrote data/records.json")
