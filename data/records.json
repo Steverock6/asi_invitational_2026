@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T22:12:05.861577+00:00",
+  "generated": "2026-11-12T22:19:38.206049+00:00",
   "seasons": [
     2016,
     2017,
@@ -471,32 +471,32 @@
         {
           "rank": 1,
           "owner": "Joe Porcelli",
-          "value": 429,
-          "team": "429 pickups + 0 trades"
+          "value": 325,
+          "team": "325 pickups + 0 trades"
         },
         {
           "rank": 2,
           "owner": "Cory Fowler",
-          "value": 382,
-          "team": "382 pickups + 0 trades"
+          "value": 288,
+          "team": "288 pickups + 0 trades"
         },
         {
           "rank": 3,
           "owner": "Matthew Rasp",
-          "value": 306,
-          "team": "306 pickups + 0 trades"
+          "value": 232,
+          "team": "232 pickups + 0 trades"
         },
         {
           "rank": 4,
           "owner": "Tom Muller",
-          "value": 283,
-          "team": "283 pickups + 0 trades"
+          "value": 217,
+          "team": "217 pickups + 0 trades"
         },
         {
           "rank": 5,
-          "owner": "Bill Justis",
-          "value": 229,
-          "team": "229 pickups + 0 trades"
+          "owner": "Steve Rock",
+          "value": 180,
+          "team": "180 pickups + 0 trades"
         }
       ]
     },
@@ -508,33 +508,33 @@
       "entries": [
         {
           "rank": 1,
-          "owner": "Packers D/ST",
-          "value": 45,
-          "team": "29 adds, 16 drops"
+          "owner": "Mike Gesicki",
+          "value": 22,
+          "team": "12 adds, 10 drops"
         },
         {
           "rank": 2,
-          "owner": "Browns D/ST",
-          "value": 36,
-          "team": "24 adds, 12 drops"
+          "owner": "Dalton Schultz",
+          "value": 21,
+          "team": "14 adds, 7 drops"
         },
         {
-          "rank": 3,
-          "owner": "Titans D/ST",
-          "value": 35,
-          "team": "19 adds, 16 drops"
+          "rank": 2,
+          "owner": "Evan McPherson",
+          "value": 21,
+          "team": "12 adds, 9 drops"
         },
         {
-          "rank": 3,
-          "owner": "Chargers D/ST",
-          "value": 35,
-          "team": "19 adds, 16 drops"
+          "rank": 4,
+          "owner": "Jason Myers",
+          "value": 18,
+          "team": "10 adds, 8 drops"
         },
         {
-          "rank": 5,
-          "owner": "Colts D/ST",
-          "value": 34,
-          "team": "20 adds, 14 drops"
+          "rank": 4,
+          "owner": "Hunter Henry",
+          "value": 18,
+          "team": "11 adds, 7 drops"
         }
       ]
     },
@@ -589,32 +589,32 @@
       "entries": [
         {
           "rank": 1,
-          "owner": "Cory Fowler",
-          "value": 757.0,
+          "owner": "Travis Delarosa",
+          "value": 607.0,
           "team": "8 seasons"
         },
         {
           "rank": 2,
           "owner": "Bill Justis",
-          "value": 739.0,
+          "value": 565.0,
           "team": "8 seasons"
         },
         {
           "rank": 3,
-          "owner": "Travis Delarosa",
-          "value": 728.0,
+          "owner": "Mike Procaccini",
+          "value": 564.0,
           "team": "8 seasons"
         },
         {
           "rank": 4,
-          "owner": "Mike Procaccini",
-          "value": 721.0,
+          "owner": "Cory Fowler",
+          "value": 538.0,
           "team": "8 seasons"
         },
         {
           "rank": 5,
-          "owner": "Joe Porcelli",
-          "value": 719.0,
+          "owner": "Matthew Rasp",
+          "value": 517.0,
           "team": "8 seasons"
         }
       ]
@@ -627,32 +627,32 @@
       "entries": [
         {
           "rank": 1,
+          "owner": "Zachary Wellington",
+          "value": 188.0,
+          "team": "8 seasons"
+        },
+        {
+          "rank": 2,
           "owner": "Thomas Huesser",
           "value": 193.0,
           "team": "8 seasons"
         },
         {
-          "rank": 2,
-          "owner": "Zachary Wellington",
-          "value": 366.0,
-          "team": "8 seasons"
-        },
-        {
           "rank": 3,
-          "owner": "Tom Muller",
-          "value": 546.0,
+          "owner": "Steve Rock",
+          "value": 418.0,
           "team": "8 seasons"
         },
         {
           "rank": 4,
-          "owner": "Troy Flood",
-          "value": 567.0,
+          "owner": "Tom Muller",
+          "value": 423.0,
           "team": "8 seasons"
         },
         {
-          "rank": 5,
+          "rank": 4,
           "owner": "Zach Curtis",
-          "value": 576.0,
+          "value": 423.0,
           "team": "8 seasons"
         }
       ]
