@@ -98,14 +98,26 @@ def get_playoffs(league, year, key_by_team_id):
 
 
 def get_transactions(league, year, key_by_team_id):
-    """Executed free-agent and waiver pickups, one row per add/drop. FAAB comes from the winning bid."""
+    """Returns (pickups, trades).
+    pickups: executed free-agent/waiver moves, one row per add/drop. FAAB comes from the winning bid.
+    trades:  completed trades found in the transaction log (used when the activity feed has none)."""
     rows, seen = [], set()
+    proposals, accepts, vetoed = {}, {}, set()
+    types = {"FREEAGENT", "WAIVER", "TRADE_PROPOSAL", "TRADE_ACCEPT", "TRADE_VETO"}
     for period in range(1, 19):
         try:
-            txns = league.transactions(scoring_period=period, types={"FREEAGENT", "WAIVER"})
+            txns = league.transactions(scoring_period=period, types=types)
         except Exception:
             continue
         for t in txns:
+            if t.type == "TRADE_PROPOSAL":
+                proposals[t.id] = t
+            elif t.type == "TRADE_ACCEPT" and t.status == "EXECUTED":
+                accepts[t.id] = t
+            elif t.type == "TRADE_VETO":
+                vetoed.update({t.id, t.related_transaction_id})
+            if t.type not in ("FREEAGENT", "WAIVER"):
+                continue
             if t.status != "EXECUTED" or t.id in seen or t.team_id not in key_by_team_id:
                 continue
             seen.add(t.id)
@@ -117,7 +129,23 @@ def get_transactions(league, year, key_by_team_id):
                                  move=it.type, player=it.player, bid=bid if it.type == "ADD" else 0))
     if not rows:
         print(f"  no transactions found for {year}")
-    return rows
+    trades, seen_t = [], set()
+    for tid, a_ in accepts.items():
+        if tid in vetoed or a_.related_transaction_id in vetoed:
+            continue
+        team_ids = {a_.team_id}
+        for t in (a_, proposals.get(a_.related_transaction_id)):
+            if t is None:
+                continue
+            team_ids.add(t.team_id)
+            for it in t.items:
+                team_ids.update(x for x in (it.from_team_id, it.to_team_id) if x)
+        ids = sorted({key_by_team_id[x] for x in team_ids if x in key_by_team_id})
+        sig = (a_.date, tuple(ids))
+        if len(ids) >= 2 and sig not in seen_t:
+            seen_t.add(sig)
+            trades.append(dict(season=year, date=a_.date, owner_ids=ids, source="transaction log"))
+    return rows, trades
 
 
 def get_trades(league, year, key_by_team_id):
@@ -134,7 +162,7 @@ def get_trades(league, year, key_by_team_id):
                 sig = (act.date, tuple(ids))
                 if len(ids) >= 2 and sig not in seen:
                     seen.add(sig)
-                    rows.append(dict(season=year, date=act.date, owner_ids=ids))
+                    rows.append(dict(season=year, date=act.date, owner_ids=ids, source="activity feed"))
             if len(batch) < 50:
                 break
             offset += 50
@@ -156,8 +184,12 @@ def load_rows():
         reg_weeks = league.settings.reg_season_count
         key_by_team_id = {t.team_id: owner_of(t)[0] for t in league.teams}
         playoffs.extend(get_playoffs(league, year, key_by_team_id))
-        txns.extend(get_transactions(league, year, key_by_team_id))
-        trades.extend(get_trades(league, year, key_by_team_id))
+        pickups, log_trades = get_transactions(league, year, key_by_team_id)
+        feed_trades = get_trades(league, year, key_by_team_id)
+        txns.extend(pickups)
+        trades.extend(feed_trades or log_trades)  # prefer the activity feed, fall back to the transaction log
+        print(f"  {year}: {len({p['txn_id'] for p in pickups})} pickups, trades: "
+              f"{len(feed_trades)} from activity feed, {len(log_trades)} from transaction log")
         for t in league.teams:
             key, name, raw_id, raw_name = owner_of(t)
             scores = list(t.scores[:reg_weeks])
@@ -310,6 +342,10 @@ def txn_records(seasons, txns, trades):
         all_ids = defaultdict(set)
         for x in txns:
             all_ids[x["owner_id"]].add(x["txn_id"])
+        for tr in trades:
+            for o, n in zip(tr["owner_ids"], tr["owners"]):
+                names.setdefault(o, n)
+                all_ids.setdefault(o, set())
         rows = [dict(owner=names[o], total=len(ids) + tcount.get(o, 0),
                      team=f"{len(ids)} pickups + {tcount.get(o, 0)} trades") for o, ids in all_ids.items()]
         out.append(dict(id="most_txns", section=sect, title=f"Most transactions ({span_t})", unit="moves",
@@ -317,6 +353,8 @@ def txn_records(seasons, txns, trades):
         # players
         pl = defaultdict(lambda: [0, 0])
         for x in txns:
+            if "D/ST" in x["player"]:  # team defenses are churned constantly, so they are left out
+                continue
             pl[x["player"]][0 if x["move"] == "ADD" else 1] += 1
         rows = [dict(owner=n, total=a + d, team=f"{a} adds, {d} drops") for n, (a, d) in pl.items()]
         out.append(dict(id="top_player", section=sect, title=f"Most-transacted player ({span_t})", unit="moves",
@@ -418,7 +456,7 @@ if __name__ == "__main__":
     with open("data/transactions_summary.json", "w") as f:
         json.dump({str(k): v for k, v in sorted(summary.items())}, f, indent=2)
     with open("data/trades.json", "w") as f:
-        json.dump([dict(season=t["season"], date=t["date"], teams=t["owners"]) for t in trades], f, indent=2)
+        json.dump([dict(season=t["season"], date=t["date"], teams=t["owners"], source=t.get("source")) for t in trades], f, indent=2)
     out = dict(generated=datetime.now(timezone.utc).isoformat(),
                seasons=sorted({s["season"] for s in seasons}),
                records=build(games, seasons, playoffs, txns, trades))
