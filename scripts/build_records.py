@@ -97,101 +97,98 @@ def get_playoffs(league, year, key_by_team_id):
         return []
 
 
-DEBUG = {}  # written to data/trade_debug.json so we can see what ESPN actually returns
-KNOWN_PICKUP_TYPES = {178, 179, 180, 181, 239}
+DEBUG = {}  # written to data/trade_debug.json so we can see what ESPN actually returned
 
 
-def probe_feed(league, year, key_by_team_id):
-    """Looks at ESPN's raw activity feed with no type filter, only to record which message types exist."""
-    info = DEBUG.setdefault(str(year), {})
-    types, samples, topics_seen = defaultdict(int), [], 0
-    try:
-        for offset in range(0, 200, 50):
-            filters = {"topics": {"filterType": {"value": ["ACTIVITY_TRANSACTIONS"]}, "limit": 50,
-                                  "limitPerMessageSet": {"value": 25}, "offset": offset,
-                                  "sortMessageDate": {"sortPriority": 1, "sortAsc": False},
-                                  "sortFor": {"sortPriority": 2, "sortAsc": False},
-                                  "filterIncludeMessageTypeIds": {"value": list(range(170, 260))}}}
-            data = league.espn_request.league_get(
-                extend="/communication/", params={"view": "kona_league_communication"},
-                headers={"x-fantasy-filter": json.dumps(filters)})
-            topics = data.get("topics", [])
-            topics_seen += len(topics)
-            for tp in topics:
-                for m in tp.get("messages", []):
-                    mt = m.get("messageTypeId")
-                    types[str(mt)] += 1
-                    if (mt not in KNOWN_PICKUP_TYPES and len(samples) < 3
-                            and m.get("from") in key_by_team_id and m.get("to") in key_by_team_id):
-                        samples.append(dict(messageTypeId=mt, **{k: m.get(k) for k in ("from", "to", "targetId")}))
-            if len(topics) < 50:
-                break
-        info["feed_topics_checked"] = topics_seen
-        info["feed_message_types"] = dict(types)
-        info["feed_team_to_team_samples"] = samples
-    except Exception as e:
-        info["feed_error"] = str(e)[:300]
+def raw_txns(league, period, types):
+    """Raw ESPN transaction rows for one week. We read ESPN's data directly instead of going through
+    the library's parser, which throws away a whole week if a single row is shaped unexpectedly."""
+    headers = {"x-fantasy-filter": json.dumps({"transactions": {"filterType": {"value": sorted(types)}}})}
+    data = league.espn_request.league_get(
+        params={"view": "mTransactions2", "scoringPeriodId": period}, headers=headers)
+    return data.get("transactions") or []
 
 
 def get_transactions(league, year, key_by_team_id):
     """Returns (pickups, trades).
     pickups: executed free-agent/waiver moves, one row per add/drop. FAAB comes from the winning bid.
-    trades:  completed trades found in the transaction log (used when the activity feed has none)."""
-    rows, seen, seen_ids_trade = [], set(), set()
-    proposals, accepts, vetoed = {}, {}, set()
+    trades:  completed trades found in the transaction log."""
+    info = DEBUG.setdefault(str(year), {})
+    errors = []
+    rows, seen = [], set()
+    pmap = league.player_map
     for period in range(1, 19):
         try:
-            txns = league.transactions(scoring_period=period, types={"FREEAGENT", "WAIVER"})
-        except Exception:
+            batch = raw_txns(league, period, {"FREEAGENT", "WAIVER"})
+        except Exception as e:
+            errors.append(f"pickups wk{period}: {str(e)[:120]}")
             continue
-        for t in txns:
-            if t.status != "EXECUTED" or t.id in seen or t.team_id not in key_by_team_id:
+        for t in batch:
+            if t.get("status") != "EXECUTED" or t.get("id") in seen or t.get("teamId") not in key_by_team_id:
                 continue
-            seen.add(t.id)
-            bid = t.bid_amount or 0
-            for it in t.items:
-                if it.type not in ("ADD", "DROP") or not isinstance(it.player, str) or it.player == "Unknown":
+            seen.add(t.get("id"))
+            bid = t.get("bidAmount") or 0
+            for it in t.get("items") or []:
+                name = pmap.get(it.get("playerId"), "Unknown")
+                if it.get("type") not in ("ADD", "DROP") or not isinstance(name, str) or name == "Unknown":
                     continue
-                rows.append(dict(txn_id=t.id, owner_id=key_by_team_id[t.team_id], season=year, kind=t.type,
-                                 move=it.type, player=it.player, bid=bid if it.type == "ADD" else 0))
+                rows.append(dict(txn_id=t.get("id"), owner_id=key_by_team_id[t["teamId"]], season=year,
+                                 kind=t.get("type"), move=it["type"], player=name,
+                                 bid=bid if it["type"] == "ADD" else 0))
     if not rows:
         print(f"  no transactions found for {year}")
-    # Trades live in a separate request so a problem there can never cost us pickups.
-    seen_types = defaultdict(int)
+
+    # ---- trades: gather every trade-related row, then group each proposal with its accept/uphold/veto ----
+    allrows, counts, shapes = {}, defaultdict(int), {}
     for period in range(1, 19):
         try:
-            txns = league.transactions(scoring_period=period,
-                                       types={"TRADE_PROPOSAL", "TRADE_ACCEPT", "TRADE_VETO"})
-        except Exception:
+            batch = raw_txns(league, period, {"TRADE_PROPOSAL", "TRADE_ACCEPT", "TRADE_UPHOLD", "TRADE_VETO"})
+        except Exception as e:
+            errors.append(f"trades wk{period}: {str(e)[:120]}")
             continue
-        for t in txns:
-            if (t.type, t.id) in seen_ids_trade:
+        for t in batch:
+            if t.get("id") in allrows:
                 continue
-            seen_ids_trade.add((t.type, t.id))
-            seen_types[f"{t.type}/{t.status}"] += 1
-            if t.type == "TRADE_PROPOSAL":
-                proposals[t.id] = t
-            elif t.type == "TRADE_ACCEPT" and t.status == "EXECUTED":
-                accepts[t.id] = t
-            elif t.type == "TRADE_VETO":
-                vetoed.update({t.id, t.related_transaction_id})
-    DEBUG.setdefault(str(year), {})["transaction_log_trade_rows"] = dict(seen_types)
-    trades, seen_t = [], set()
-    for tid, a_ in accepts.items():
-        if tid in vetoed or a_.related_transaction_id in vetoed:
+            allrows[t.get("id")] = t
+            counts[f"{t.get('type')}/{t.get('status')}"] += 1
+            if t.get("type") not in shapes:  # structure only, no names or ids
+                items = t.get("items") or []
+                shapes[t.get("type")] = dict(row_keys=sorted(t.keys()), n_items=len(items),
+                                             item_keys=sorted(items[0].keys()) if items else [])
+
+    def root(i):
+        for _ in range(6):
+            r = allrows.get(i)
+            if not r or not r.get("relatedTransactionId"):
+                return i
+            i = r["relatedTransactionId"]
+        return i
+
+    groups = defaultdict(list)
+    for i, r in allrows.items():
+        groups[root(i)].append(r)
+    trades, vetoed = [], 0
+    for g in groups.values():
+        done = any(r.get("type") in ("TRADE_ACCEPT", "TRADE_UPHOLD") and r.get("status") == "EXECUTED" for r in g)
+        if any(r.get("type") == "TRADE_VETO" and r.get("status") == "EXECUTED" for r in g):
+            vetoed += 1
             continue
-        team_ids = {a_.team_id}
-        for t in (a_, proposals.get(a_.related_transaction_id)):
-            if t is None:
-                continue
-            team_ids.add(t.team_id)
-            for it in t.items:
-                team_ids.update(x for x in (it.from_team_id, it.to_team_id) if x)
+        if not done:
+            continue
+        team_ids = set()
+        for r in g:
+            team_ids.add(r.get("teamId"))
+            for it in r.get("items") or []:
+                team_ids.update(x for x in (it.get("fromTeamId"), it.get("toTeamId")) if x)
         ids = sorted({key_by_team_id[x] for x in team_ids if x in key_by_team_id})
-        sig = (a_.date, tuple(ids))
-        if len(ids) >= 2 and sig not in seen_t:
-            seen_t.add(sig)
-            trades.append(dict(season=year, date=a_.date, owner_ids=ids, source="transaction log"))
+        date = max((r.get("processDate") or r.get("acceptedDate") or r.get("proposedDate") or 0) for r in g)
+        if len(ids) >= 2:
+            trades.append(dict(season=year, date=date, owner_ids=ids, source="transaction log"))
+    info["transaction_log_trade_rows"] = dict(counts)
+    info["trade_groups"] = dict(total=len(groups), counted_as_trades=len(trades), vetoed=vetoed)
+    info["row_shapes"] = shapes
+    if errors:
+        info["request_errors"] = errors[:6]
     return rows, trades
 
 
@@ -234,7 +231,6 @@ def load_rows():
         playoffs.extend(get_playoffs(league, year, key_by_team_id))
         pickups, log_trades = get_transactions(league, year, key_by_team_id)
         feed_trades = get_trades(league, year, key_by_team_id)
-        probe_feed(league, year, key_by_team_id)
         txns.extend(pickups)
         trades.extend(feed_trades or log_trades)  # prefer the activity feed, fall back to the transaction log
         print(f"  {year}: {len({p['txn_id'] for p in pickups})} pickups, trades: "
