@@ -1,140 +1,157 @@
 """
-Pulls season-long transaction history (trades, adds, drops) from the league
-and formats it into a clean list of dicts, sorted most recent first.
+Pulls this season's completed moves (waiver claims, free-agent pickups,
+drops and trades) for the home page, most recent first.
 
-Note: this talks to ESPN's "communication" endpoint directly with the
-requests library, rather than using espn_api's built-in recent_activity()
-helper, which has proven unreliable for some leagues.
+Reads ESPN's transaction log (view=mTransactions2), the same source the
+record book uses, so team, owner and player names resolve correctly.
+Each row is one move: an add/drop pair or a trade shows as a single line.
 """
 
 import json
-import requests
+import os
+
+PICKUP_TYPES = ["FREEAGENT", "WAIVER"]
+TRADE_TYPES = ["TRADE_ACCEPT", "TRADE_PROPOSAL", "TRADE_VETO"]
+OWNER_ALIASES_PATH = "scripts/owner_names.json"
 
 
-def _build_url(league):
-    return (
-        f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/{league.year}"
-        f"/segments/0/leagues/{league.league_id}/communication/"
-    )
+def _raw_txns(league, period, types):
+    headers = {"x-fantasy-filter": json.dumps({"transactions": {"filterType": {"value": sorted(types)}}})}
+    params = {"view": "mTransactions2"}
+    if period is not None:
+        params["scoringPeriodId"] = period
+    data = league.espn_request.league_get(params=params, headers=headers)
+    if isinstance(data, list):
+        data = data[0] if data else {}
+    return data.get("transactions") or []
 
 
-def _get_cookies(league):
-    return {
-        "espn_s2": league.espn_s2,
-        "SWID": league.swid,
-    }
-
-
-def _fetch_page(league, size=25, offset=0):
-    url = _build_url(league)
-    cookies = _get_cookies(league)
-
-    # These numeric IDs are ESPN's internal codes for the message types we
-    # care about: waiver adds, free agent adds, drops, and trades.
-    message_type_ids = [178, 180, 179, 239, 181, 244]
-
-    filters = {
-        "topics": {
-            "filterType": {"value": ["ACTIVITY_TRANSACTIONS"]},
-            "limit": size,
-            "limitPerMessageSet": {"value": 25},
-            "offset": offset,
-            "sortMessageDate": {"sortPriority": 1, "sortAsc": False},
-            "sortFor": {"sortPriority": 2, "sortAsc": False},
-            "filterIncludeMessageTypeIds": {"value": message_type_ids},
-        }
-    }
-    headers = {
-        "x-fantasy-filter": json.dumps(filters),
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-        ),
-    }
-    params = {"view": "kona_league_communication"}
-
-    response = requests.get(url, params=params, cookies=cookies, headers=headers)
-    if response.status_code != 200:
-        raise RuntimeError(
-            f"ESPN transactions request failed with status {response.status_code}: {response.text[:300]}"
-        )
-    return response.json()
-
-
-def _build_player_map(league):
-    """Maps ESPN player IDs to readable names using each team's roster."""
-    player_map = {}
+def _owner_by_team_id(league):
+    """Team id -> owner display name, using the same aliases as the record book."""
+    aliases = {}
+    if os.path.exists(OWNER_ALIASES_PATH):
+        with open(OWNER_ALIASES_PATH) as f:
+            aliases = json.load(f)
+    out = {}
     for team in league.teams:
-        for player in team.roster:
-            player_map[player.playerId] = player.name
-    return player_map
+        o = team.owners[0] if getattr(team, "owners", None) else None
+        if isinstance(o, dict):
+            raw_id = o.get("id")
+            name = f"{o.get('firstName', '').strip()} {o.get('lastName', '').strip()}".strip()
+        else:
+            raw_id, name = o, (o or "")
+        out[team.team_id] = aliases.get(raw_id) or aliases.get(name) or name
+    return out
+
+
+class _Players:
+    """Player id -> name, falling back to a direct lookup for anyone missing from the map."""
+
+    def __init__(self, league):
+        self.league = league
+        self.cache = {}
+
+    def name(self, pid):
+        name = self.league.player_map.get(pid)
+        if isinstance(name, str):
+            return name
+        if pid not in self.cache:
+            try:
+                info = self.league.player_info(playerId=pid)
+                self.cache[pid] = getattr(info, "name", None) or "Unknown player"
+            except Exception:
+                self.cache[pid] = "Unknown player"
+        return self.cache[pid]
+
+
+def _periods(league):
+    last = min(max(int(league.current_week or 1), 1), 18)
+    return [None, 0] + list(range(1, last + 1))
 
 
 def get_transactions(league):
-    """
-    Takes a connected espn_api League object and returns a list of
-    transaction dicts covering the whole season so far.
-    """
-    player_map = _build_player_map(league)
-    team_map = {team.team_id: team.team_name for team in league.teams}
+    """Returns a list of move dicts covering the whole season so far, newest first."""
+    team_name = {t.team_id: t.team_name for t in league.teams}
+    owner = _owner_by_team_id(league)
+    players = _Players(league)
+    periods = _periods(league)
 
-    transactions = []
-    offset = 0
-    page_size = 25
-    max_pages = 100
+    def side(team_id):
+        return {"team": team_name.get(team_id, "Unknown"), "owner": owner.get(team_id, "")}
 
-    for _ in range(max_pages):
-        data = _fetch_page(league, size=page_size, offset=offset)
-        topics = data.get("topics", [])
-        if not topics:
-            break
+    moves, seen = [], set()
 
-        for topic in topics:
-            date = topic.get("date")
-            msg_type = topic.get("type")
-            for item in topic.get("messages", []):
-                for_team_id = item.get("for")
-                target_id = item.get("targetId")
-                trans_type = item.get("type", msg_type)
-                transactions.append(
-                    {
-                        "date": date,
-                        "team": team_map.get(for_team_id, "Unknown"),
-                        "action_type": trans_type,
-                        "player": player_map.get(target_id, f"Player #{target_id}"),
-                    }
-                )
+    # ---- waiver claims and free-agent adds/drops ----
+    for period in periods:
+        for t in _raw_txns(league, period, PICKUP_TYPES):
+            if t.get("status") != "EXECUTED" or t.get("id") in seen or t.get("teamId") not in team_name:
+                continue
+            seen.add(t.get("id"))
+            adds = [players.name(i.get("playerId")) for i in t.get("items") or [] if i.get("type") == "ADD"]
+            drops = [players.name(i.get("playerId")) for i in t.get("items") or [] if i.get("type") == "DROP"]
+            if not adds and not drops:
+                continue
+            kind = "WAIVER" if t.get("type") == "WAIVER" else ("FREE_AGENT" if adds else "DROP")
+            moves.append({
+                "id": t.get("id"),
+                "date": t.get("processDate") or t.get("proposedDate") or 0,
+                "kind": kind,
+                **side(t["teamId"]),
+                "adds": adds,
+                "drops": drops,
+                "bid": (t.get("bidAmount") or 0) if kind == "WAIVER" else None,
+            })
 
-        offset += page_size
+    # ---- trades: one row per completed trade, listing what each team received ----
+    # Every accepted trade has a TRADE_ACCEPT row (ESPN often leaves its status blank).
+    # League members can then vote to veto; enough votes cancels the trade.
+    rows = {}
+    for period in periods:
+        for t in _raw_txns(league, period, TRADE_TYPES):
+            rows.setdefault(t.get("id"), t)
+    required = getattr(league.settings, "veto_votes_required", 0) or 0
+    vetoes = {}
+    for r in rows.values():
+        if r.get("type") == "TRADE_VETO" and r.get("status") in (None, "EXECUTED"):
+            vetoes[r.get("relatedTransactionId")] = vetoes.get(r.get("relatedTransactionId"), 0) + 1
+    done = set()
+    for a in rows.values():
+        if a.get("type") != "TRADE_ACCEPT" or a.get("status") not in (None, "EXECUTED"):
+            continue
+        key = a.get("relatedTransactionId") or a.get("id")
+        if key in done:
+            continue
+        done.add(key)
+        veto_count = vetoes.get(a.get("id"), 0) + (vetoes.get(key, 0) if key != a.get("id") else 0)
+        if a.get("status") != "EXECUTED" and required and veto_count >= required:
+            continue
+        gets = {}
+        for r in (a, rows.get(a.get("relatedTransactionId"))):
+            for it in (r or {}).get("items") or []:
+                to_id, from_id = it.get("toTeamId"), it.get("fromTeamId")
+                if to_id in team_name and from_id in team_name and to_id != from_id:
+                    gets.setdefault(from_id, [])
+                    name = players.name(it.get("playerId"))
+                    if name not in gets.setdefault(to_id, []):
+                        gets[to_id].append(name)
+        if not gets:
+            continue
+        moves.append({
+            "id": key,
+            "date": a.get("processDate") or a.get("acceptedDate") or a.get("proposedDate") or 0,
+            "kind": "TRADE",
+            "sides": [{**side(tid), "gets": names} for tid, names in gets.items()],
+        })
 
-    transactions.sort(key=lambda t: t["date"] or 0, reverse=True)
-    return transactions
-
-
-def group_trades(transactions):
-    """
-    espn_api logs each side of a trade as separate rows sharing the same
-    timestamp. This groups them back into single trade events so we can
-    describe "Team A traded Player X to Team B for Player Y" as one story.
-    """
-    trades_by_date = {}
-    for t in transactions:
-        if t["action_type"] == "TRADED":
-            trades_by_date.setdefault(t["date"], []).append(t)
-
-    grouped = []
-    for date, entries in trades_by_date.items():
-        grouped.append({"date": date, "entries": entries})
-
-    grouped.sort(key=lambda g: g["date"], reverse=True)
-    return grouped
+    moves.sort(key=lambda m: m["date"] or 0, reverse=True)
+    return moves
 
 
 if __name__ == "__main__":
     from espn_connector import get_league
 
     league = get_league()
-    transactions = get_transactions(league)
-    print(f"Found {len(transactions)} transactions this season.")
-    for t in transactions[:10]:
-        print(t)
+    moves = get_transactions(league)
+    print(f"Found {len(moves)} moves this season.")
+    for m in moves[:15]:
+        print(m)

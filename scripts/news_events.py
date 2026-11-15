@@ -19,6 +19,8 @@ Playoff awareness:
 
 import math
 
+from power_rankings import last_completed_week
+
 BLOWOUT_MARGIN = 40
 NAIL_BITER_MARGIN = 8
 RANK_JUMP_THRESHOLD = 3
@@ -27,12 +29,7 @@ PLAYOFF_PUSH_WEEKS = 2  # how many final regular season weeks count as "the push
 
 def get_most_recent_completed_week(league):
     """Returns the last week number that has final scores."""
-    current = league.current_week
-    for week in range(current, 0, -1):
-        matchups = league.scoreboard(week)
-        if any(m.home_score or m.away_score for m in matchups):
-            return week
-    return current
+    return max(last_completed_week(league), 1)
 
 
 def get_season_phase(league, week):
