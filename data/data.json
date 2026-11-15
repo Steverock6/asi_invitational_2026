@@ -1,7 +1,82 @@
 {
-  "generated_at": "2026-11-12T22:41:43.491407+00:00",
+  "generated_at": "2026-11-15T19:47:43.179422+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 10,
+  "last_completed_week": 9,
+  "upcoming_week": 10,
+  "playoff_spots": 7,
+  "teams": {
+    "For Jaxson": {
+      "owner": "Bill Justis",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/0f95b850-b76b-11f1-a469-5f3d2e2e57e6",
+      "champ": false
+    },
+    "Jefferson Airplane": {
+      "owner": "Troy Flood",
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/ffl/MickeyAndDonald-Disney/Disney-02.svg",
+      "champ": false
+    },
+    "Rashee, Sell Your Jameson!": {
+      "owner": "Cory Fowler",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/df56e470-86e2-11f0-89de-d1ac062a5dc6",
+      "champ": false
+    },
+    "Combat Knife Bald Eagle": {
+      "owner": "Joe Porcelli",
+      "logo": "https://g.espncdn.com/lm-static/ffl/images/default_logos/6.svg",
+      "champ": false
+    },
+    "Jacob's Right Hook": {
+      "owner": "Mike Procaccini",
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/DIS_Avengers_EndGame/DIS_Avengers_EndGame_Hulk.svg",
+      "champ": false
+    },
+    "Hair of the Dog": {
+      "owner": "Steve Rock",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/1e6fa360-9e6e-11f1-b987-2730e362696d",
+      "champ": false
+    },
+    "Sack Lunch": {
+      "owner": "Zachary Wellington",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/351ade50-9f1c-11f1-9ea5-d574bdafef15",
+      "champ": false
+    },
+    "RB Graveyard": {
+      "owner": "Tom Muller",
+      "logo": "https://g.espncdn.com/lm-static/logo-packs/core/AnimalHeads/animal_heads-14.svg",
+      "champ": true
+    },
+    "Who??": {
+      "owner": "Matthew Rasp",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/1083cc20-86de-11f0-b1c3-bf61c28fbeb9",
+      "champ": false
+    },
+    "Hurtin For A Curtin": {
+      "owner": "Zach Curtis",
+      "logo": "https://g.espncdn.com/s/ffllm/logos/AtTheStadium-RobbHarskamp/At_The_Stadium_07.svg",
+      "champ": false
+    },
+    "Nabers B. Tuten": {
+      "owner": "Travis Delarosa",
+      "logo": "https://sportshub.cbsistatic.com/i/r/2022/02/14/54aa8f89-6587-486a-9105-d174d7eadef5/thumbnail/1200x675/90b40993989417a5a3d15cb6e4f81c8d/gettyimages-1238461601-whitworth-miller-rams-win-sb-56-trophy-2022-1400.jpg",
+      "champ": false
+    },
+    "Trump Wall": {
+      "owner": "Thomas Huesser",
+      "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/981a2390-9cf0-11f1-9104-f59757b65297",
+      "champ": false
+    },
+    "Silence of the Lamb": {
+      "owner": "Brian Nale",
+      "logo": "https://g.espncdn.com/lm-static/ffl/images/default_logos/19.svg",
+      "champ": false
+    },
+    "Annexation of LaPorta Rico ": {
+      "owner": "John Lansing",
+      "logo": "https://g.espncdn.com/lm-static/ffl/images/default_logos/20.svg",
+      "champ": false
+    }
+  },
   "standings": [
     {
       "rank": 1,
@@ -10,7 +85,10 @@
       "wins": 8,
       "losses": 1,
       "points_for": 1123.3,
-      "points_against": 970.0
+      "points_against": 970.0,
+      "streak": "W7",
+      "luck": 2.2,
+      "faab_left": 31
     },
     {
       "rank": 2,
@@ -19,7 +97,10 @@
       "wins": 7,
       "losses": 2,
       "points_for": 1174.2,
-      "points_against": 961.9
+      "points_against": 961.9,
+      "streak": "W3",
+      "luck": -0.2,
+      "faab_left": 83
     },
     {
       "rank": 3,
@@ -28,7 +109,10 @@
       "wins": 7,
       "losses": 2,
       "points_for": 1087.4,
-      "points_against": 948.4
+      "points_against": 948.4,
+      "streak": "L1",
+      "luck": 1.2,
+      "faab_left": 58
     },
     {
       "rank": 4,
@@ -37,7 +121,10 @@
       "wins": 6,
       "losses": 3,
       "points_for": 1070.4,
-      "points_against": 1080.4
+      "points_against": 1080.4,
+      "streak": "L1",
+      "luck": 0.7,
+      "faab_left": 23
     },
     {
       "rank": 5,
@@ -46,7 +133,10 @@
       "wins": 5,
       "losses": 4,
       "points_for": 1077.0,
-      "points_against": 996.3
+      "points_against": 996.3,
+      "streak": "L1",
+      "luck": 0.0,
+      "faab_left": 57
     },
     {
       "rank": 6,
@@ -55,7 +145,10 @@
       "wins": 5,
       "losses": 4,
       "points_for": 1026.2,
-      "points_against": 954.2
+      "points_against": 954.2,
+      "streak": "W3",
+      "luck": 0.1,
+      "faab_left": 3
     },
     {
       "rank": 7,
@@ -64,7 +157,10 @@
       "wins": 5,
       "losses": 4,
       "points_for": 986.5,
-      "points_against": 998.0
+      "points_against": 998.0,
+      "streak": "W1",
+      "luck": 1.2,
+      "faab_left": 55
     },
     {
       "rank": 8,
@@ -73,7 +169,10 @@
       "wins": 4,
       "losses": 5,
       "points_for": 1078.7,
-      "points_against": 1092.9
+      "points_against": 1092.9,
+      "streak": "W1",
+      "luck": -1.2,
+      "faab_left": 50
     },
     {
       "rank": 9,
@@ -82,7 +181,10 @@
       "wins": 4,
       "losses": 5,
       "points_for": 1011.3,
-      "points_against": 926.5
+      "points_against": 926.5,
+      "streak": "W1",
+      "luck": -0.2,
+      "faab_left": 96
     },
     {
       "rank": 10,
@@ -91,7 +193,10 @@
       "wins": 4,
       "losses": 5,
       "points_for": 965.7,
-      "points_against": 1041.8
+      "points_against": 1041.8,
+      "streak": "W1",
+      "luck": -0.3,
+      "faab_left": 54
     },
     {
       "rank": 11,
@@ -100,7 +205,10 @@
       "wins": 3,
       "losses": 6,
       "points_for": 877.7,
-      "points_against": 978.3
+      "points_against": 978.3,
+      "streak": "L1",
+      "luck": 0.3,
+      "faab_left": 100
     },
     {
       "rank": 12,
@@ -109,7 +217,10 @@
       "wins": 2,
       "losses": 7,
       "points_for": 929.4,
-      "points_against": 1038.5
+      "points_against": 1038.5,
+      "streak": "L3",
+      "luck": -1.6,
+      "faab_left": 33
     },
     {
       "rank": 13,
@@ -118,7 +229,10 @@
       "wins": 2,
       "losses": 7,
       "points_for": 832.1,
-      "points_against": 1036.5
+      "points_against": 1036.5,
+      "streak": "L4",
+      "luck": -0.8,
+      "faab_left": 12
     },
     {
       "rank": 14,
@@ -127,7 +241,10 @@
       "wins": 1,
       "losses": 8,
       "points_for": 844.7,
-      "points_against": 1060.8
+      "points_against": 1060.8,
+      "streak": "L3",
+      "luck": -1.5,
+      "faab_left": 61
     }
   ],
   "power_rankings": [
@@ -141,10 +258,24 @@
       "Points Against": 961.9200000000001,
       "Win %": 0.7777777777777778,
       "All Play %": 0.7948717948717948,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 995.4714285714286,
-      "Power Rank Score": 1.427846078765065,
-      "Tier": "S"
+      "Recent Momentum": 90.17999999999999,
+      "Schedule Strength": 988.4133333333334,
+      "Power Rank Score": 1.4366422324092634,
+      "Tier": "S",
+      "Score Change": 0.028211607437706565,
+      "Rank Change": 0,
+      "Season Avg Score": 1.478122612050152,
+      "Rank History": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ]
     },
     {
       "Rank": 2,
@@ -156,10 +287,24 @@
       "Points Against": 970.0199999999999,
       "Win %": 0.8888888888888888,
       "All Play %": 0.6495726495726496,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 986.1471428571429,
-      "Power Rank Score": 1.1453164045617144,
-      "Tier": "A"
+      "Recent Momentum": 40.66000000000001,
+      "Schedule Strength": 978.3399999999999,
+      "Power Rank Score": 1.1749113166720264,
+      "Tier": "A",
+      "Score Change": 0.05393985786785671,
+      "Rank Change": 0,
+      "Season Avg Score": 0.907916397349426,
+      "Rank History": [
+        5,
+        5,
+        6,
+        3,
+        2,
+        1,
+        3,
+        2,
+        2
+      ]
     },
     {
       "Rank": 3,
@@ -171,10 +316,24 @@
       "Points Against": 948.4399999999999,
       "Win %": 0.7777777777777778,
       "All Play %": 0.6410256410256411,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1004.8271428571427,
-      "Power Rank Score": 0.9668731052633627,
-      "Tier": "A"
+      "Recent Momentum": 18.619999999999976,
+      "Schedule Strength": 975.3288888888887,
+      "Power Rank Score": 0.8995635351745678,
+      "Tier": "A",
+      "Score Change": -0.17451966942838226,
+      "Rank Change": 0,
+      "Season Avg Score": 0.986093587200505,
+      "Rank History": [
+        1,
+        4,
+        3,
+        4,
+        3,
+        3,
+        2,
+        3,
+        3
+      ]
     },
     {
       "Rank": 4,
@@ -186,10 +345,24 @@
       "Points Against": 1080.42,
       "Win %": 0.6666666666666666,
       "All Play %": 0.5897435897435898,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1007.2614285714286,
-      "Power Rank Score": 0.5206242202804489,
-      "Tier": "A"
+      "Recent Momentum": 20.459999999999994,
+      "Schedule Strength": 1023.2533333333334,
+      "Power Rank Score": 0.5557650692808946,
+      "Tier": "A",
+      "Score Change": -0.2337266443264937,
+      "Rank Change": 0,
+      "Season Avg Score": 0.09061884700142459,
+      "Rank History": [
+        10,
+        7,
+        10,
+        10,
+        6,
+        4,
+        4,
+        4,
+        4
+      ]
     },
     {
       "Rank": 5,
@@ -201,10 +374,24 @@
       "Points Against": 996.3,
       "Win %": 0.5555555555555556,
       "All Play %": 0.5555555555555556,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 998.0942857142855,
-      "Power Rank Score": 0.3663113680212374,
-      "Tier": "B"
+      "Recent Momentum": 15.219999999999985,
+      "Schedule Strength": 982.3666666666666,
+      "Power Rank Score": 0.3481065141758739,
+      "Tier": "B",
+      "Score Change": -0.22182145921865204,
+      "Rank Change": 0,
+      "Season Avg Score": 0.4376586045863321,
+      "Rank History": [
+        4,
+        2,
+        4,
+        6,
+        9,
+        6,
+        5,
+        5,
+        5
+      ]
     },
     {
       "Rank": 6,
@@ -216,10 +403,24 @@
       "Points Against": 954.22,
       "Win %": 0.5555555555555556,
       "All Play %": 0.5470085470085471,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1016.6171428571428,
-      "Power Rank Score": 0.3347369036015694,
-      "Tier": "B"
+      "Recent Momentum": 64.44,
+      "Schedule Strength": 1005.3044444444445,
+      "Power Rank Score": 0.28218614772583817,
+      "Tier": "B",
+      "Score Change": 0.3603876939969465,
+      "Rank Change": 0,
+      "Season Avg Score": -0.2629124405677726,
+      "Rank History": [
+        9,
+        11,
+        9,
+        8,
+        8,
+        10,
+        9,
+        6,
+        6
+      ]
     },
     {
       "Rank": 7,
@@ -231,10 +432,24 @@
       "Points Against": 1092.8799999999999,
       "Win %": 0.4444444444444444,
       "All Play %": 0.5726495726495726,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1001.2342857142856,
-      "Power Rank Score": 0.1353204285682371,
-      "Tier": "B"
+      "Recent Momentum": 96.38000000000002,
+      "Schedule Strength": 1038.2244444444445,
+      "Power Rank Score": 0.2350711683293382,
+      "Tier": "B",
+      "Score Change": 0.32038778925096734,
+      "Rank Change": 0,
+      "Season Avg Score": -0.16249972676028882,
+      "Rank History": [
+        12,
+        6,
+        5,
+        9,
+        11,
+        9,
+        8,
+        7,
+        7
+      ]
     },
     {
       "Rank": 8,
@@ -246,10 +461,24 @@
       "Points Against": 926.52,
       "Win %": 0.4444444444444444,
       "All Play %": 0.46153846153846156,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1010.8542857142858,
-      "Power Rank Score": -0.0187833456254341,
-      "Tier": "B"
+      "Recent Momentum": -27.22,
+      "Schedule Strength": 1016.8733333333334,
+      "Power Rank Score": -0.01609699138422823,
+      "Tier": "B",
+      "Score Change": 0.16328550297879804,
+      "Rank Change": 1,
+      "Season Avg Score": 0.5367393890451432,
+      "Rank History": [
+        3,
+        3,
+        2,
+        2,
+        4,
+        5,
+        6,
+        9,
+        8
+      ]
     },
     {
       "Rank": 9,
@@ -261,10 +490,24 @@
       "Points Against": 998.0,
       "Win %": 0.5555555555555556,
       "All Play %": 0.4188034188034188,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 998.2757142857143,
-      "Power Rank Score": -0.13866497432593927,
-      "Tier": "B"
+      "Recent Momentum": 10.400000000000006,
+      "Schedule Strength": 993.6422222222222,
+      "Power Rank Score": -0.130885820652538,
+      "Tier": "B",
+      "Score Change": 0.0044478673904880806,
+      "Rank Change": -1,
+      "Season Avg Score": -0.06458752711174778,
+      "Rank History": [
+        6,
+        9,
+        8,
+        5,
+        7,
+        8,
+        10,
+        8,
+        9
+      ]
     },
     {
       "Rank": 10,
@@ -276,10 +519,24 @@
       "Points Against": 1041.8,
       "Win %": 0.4444444444444444,
       "All Play %": 0.47863247863247865,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1013.9942857142856,
-      "Power Rank Score": -0.24601734507018985,
-      "Tier": "B"
+      "Recent Momentum": -36.92,
+      "Schedule Strength": 1001.448888888889,
+      "Power Rank Score": -0.2951516920740041,
+      "Tier": "B",
+      "Score Change": -0.012625496391904079,
+      "Rank Change": 0,
+      "Season Avg Score": -0.16827796849927992,
+      "Rank History": [
+        14,
+        8,
+        7,
+        7,
+        5,
+        7,
+        7,
+        10,
+        10
+      ]
     },
     {
       "Rank": 11,
@@ -291,10 +548,24 @@
       "Points Against": 1038.52,
       "Win %": 0.2222222222222222,
       "All Play %": 0.4017094017094017,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 999.09,
-      "Power Rank Score": -0.891493736478462,
-      "Tier": "D"
+      "Recent Momentum": -76.05999999999999,
+      "Schedule Strength": 998.7644444444444,
+      "Power Rank Score": -0.8754263093218739,
+      "Tier": "C",
+      "Score Change": 0.08259618031248595,
+      "Rank Change": 1,
+      "Season Avg Score": -0.9967629136222084,
+      "Rank History": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        11
+      ]
     },
     {
       "Rank": 12,
@@ -306,10 +577,24 @@
       "Points Against": 978.2800000000002,
       "Win %": 0.3333333333333333,
       "All Play %": 0.29914529914529914,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1013.8128571428571,
-      "Power Rank Score": -0.9112144063070133,
-      "Tier": "D"
+      "Recent Momentum": -38.91999999999999,
+      "Schedule Strength": 1028.902222222222,
+      "Power Rank Score": -0.8940903046562707,
+      "Tier": "D",
+      "Score Change": -0.17349534861977156,
+      "Rank Change": -1,
+      "Season Avg Score": -0.7245877340214641,
+      "Rank History": [
+        11,
+        14,
+        11,
+        11,
+        10,
+        11,
+        11,
+        11,
+        12
+      ]
     },
     {
       "Rank": 13,
@@ -321,10 +606,24 @@
       "Points Against": 1036.48,
       "Win %": 0.2222222222222222,
       "All Play %": 0.3076923076923077,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1012.9985714285714,
-      "Power Rank Score": -1.2757608467918633,
-      "Tier": "D"
+      "Recent Momentum": -77.02,
+      "Schedule Strength": 1033.148888888889,
+      "Power Rank Score": -1.2446106856413643,
+      "Tier": "D",
+      "Score Change": -0.07246747290981093,
+      "Rank Change": 0,
+      "Season Avg Score": -1.0114912268855512,
+      "Rank History": [
+        7,
+        10,
+        14,
+        14,
+        12,
+        14,
+        14,
+        13,
+        13
+      ]
     },
     {
       "Rank": 14,
@@ -336,158 +635,830 @@
       "Points Against": 1060.82,
       "Win %": 0.1111111111111111,
       "All Play %": 0.28205128205128205,
-      "Recent Momentum": 0.0,
-      "Schedule Strength": 1025.9414285714286,
-      "Power Rank Score": -1.4150938544627234,
-      "Tier": "F"
+      "Recent Momentum": -100.22000000000001,
+      "Schedule Strength": 1020.6088888888888,
+      "Power Rank Score": -1.4759841800375275,
+      "Tier": "F",
+      "Score Change": -0.12460040834024033,
+      "Rank Change": 0,
+      "Season Avg Score": -1.04602989976467,
+      "Rank History": [
+        8,
+        12,
+        12,
+        12,
+        14,
+        13,
+        13,
+        14,
+        14
+      ]
     }
   ],
   "news": [
     {
-      "headline": "Combat Knife Bald Eagle Escapes in Thriller vs. LaPorta Rico",
-      "body": "Combat Knife Bald Eagle held on for a 97.32-90.96 Week 9 victory in a defensive slugfest against Annexation of LaPorta Rico. The 6.4-point margin had all the drama of a playoff game, but both teams will live to fight another day in the regular season.",
+      "headline": "Jacob's Right Hook DESTROYS Hair of the Dog. Tremendous!",
+      "body": "166.1 to 123.96! A 42-point beatdown like nobody has ever seen. Jacob's Right Hook is WINNING big league, and Hair of the Dog? Total disaster. Believe me.",
+      "type": "blowout",
+      "source": "auto"
+    },
+    {
+      "headline": "RB Graveyard buries Nabers B. Tuten. Not even close!",
+      "body": "151.3 to 99.56 \u2014 a MASSIVE 51.7 point margin! Many people are saying this is the most dominant performance of Week 9. RB Graveyard is rolling. Sad for Nabers B. Tuten!",
+      "type": "blowout",
+      "source": "auto"
+    },
+    {
+      "headline": "Who?? absolutely DEMOLISHES Trump Wall. Incredible!",
+      "body": "124.36 to 70.48! That's a 53.9 point annihilation. Trump Wall put up the worst score of the week and got DESTROYED. Who?? is on FIRE. Big league!",
+      "type": "blowout",
+      "source": "auto"
+    },
+    {
+      "headline": "Combat Knife Bald Eagle edges Annexation of LaPorta Rico. THRILLER!",
+      "body": "97.32 to 90.96 \u2014 a nail-biter that came down to 6.4 points! Combat Knife Bald Eagle survives and advances. Annexation of LaPorta Rico was SO close. Tough loss!",
       "type": "nail_biter",
       "source": "auto"
     },
     {
-      "headline": "Jacob's Right Hook Delivers Crushing Blow to Hair of the Dog",
-      "body": "Jacob's Right Hook put on an offensive clinic in Week 9, demolishing Hair of the Dog 166.1-123.96. The massive 42.1-point blowout was a statement win for the league's explosive offense this week.",
-      "type": "blowout",
+      "headline": "Jacob's Right Hook posts Week 9's HIGH SCORE. Unreal!",
+      "body": "166.10 points! That's the greatest performance of the week. Jacob's Right Hook beat Hair of the Dog 166.10-123.96 in dominant fashion. Nobody does it better! WINNING!",
+      "type": "weekly_high_score",
       "source": "auto"
     },
     {
-      "headline": "RB Graveyard Buries Nabers B. Tuten with Historic Blowout",
-      "body": "RB Graveyard unleashed absolute devastation on Week 9, crushing Nabers B. Tuten 151.3-99.56 in one of the week's most lopsided affairs. The 51.7-point margin left little doubt about who showed up ready to play.",
-      "type": "blowout",
+      "headline": "Trump Wall posts the WORST score of Week 9. Disaster!",
+      "body": "Just 70.48 points! Everybody knows it was a total collapse. Trump Wall got absolutely buried by Who?? 70.48-124.36. Many people are saying this was sad. Very sad!",
+      "type": "weekly_low_score",
       "source": "auto"
     },
     {
-      "headline": "Who?? Annihilates Trump Wall in Dominant Week 9 Victory",
-      "body": "Who?? came out swinging in Week 9, demolishing Trump Wall 124.36-70.48 in a complete domination. The 53.9-point explosion stands as one of the week's most emphatic statements on the scoreboard.",
-      "type": "blowout",
+      "headline": "Hair of the Dog got BAD BEAT. Outscored 9 teams and LOST!",
+      "body": "123.96 points is solid \u2014 it beat 9 of 13 other teams! But Jacob's Right Hook had a tremendous 166.10 and stole the W. Hair of the Dog got robbed. Not good!",
+      "type": "bad_beat",
+      "source": "auto"
+    },
+    {
+      "headline": "For Jaxson on a HISTORIC 7-game win streak. Unbeatable!",
+      "body": "8-1 record and rolling like nobody has ever seen! For Jaxson is on FIRE. Many people are saying this team is the greatest right now. Believe me. WINNING!",
+      "type": "win_streak",
+      "source": "auto"
+    },
+    {
+      "headline": "Annexation of LaPorta Rico in FREEFALL. 4 straight losses!",
+      "body": "2-7 record and struggling badly. A 4-game losing streak is a total disaster. Annexation of LaPorta Rico needs to turn it around fast or the season is over. Very sad!",
+      "type": "losing_streak",
+      "source": "auto"
+    },
+    {
+      "headline": "Combat Knife Bald Eagle drops 41 FAAB on Corey Kiner. Big bet!",
+      "body": "That's a tremendous all-in waiver play! Combat Knife Bald Eagle is desperate and aggressive. Time will tell if this was the Art of the Deal or a total rip-off. Big league!",
+      "type": "big_waiver_bid",
+      "source": "auto"
+    },
+    {
+      "headline": "DonBot's Lock of the Week: RB Graveyard over Low Energy LaPorta Rico!",
+      "body": "I'm 36-20 on the season \u2014 the GREATEST record you've ever seen. My lock is RB Graveyard at 78% confidence. For Jaxson vs Hair of the Dog? Total toss-up. Believe me. WINNING!",
+      "type": "donbot_picks",
       "source": "auto"
     }
   ],
+  "awards": [
+    {
+      "key": "top_dog",
+      "title": "Top Dog",
+      "blurb": "Highest score of the week",
+      "team": "Jacob's Right Hook",
+      "value": "166.10 pts",
+      "detail": "beat Hair of the Dog 166.10-123.96"
+    },
+    {
+      "key": "low_energy",
+      "title": "Low Energy",
+      "blurb": "Lowest score of the week",
+      "team": "Trump Wall",
+      "value": "70.48 pts",
+      "detail": "lost to Who?? 70.48-124.36"
+    },
+    {
+      "key": "blowout",
+      "title": "Biggest Beatdown",
+      "blurb": "Largest margin of victory",
+      "team": "Who??",
+      "value": "+53.88",
+      "detail": "beat Trump Wall 124.36-70.48"
+    },
+    {
+      "key": "photo_finish",
+      "title": "Photo Finish",
+      "blurb": "Closest game of the week",
+      "team": "Combat Knife Bald Eagle",
+      "value": "+6.36",
+      "detail": "beat Annexation of LaPorta Rico  97.32-90.96"
+    },
+    {
+      "key": "lucky_duck",
+      "title": "Lucky Duck",
+      "blurb": "Lowest score that still won",
+      "team": "Hurtin For A Curtin",
+      "value": "93.66 pts",
+      "detail": "beat Sack Lunch 93.66-76.88"
+    },
+    {
+      "key": "bad_beat",
+      "title": "Bad Beat",
+      "blurb": "Highest score that still lost",
+      "team": "Hair of the Dog",
+      "value": "123.96 pts",
+      "detail": "outscored 9 of 13 other teams and lost to Jacob's Right Hook 123.96-166.10"
+    },
+    {
+      "key": "mvp",
+      "title": "League MVP",
+      "blurb": "Top-scoring starter",
+      "team": "Who??",
+      "value": "36.30 pts",
+      "detail": "Kenneth Walker III"
+    },
+    {
+      "key": "bench_blunder",
+      "title": "Bench Blunder",
+      "blurb": "Most points left on the bench by one player",
+      "team": "Jefferson Airplane",
+      "value": "20.50 pts",
+      "detail": "Tank Dell rode the bench"
+    }
+  ],
+  "matchups": [
+    {
+      "home": {
+        "team": "For Jaxson",
+        "record": "8-1",
+        "power_rank": 2,
+        "avg": 124.8,
+        "win_prob": 54
+      },
+      "away": {
+        "team": "Hair of the Dog",
+        "record": "7-2",
+        "power_rank": 3,
+        "avg": 120.8,
+        "win_prob": 46
+      },
+      "pick": "For Jaxson",
+      "confidence": 54
+    },
+    {
+      "home": {
+        "team": "Combat Knife Bald Eagle",
+        "record": "4-5",
+        "power_rank": 10,
+        "avg": 107.3,
+        "win_prob": 43
+      },
+      "away": {
+        "team": "Jacob's Right Hook",
+        "record": "5-4",
+        "power_rank": 6,
+        "avg": 114.0,
+        "win_prob": 57
+      },
+      "pick": "Jacob's Right Hook",
+      "confidence": 57
+    },
+    {
+      "home": {
+        "team": "Jefferson Airplane",
+        "record": "5-4",
+        "power_rank": 5,
+        "avg": 119.7,
+        "win_prob": 68
+      },
+      "away": {
+        "team": "Rashee, Sell Your Jameson!",
+        "record": "2-7",
+        "power_rank": 11,
+        "avg": 103.3,
+        "win_prob": 32
+      },
+      "pick": "Jefferson Airplane",
+      "confidence": 68
+    },
+    {
+      "home": {
+        "team": "Sack Lunch",
+        "record": "1-8",
+        "power_rank": 14,
+        "avg": 93.9,
+        "win_prob": 30
+      },
+      "away": {
+        "team": "Silence of the Lamb",
+        "record": "4-5",
+        "power_rank": 8,
+        "avg": 112.4,
+        "win_prob": 70
+      },
+      "pick": "Silence of the Lamb",
+      "confidence": 70
+    },
+    {
+      "home": {
+        "team": "Trump Wall",
+        "record": "3-6",
+        "power_rank": 12,
+        "avg": 97.5,
+        "win_prob": 28
+      },
+      "away": {
+        "team": "Nabers B. Tuten",
+        "record": "6-3",
+        "power_rank": 4,
+        "avg": 118.9,
+        "win_prob": 72
+      },
+      "pick": "Nabers B. Tuten",
+      "confidence": 72
+    },
+    {
+      "home": {
+        "team": "Hurtin For A Curtin",
+        "record": "5-4",
+        "power_rank": 9,
+        "avg": 109.6,
+        "win_prob": 28
+      },
+      "away": {
+        "team": "Who??",
+        "record": "7-2",
+        "power_rank": 1,
+        "avg": 130.5,
+        "win_prob": 72
+      },
+      "pick": "Who??",
+      "confidence": 72
+    },
+    {
+      "home": {
+        "team": "RB Graveyard",
+        "record": "4-5",
+        "power_rank": 7,
+        "avg": 119.9,
+        "win_prob": 78
+      },
+      "away": {
+        "team": "Annexation of LaPorta Rico ",
+        "record": "2-7",
+        "power_rank": 13,
+        "avg": 92.5,
+        "win_prob": 22
+      },
+      "pick": "RB Graveyard",
+      "confidence": 78
+    }
+  ],
+  "donbot_record": {
+    "wins": 36,
+    "losses": 20
+  },
   "transactions": [
     {
-      "date": 1794435526979,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Andre Szmyt"
-    },
-    {
-      "date": 1794435332752,
+      "id": "2dc12ed0-2593-4742-9a05-472b048b50a1",
+      "date": 1794753337821,
+      "kind": "FREE_AGENT",
       "team": "Jacob's Right Hook",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #3917315"
+      "owner": "Mike Procaccini",
+      "adds": [
+        "Rashid Shaheed"
+      ],
+      "drops": [
+        "Cooper Kupp"
+      ],
+      "bid": null
     },
     {
-      "date": 1794420375202,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Charlie Smyth"
-    },
-    {
-      "date": 1794420375202,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #-16017"
-    },
-    {
-      "date": 1794414220688,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Malachi Fields"
-    },
-    {
-      "date": 1794414220688,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4032473"
-    },
-    {
-      "date": 1794405927101,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Pat Freiermuth"
-    },
-    {
-      "date": 1794405927101,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #-16003"
-    },
-    {
-      "date": 1794405851286,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Cooper Kupp"
-    },
-    {
-      "date": 1794405473299,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Packers D/ST"
-    },
-    {
-      "date": 1794405435490,
+      "id": "dc02703a-fd9e-4b9b-b216-8ce492ee9290",
+      "date": 1794753273571,
+      "kind": "FREE_AGENT",
       "team": "Jacob's Right Hook",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #17427"
+      "owner": "Mike Procaccini",
+      "adds": [
+        "Tyler Higbee"
+      ],
+      "drops": [
+        "Pat Freiermuth"
+      ],
+      "bid": null
     },
     {
-      "date": 1794402970443,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #2985659"
-    },
-    {
-      "date": 1794402970443,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Chris Boswell"
-    },
-    {
-      "date": 1794390554383,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4426338"
-    },
-    {
-      "date": 1794390554383,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Drew Lock"
-    },
-    {
-      "date": 1794388465781,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4249087"
-    },
-    {
-      "date": 1794388465781,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Dominic Zvada"
-    },
-    {
-      "date": 1794387008441,
-      "team": "Unknown",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Player #4686658"
-    },
-    {
-      "date": 1794387008441,
+      "id": "29d5d946-eaa1-40a0-8aab-888efa7da324",
+      "date": 1794752626200,
+      "kind": "FREE_AGENT",
       "team": "Sack Lunch",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "Darren Waller"
+      "owner": "Zachary Wellington",
+      "adds": [
+        "Xavier Hutchinson"
+      ],
+      "drops": [
+        "Brandon Aiyuk"
+      ],
+      "bid": null
     },
     {
-      "date": 1794387008441,
+      "id": "8456567d-bd25-4ea0-8b76-4deb10c8fe84",
+      "date": 1794750723370,
+      "kind": "FREE_AGENT",
+      "team": "Annexation of LaPorta Rico ",
+      "owner": "John Lansing",
+      "adds": [
+        "Colts D/ST"
+      ],
+      "drops": [
+        "Lions D/ST"
+      ],
+      "bid": null
+    },
+    {
+      "id": "e3b3d232-ec95-49a3-870f-7e2a07180cff",
+      "date": 1794698006031,
+      "kind": "FREE_AGENT",
+      "team": "Rashee, Sell Your Jameson!",
+      "owner": "Cory Fowler",
+      "adds": [
+        "Cam Ward"
+      ],
+      "drops": [
+        "Demarcus Robinson"
+      ],
+      "bid": null
+    },
+    {
+      "id": "9c9ff9c3-3f34-4e2f-97e6-95410cbfbb56",
+      "date": 1794674614079,
+      "kind": "FREE_AGENT",
+      "team": "Who??",
+      "owner": "Matthew Rasp",
+      "adds": [
+        "Tutu Atwell"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "5f3dd436-fcbf-4107-b920-feab092f2173",
+      "date": 1794611729415,
+      "kind": "FREE_AGENT",
+      "team": "Nabers B. Tuten",
+      "owner": "Travis Delarosa",
+      "adds": [
+        "Konata Mumpfield"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "402fb72a-0f77-4cd5-8325-c49361eb622c",
+      "date": 1794532392977,
+      "kind": "FREE_AGENT",
+      "team": "Who??",
+      "owner": "Matthew Rasp",
+      "adds": [
+        "Giants D/ST"
+      ],
+      "drops": [
+        "Sione Vaki"
+      ],
+      "bid": null
+    },
+    {
+      "id": "35dfdb0f-18f1-44ae-af59-eb11763491ef",
+      "date": 1794525272869,
+      "kind": "FREE_AGENT",
+      "team": "Rashee, Sell Your Jameson!",
+      "owner": "Cory Fowler",
+      "adds": [
+        "Mike Washington Jr."
+      ],
+      "drops": [
+        "Keaton Mitchell"
+      ],
+      "bid": null
+    },
+    {
+      "id": "3b648db7-d754-4092-a744-62d78f0f4c8f",
+      "date": 1794523627541,
+      "kind": "FREE_AGENT",
+      "team": "Who??",
+      "owner": "Matthew Rasp",
+      "adds": [
+        "Jake Bates"
+      ],
+      "drops": [
+        "Dominic Zvada"
+      ],
+      "bid": null
+    },
+    {
+      "id": "e75782b3-d62d-4a21-9e03-0c8994448500",
+      "date": 1794435526929,
+      "kind": "FREE_AGENT",
+      "team": "Jacob's Right Hook",
+      "owner": "Mike Procaccini",
+      "adds": [
+        "Andre Szmyt"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "2a160326-ce44-41d7-bfcb-5b129ee9df9e",
+      "date": 1794420375147,
+      "kind": "FREE_AGENT",
+      "team": "Jefferson Airplane",
+      "owner": "Troy Flood",
+      "adds": [
+        "Charlie Smyth"
+      ],
+      "drops": [
+        "Patriots D/ST"
+      ],
+      "bid": null
+    },
+    {
+      "id": "e4b5c3f9-18c8-4e48-b8ca-671265b56086",
+      "date": 1794414220621,
+      "kind": "FREE_AGENT",
+      "team": "Hurtin For A Curtin",
+      "owner": "Zach Curtis",
+      "adds": [
+        "Malachi Fields"
+      ],
+      "drops": [
+        "Rashid Shaheed"
+      ],
+      "bid": null
+    },
+    {
+      "id": "b0e1af09-c3aa-4952-a65a-ba3c3554f7da",
+      "date": 1794405927045,
+      "kind": "FREE_AGENT",
+      "team": "Jacob's Right Hook",
+      "owner": "Mike Procaccini",
+      "adds": [
+        "Pat Freiermuth"
+      ],
+      "drops": [
+        "Bears D/ST"
+      ],
+      "bid": null
+    },
+    {
+      "id": "4861d610-9d15-4cac-9fc3-90fbefe651bb",
+      "date": 1794405851229,
+      "kind": "FREE_AGENT",
+      "team": "Jacob's Right Hook",
+      "owner": "Mike Procaccini",
+      "adds": [
+        "Cooper Kupp"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "885460c8-bac7-4db7-8c50-f9237cdba3c3",
+      "date": 1794405473243,
+      "kind": "FREE_AGENT",
+      "team": "Jacob's Right Hook",
+      "owner": "Mike Procaccini",
+      "adds": [
+        "Packers D/ST"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "d2f21fb8-5df3-4be8-ad49-83fded3ea704",
+      "date": 1794402970387,
+      "kind": "FREE_AGENT",
+      "team": "For Jaxson",
+      "owner": "Bill Justis",
+      "adds": [
+        "Chris Boswell"
+      ],
+      "drops": [
+        "Wil Lutz"
+      ],
+      "bid": null
+    },
+    {
+      "id": "697951d7-f854-46ec-ae02-81c1994cecca",
+      "date": 1794390554315,
+      "kind": "FREE_AGENT",
+      "team": "Silence of the Lamb",
+      "owner": "Brian Nale",
+      "adds": [
+        "Drew Lock"
+      ],
+      "drops": [
+        "Bo Nix"
+      ],
+      "bid": null
+    },
+    {
+      "id": "6095edbb-ad3d-498c-97b9-adf00ca92c9b",
+      "date": 1794388465585,
+      "kind": "FREE_AGENT",
+      "team": "Who??",
+      "owner": "Matthew Rasp",
+      "adds": [
+        "Dominic Zvada"
+      ],
+      "drops": [
+        "Matt Gay"
+      ],
+      "bid": null
+    },
+    {
+      "id": "571b7c79-3e01-4cfd-aa7d-dc3aefb31c1b",
+      "date": 1794387007471,
+      "kind": "WAIVER",
       "team": "Hair of the Dog",
-      "action_type": "ACTIVITY_TRANSACTIONS",
-      "player": "MarShawn Lloyd"
+      "owner": "Steve Rock",
+      "adds": [
+        "Darren Waller"
+      ],
+      "drops": [
+        "Mike Washington Jr."
+      ],
+      "bid": 2
+    },
+    {
+      "id": "c4e57005-628d-4aa4-95a3-4bc63cfa8a12",
+      "date": 1794387007471,
+      "kind": "WAIVER",
+      "team": "Who??",
+      "owner": "Matthew Rasp",
+      "adds": [
+        "MarShawn Lloyd"
+      ],
+      "drops": [
+        "Michael Wilson"
+      ],
+      "bid": 6
+    },
+    {
+      "id": "5a345022-12e9-4dd9-9355-aff3fe027e08",
+      "date": 1794387007471,
+      "kind": "WAIVER",
+      "team": "Hair of the Dog",
+      "owner": "Steve Rock",
+      "adds": [
+        "C.J. Stroud"
+      ],
+      "drops": [
+        "Giants D/ST"
+      ],
+      "bid": 6
+    },
+    {
+      "id": "70b48d64-8df9-4e3d-9cf0-574edf6d39eb",
+      "date": 1794387007470,
+      "kind": "WAIVER",
+      "team": "Jefferson Airplane",
+      "owner": "Troy Flood",
+      "adds": [
+        "Ravens D/ST"
+      ],
+      "drops": [
+        "Michael Mayer"
+      ],
+      "bid": 6
+    },
+    {
+      "id": "13dbc862-5342-4e86-8729-6977b8412450",
+      "date": 1794387007470,
+      "kind": "WAIVER",
+      "team": "Combat Knife Bald Eagle",
+      "owner": "Joe Porcelli",
+      "adds": [
+        "Corey Kiner"
+      ],
+      "drops": [],
+      "bid": 41
+    },
+    {
+      "id": "c96e8b6e-d352-4125-aff5-982c677a9d35",
+      "date": 1794156514379,
+      "kind": "FREE_AGENT",
+      "team": "Sack Lunch",
+      "owner": "Zachary Wellington",
+      "adds": [
+        "Darius Cooper"
+      ],
+      "drops": [
+        "Dalton Schultz"
+      ],
+      "bid": null
+    },
+    {
+      "id": "501c0bed-e60b-4a75-ab6d-d79c238d7260",
+      "date": 1794142478062,
+      "kind": "FREE_AGENT",
+      "team": "Jacob's Right Hook",
+      "owner": "Mike Procaccini",
+      "adds": [
+        "Cairo Santos"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "4e7cd1cc-2bab-4f02-941c-ba27404e32ce",
+      "date": 1794083599321,
+      "kind": "FREE_AGENT",
+      "team": "Annexation of LaPorta Rico ",
+      "owner": "John Lansing",
+      "adds": [
+        "Audric Estime"
+      ],
+      "drops": [
+        "Kendre Miller"
+      ],
+      "bid": null
+    },
+    {
+      "id": "004285cc-5bb6-4af2-8f15-c231916c326a",
+      "date": 1794066229314,
+      "kind": "FREE_AGENT",
+      "team": "Silence of the Lamb",
+      "owner": "Brian Nale",
+      "adds": [
+        "Samaje Perine"
+      ],
+      "drops": [
+        "Treylon Burks"
+      ],
+      "bid": null
+    },
+    {
+      "id": "d8ced948-2516-4537-9c85-a7279914ff71",
+      "date": 1793901491671,
+      "kind": "FREE_AGENT",
+      "team": "Rashee, Sell Your Jameson!",
+      "owner": "Cory Fowler",
+      "adds": [
+        "Demarcus Robinson"
+      ],
+      "drops": [
+        "Ja'Kobi Lane"
+      ],
+      "bid": null
+    },
+    {
+      "id": "241ec632-a71b-48e8-a85d-d843ae77b71b",
+      "date": 1793866840505,
+      "kind": "WAIVER",
+      "team": "Rashee, Sell Your Jameson!",
+      "owner": "Cory Fowler",
+      "adds": [
+        "Keon Coleman"
+      ],
+      "drops": [],
+      "bid": 3
+    },
+    {
+      "id": "49e33808-4565-4189-ab79-06b148f1afac",
+      "date": 1793858655527,
+      "kind": "FREE_AGENT",
+      "team": "Nabers B. Tuten",
+      "owner": "Travis Delarosa",
+      "adds": [
+        "Saints D/ST"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "8afe9020-643c-43db-bd87-2e12afb13448",
+      "date": 1793827821678,
+      "kind": "FREE_AGENT",
+      "team": "Silence of the Lamb",
+      "owner": "Brian Nale",
+      "adds": [
+        "Austin Ekeler"
+      ],
+      "drops": [
+        "Roschon Johnson"
+      ],
+      "bid": null
+    },
+    {
+      "id": "98dbff73-c1ee-480e-8cf5-247f46ffc253",
+      "date": 1793802027546,
+      "kind": "FREE_AGENT",
+      "team": "Sack Lunch",
+      "owner": "Zachary Wellington",
+      "adds": [
+        "Brandon Aiyuk"
+      ],
+      "drops": [
+        "Darius Cooper"
+      ],
+      "bid": null
+    },
+    {
+      "id": "86ad517e-55ca-400f-a2f6-a671da4c6d65",
+      "date": 1793802001050,
+      "kind": "FREE_AGENT",
+      "team": "Sack Lunch",
+      "owner": "Zachary Wellington",
+      "adds": [
+        "Devin Singletary"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "c9f3caf3-85cd-480b-a5c1-c284d284bd0c",
+      "date": 1793790984261,
+      "kind": "FREE_AGENT",
+      "team": "For Jaxson",
+      "owner": "Bill Justis",
+      "adds": [
+        "J.J. McCarthy"
+      ],
+      "drops": [
+        "Mason Taylor"
+      ],
+      "bid": null
+    },
+    {
+      "id": "0735f81c-f2ba-49b1-a14a-0de7d6fa34df",
+      "date": 1793790741966,
+      "kind": "FREE_AGENT",
+      "team": "For Jaxson",
+      "owner": "Bill Justis",
+      "adds": [
+        "Bills D/ST"
+      ],
+      "drops": [
+        "Emanuel Wilson"
+      ],
+      "bid": null
+    },
+    {
+      "id": "b5603cf5-29cb-4362-b758-fe8a3107997a",
+      "date": 1793790706441,
+      "kind": "FREE_AGENT",
+      "team": "For Jaxson",
+      "owner": "Bill Justis",
+      "adds": [
+        "Khalil Shakir"
+      ],
+      "drops": [
+        "Kalif Raymond"
+      ],
+      "bid": null
+    },
+    {
+      "id": "1038e7fa-3c57-4f98-a780-69b71cee21bc",
+      "date": 1793790677992,
+      "kind": "FREE_AGENT",
+      "team": "For Jaxson",
+      "owner": "Bill Justis",
+      "adds": [
+        "Adonai Mitchell"
+      ],
+      "drops": [],
+      "bid": null
+    },
+    {
+      "id": "958b28fa-c4c2-4f92-87e3-68086fc6cb8c",
+      "date": 1793780291328,
+      "kind": "WAIVER",
+      "team": "Silence of the Lamb",
+      "owner": "Brian Nale",
+      "adds": [
+        "Treylon Burks"
+      ],
+      "drops": [
+        "Ty Johnson"
+      ],
+      "bid": 1
+    },
+    {
+      "id": "4498882f-e371-48d5-b172-f6f4e213b5c4",
+      "date": 1793780291327,
+      "kind": "WAIVER",
+      "team": "Silence of the Lamb",
+      "owner": "Brian Nale",
+      "adds": [
+        "Bo Nix"
+      ],
+      "drops": [
+        "Jacoby Brissett"
+      ],
+      "bid": 1
     }
   ]
 }
