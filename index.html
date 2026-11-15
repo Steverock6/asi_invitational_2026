@@ -194,6 +194,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
+  .two-col.wide-left { grid-template-columns: 1.3fr 1fr; }
+  @media (max-width: 720px) { .two-col.wide-left { grid-template-columns: 1fr; } }
 
   @media (max-width: 720px) {
     .two-col { grid-template-columns: 1fr; }
@@ -285,6 +287,118 @@
   .action-tag.add { color: var(--tier-a); }
   .action-tag.drop { color: var(--tier-f); }
   .action-tag.trade { color: var(--tier-b); }
+
+  /* ---- DonBot tweet cards ---- */
+  .tweet {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 16px 10px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+  }
+  .tweet-avatar { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: #1d9bf0; }
+  .tweet-avatar svg { width: 100%; height: 100%; display: block; }
+  .tweet-head { display: flex; align-items: center; gap: 5px; font-size: 14.5px; flex-wrap: wrap; }
+  .tweet-name { font-weight: 700; color: var(--text); }
+  .tweet-check { width: 16px; height: 16px; flex: none; }
+  .tweet-handle { color: var(--text-faint); }
+  .tweet-text { margin: 4px 0 0; font-size: 15px; line-height: 1.45; color: var(--text); white-space: pre-line; }
+  .tweet-text .lead { display: block; font-weight: 600; margin-bottom: 4px; }
+  .tweet-actions { display: flex; justify-content: space-between; max-width: 360px; margin-top: 10px; color: var(--text-faint); font-size: 12.5px; }
+  .tweet-actions span { display: inline-flex; align-items: center; gap: 6px; }
+  .tweet-actions svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .ticker-item .handle { color: #1d9bf0; margin-right: 6px; }
+
+  /* ---- power ranking trends ---- */
+  .delta { font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .delta.up { color: var(--tier-a); }
+  .delta.down { color: var(--tier-f); }
+  .delta.flat { color: var(--text-faint); }
+  .delta .spots { font-size: 10.5px; opacity: 0.8; margin-left: 4px; }
+
+  /* ---- transactions ---- */
+  .txn-sub { color: var(--text-faint); font-size: 12px; }
+  .txn-add { color: var(--tier-a); }
+  .txn-drop { color: var(--tier-f); }
+  .txn-line + .txn-line { margin-top: 3px; }
+  .txn-bid { color: var(--text-faint); font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; margin-left: 6px; }
+
+  /* ---- team identity ---- */
+  .team { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+  .team-logo { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; background: var(--surface-2); flex: none; }
+  .team-logo.blank { display: inline-flex; align-items: center; justify-content: center; font: 600 9px 'IBM Plex Mono', monospace; color: var(--text-faint); }
+  .crown { margin-left: 2px; cursor: help; }
+
+  /* ---- weekly awards ---- */
+  .awards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .award {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 14px 12px;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .award:hover { transform: translateY(-2px); border-color: var(--accent-dim); }
+  .award-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .award-icon { font-size: 20px; line-height: 1; }
+  .award-title { font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+  .award.bad .award-title { color: var(--tier-f); }
+  .award-team { font-weight: 600; font-size: 14px; }
+  .award-value { font-family: 'IBM Plex Mono', monospace; font-size: 18px; margin: 4px 0 2px; }
+  .award-detail { color: var(--text-faint); font-size: 12px; line-height: 1.4; }
+  @media (max-width: 900px) { .awards-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---- matchups + DonBot's picks ---- */
+  .matchup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .matchup { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+  .matchup-side { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 4px 0; font-size: 14px; }
+  .matchup-side .meta-line { color: var(--text-faint); font-size: 11.5px; font-family: 'IBM Plex Mono', monospace; }
+  .matchup-side .pct { font-family: 'IBM Plex Mono', monospace; color: var(--text-dim); }
+  .matchup-side.picked .pct { color: var(--accent); font-weight: 600; }
+  .pick-badge { font: 600 9.5px 'IBM Plex Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bg); background: var(--accent); border-radius: 3px; padding: 2px 5px; margin-left: 6px; white-space: nowrap; }
+  .prob-bar { display: flex; height: 4px; border-radius: 2px; overflow: hidden; background: var(--surface-2); margin-top: 8px; }
+  .prob-bar i { display: block; background: var(--text-faint); }
+  .prob-bar i.fav { background: var(--accent); }
+  .matchup-tag { font: 500 10px 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 4px; }
+  .matchup-tag.hot { color: var(--tier-f); }
+  .title-note { color: var(--text-dim); letter-spacing: 0.04em; }
+  @media (max-width: 720px) { .matchup-grid { grid-template-columns: 1fr; } }
+
+  /* ---- standings extras ---- */
+  .spark { display: block; }
+  tr.cut td { border-bottom: 2px dashed var(--accent-dim); }
+  .table-note { color: var(--text-faint); font-size: 11.5px; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; }
+  .streak-w { color: var(--tier-a); }
+  .streak-l { color: var(--tier-f); }
+  .two-col > div { min-width: 0; overflow-x: auto; }
+  @media (max-width: 720px) {
+    .hide-sm { display: none; }
+    .two-col .team-logo { display: none; }
+    .two-col th, .two-col td { padding-left: 4px; padding-right: 4px; }
+  }
+
+  /* ---- buttons + filter chips ---- */
+  .more-btn, .chip {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text-dim);
+    cursor: pointer;
+    font: 500 11.5px 'IBM Plex Mono', monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 7px 14px;
+  }
+  .more-btn:hover, .chip:hover { color: var(--text); border-color: var(--accent-dim); }
+  .more-btn { display: block; margin: 14px auto 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .chip.active { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+  .tweet.extra, tr.extra { display: none; }
+  .show-all .tweet.extra { display: grid; }
+  .show-all tr.extra { display: table-row; }
+  .tweet-pin { grid-column: 1 / -1; color: var(--text-faint); font-size: 12px; margin: 0 0 -6px 60px; }
 
   td.date-cell {
     color: var(--text-dim);
@@ -392,51 +506,194 @@ function formatShortDate(ts) {
   }
 }
 
-function formatActionType(type) {
-  const label = String(type ?? '').replace(/_/g, ' ').trim();
-  if (!label) return 'Transaction';
-  return label.replace(/\w\S*/g, w => w[0].toUpperCase() + w.slice(1).toLowerCase());
+const MOVE_LABELS = { WAIVER: ['Waiver claim', 'add'], FREE_AGENT: ['Free agent', 'add'], DROP: ['Drop', 'drop'], TRADE: ['Trade', 'trade'] };
+
+function teamCell(team, owner) {
+  return `${escapeHtml(team)}${owner ? `<div class="txn-sub">${escapeHtml(owner)}</div>` : ''}`;
 }
 
-function actionClass(type) {
-  const t = String(type ?? '').toUpperCase();
-  if (t.includes('TRADE')) return 'trade';
-  if (t.includes('DROP')) return 'drop';
-  if (t.includes('ADD') || t.includes('WAIVER') || t.includes('FA') || t.includes('FREEAGENT')) return 'add';
-  return '';
+function transactionRow(t, i) {
+  const extra = i >= 12;
+  const [label, cls] = MOVE_LABELS[t.kind] || ['Move', ''];
+  let team, details;
+  if (t.kind === 'TRADE') {
+    const sides = t.sides || [];
+    team = sides.map(sd => teamCell(sd.team, sd.owner)).join('<div class="txn-sub">⇄</div>');
+    details = sides.map(sd => `<div class="txn-line"><span class="txn-sub">${escapeHtml(sd.team)} gets</span> ${escapeHtml((sd.gets || []).join(', '))}</div>`).join('');
+  } else {
+    team = teamCell(t.team, t.owner);
+    const adds = (t.adds || []).map(n => `<div class="txn-line"><span class="txn-add">+</span> ${escapeHtml(n)}${t.bid ? `<span class="txn-bid">$${t.bid} FAAB</span>` : ''}</div>`);
+    const drops = (t.drops || []).map(n => `<div class="txn-line"><span class="txn-drop">−</span> ${escapeHtml(n)}</div>`);
+    details = adds.concat(drops).join('');
+  }
+  return `<tr data-kind="${escapeHtml(t.kind)}"${extra ? ' class="extra"' : ''}>
+    <td class="date-cell mono">${formatShortDate(t.date)}</td>
+    <td>${team}</td>
+    <td><span class="action-tag ${cls}">${label}</span></td>
+    <td>${details}</td>
+  </tr>`;
+}
+
+function deltaCell(change, spots) {
+  if (change === null || change === undefined || isNaN(change)) return '<td class="num delta flat">—</td>';
+  const dir = change > 0.005 ? 'up' : change < -0.005 ? 'down' : 'flat';
+  const arrow = dir === 'up' ? '▲' : dir === 'down' ? '▼' : '–';
+  const sign = change > 0 ? '+' : change < 0 ? '−' : '';
+  const sp = spots ? `<span class="spots">(${spots > 0 ? '↑' : '↓'}${Math.abs(spots)})</span>` : '';
+  return `<td class="num delta ${dir}" title="Change in score since last week">${arrow} ${sign}${Math.abs(change).toFixed(2)}${sp}</td>`;
+}
+
+let TEAMS = {};
+
+// Team name with its ESPN logo, plus a crown for the defending champ.
+function teamTag(name) {
+  const info = TEAMS[name] || {};
+  const initials = String(name || '?').trim().slice(0, 2).toUpperCase();
+  const blank = `<span class="team-logo blank">${escapeHtml(initials)}</span>`;
+  const logo = info.logo
+    ? `<img class="team-logo" src="${escapeHtml(info.logo)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-initials="${escapeHtml(initials)}">`
+    : blank;
+  const crown = info.champ ? '<span class="crown" title="Defending champion">👑</span>' : '';
+  return `<span class="team">${logo}<span>${escapeHtml(name)}${crown}</span></span>`;
+}
+
+// Tiny line showing a team's power rank week by week (up = better).
+function sparkline(ranks, teamCount) {
+  if (!Array.isArray(ranks) || ranks.length < 2) return '';
+  const w = 64, h = 20, pad = 3;
+  const x = i => pad + i * (w - 2 * pad) / (ranks.length - 1);
+  const y = r => pad + (r - 1) * (h - 2 * pad) / Math.max(teamCount - 1, 1);
+  const pts = ranks.map((r, i) => `${x(i).toFixed(1)},${y(r).toFixed(1)}`).join(' ');
+  const last = ranks.length - 1;
+  const trend = ranks[last] < ranks[0] ? 'var(--tier-a)' : ranks[last] > ranks[0] ? 'var(--tier-f)' : 'var(--text-dim)';
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="Rank by week: ${ranks.join(', ')}">
+    <title>Rank by week: ${ranks.join(' → ')}</title>
+    <polyline points="${pts}" fill="none" stroke="${trend}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${x(last).toFixed(1)}" cy="${y(ranks[last]).toFixed(1)}" r="2.2" fill="${trend}"/>
+  </svg>`;
+}
+
+const AWARD_ICONS = { top_dog: '🏆', low_energy: '🪫', blowout: '💥', photo_finish: '📸', lucky_duck: '🍀', bad_beat: '💔', mvp: '⭐', bench_blunder: '🪑' };
+const AWARD_BAD = new Set(['low_energy', 'bad_beat', 'bench_blunder']);
+
+function awardCard(a) {
+  return `<div class="award ${AWARD_BAD.has(a.key) ? 'bad' : ''}" title="${escapeHtml(a.blurb || '')}">
+    <div class="award-top"><span class="award-icon">${AWARD_ICONS[a.key] || '🏅'}</span><span class="award-title">${escapeHtml(a.title)}</span></div>
+    <div class="award-team">${teamTag(a.team)}</div>
+    <div class="award-value">${escapeHtml(a.value)}</div>
+    <div class="award-detail">${escapeHtml(a.detail)}</div>
+  </div>`;
+}
+
+function matchupCard(g, isLock) {
+  const side = t => {
+    const picked = g.pick === t.team;
+    const bits = [t.record, t.power_rank ? `PR #${t.power_rank}` : '', t.avg ? `${t.avg} ppg` : ''].filter(Boolean).join(' · ');
+    return `<div class="matchup-side ${picked ? 'picked' : ''}">
+      <div>${teamTag(t.team)}${picked ? '<span class="pick-badge">DonBot\'s pick</span>' : ''}<div class="meta-line">${escapeHtml(bits)}</div></div>
+      <div class="pct">${t.win_prob}%</div>
+    </div>`;
+  };
+  const tag = isLock ? '<div class="matchup-tag">🔒 Lock of the week</div>'
+    : g.confidence <= 55 ? '<div class="matchup-tag hot">🔥 Toss-up</div>' : '';
+  return `<div class="matchup">${tag}${side(g.away)}${side(g.home)}
+    <div class="prob-bar"><i class="${g.pick === g.away.team ? 'fav' : ''}" style="width:${g.away.win_prob}%"></i><i class="${g.pick === g.home.team ? 'fav' : ''}" style="width:${g.home.win_prob}%"></i></div>
+  </div>`;
+}
+
+function fmtScore(v) {
+  return (v === null || v === undefined || isNaN(v)) ? '—' : Number(v).toFixed(2);
+}
+
+// DonBot's profile picture: a cartoon robot with a golden swoop and a long red tie.
+const DONBOT_AVATAR = `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="DonBot">
+  <rect width="64" height="64" fill="#1d9bf0"/>
+  <path d="M6 64c2-11 12-15 26-15s24 4 26 15z" fill="#1f2d5c"/>
+  <path d="M26 49h12l-6 6z" fill="#fff"/>
+  <path d="M30 52h4l2 12h-8z" fill="#d7263d"/>
+  <line x1="32" y1="9" x2="32" y2="3" stroke="#b9c2cf" stroke-width="2"/>
+  <circle cx="32" cy="3" r="2.4" fill="#ff4d4d"/>
+  <rect x="15" y="14" width="34" height="32" rx="9" fill="#c9d1dc" stroke="#8a95a5" stroke-width="1.5"/>
+  <rect x="11" y="25" width="5" height="10" rx="2" fill="#8a95a5"/>
+  <rect x="48" y="25" width="5" height="10" rx="2" fill="#8a95a5"/>
+  <path d="M13 22c0-9 10-14 22-12 9 1 16 5 17 11-4-4-10-5-15-3-6 2-14 3-24 4z" fill="#f2c14e" stroke="#d99a1e" stroke-width="1"/>
+  <path d="M20 20c8-4 18-6 30-2" stroke="#ffe08a" stroke-width="1.6" fill="none"/>
+  <rect x="20" y="27" width="10" height="6" rx="2" fill="#0b1220"/>
+  <rect x="34" y="27" width="10" height="6" rx="2" fill="#0b1220"/>
+  <rect x="22" y="28.5" width="6" height="3" rx="1" fill="#5ef2ff"/>
+  <rect x="36" y="28.5" width="6" height="3" rx="1" fill="#5ef2ff"/>
+  <path d="M19 26l11-1M45 26l-11-1" stroke="#5b6573" stroke-width="1.6" stroke-linecap="round"/>
+  <rect x="24" y="38" width="16" height="4" rx="2" fill="#5b6573"/>
+  <path d="M27 38v4M32 38v4M37 38v4" stroke="#c9d1dc" stroke-width="1"/>
+</svg>`;
+
+const VERIFIED = `<svg class="tweet-check" viewBox="0 0 24 24" aria-label="Verified"><path fill="#1d9bf0" d="M22.5 12.5c0-1.58-.88-2.95-2.18-3.65.15-.44.23-.91.23-1.4 0-2.21-1.71-4-3.83-4-.47 0-.92.08-1.34.25C14.77 2.41 13.47 1.5 12 1.5s-2.77.91-3.38 2.2c-.42-.17-.87-.25-1.34-.25-2.12 0-3.83 1.79-3.83 4 0 .49.08.96.23 1.4C2.38 9.55 1.5 10.92 1.5 12.5c0 1.5.8 2.8 1.97 3.52-.03.2-.04.4-.04.6 0 2.21 1.71 4 3.83 4 .47 0 .92-.08 1.34-.25.61 1.29 1.91 2.13 3.4 2.13s2.79-.84 3.4-2.13c.42.17.87.25 1.34.25 2.12 0 3.83-1.79 3.83-4 0-.2-.01-.4-.04-.6 1.17-.72 1.97-2.02 1.97-3.52z"/><path fill="#fff" d="M10.6 16.2 6.9 12.5l1.4-1.4 2.3 2.3 5.1-5.1 1.4 1.4z"/></svg>`;
+
+const ICONS = {
+  reply: '<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>',
+  repost: '<svg viewBox="0 0 24 24"><path d="M7 7h11l-3-3M17 17H6l3 3M18 7v6M6 17v-6"/></svg>',
+  like: '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+};
+
+// Stable "engagement" numbers per post so they don't jump around on refresh.
+function fakeCount(text, salt, max) {
+  let h = salt;
+  for (const c of text) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  const n = h % max;
+  return n >= 1000 ? (n / 1000).toFixed(1) + 'K' : String(n);
+}
+
+function tweetCard(n, when, i) {
+  const key = n.headline || '';
+  return `<article class="tweet${i >= 4 ? ' extra' : ''}">${n.source === 'custom' ? '<div class="tweet-pin">📌 Commissioner request</div>' : ''}
+    <div class="tweet-avatar">${DONBOT_AVATAR}</div>
+    <div>
+      <div class="tweet-head">
+        <span class="tweet-name">DonBot</span>${VERIFIED}
+        <span class="tweet-handle">@DonBot · ${escapeHtml(when)}</span>
+      </div>
+      <p class="tweet-text"><span class="lead">${escapeHtml(n.headline)}</span>${escapeHtml(n.body)}</p>
+      <div class="tweet-actions">
+        <span>${ICONS.reply}${fakeCount(key, 7, 4000)}</span>
+        <span>${ICONS.repost}${fakeCount(key, 13, 12000)}</span>
+        <span>${ICONS.like}${fakeCount(key, 29, 60000)}</span>
+      </div>
+    </div>
+  </article>`;
 }
 
 function render(data) {
   const app = document.getElementById('app');
+  TEAMS = data.teams || {};
+  const teamCount = (data.power_rankings || []).length;
 
   const tickerItems = (data.news || []).length
-    ? data.news.map(n => `<span class="ticker-item"><span class="dot">●</span>${escapeHtml(n.headline)}</span>`).join('')
+    ? data.news.map(n => `<span class="ticker-item"><span class="handle">@DonBot</span>${escapeHtml(n.headline)}</span>`).join('')
     : '<span class="ticker-item"><span class="dot">●</span>No news yet this week</span>';
   const tickerHtml = tickerItems + tickerItems;
 
+  const postedOn = formatShortDate(data.generated_at);
   const newsHtml = (data.news || []).length
-    ? data.news.map(n => `
-        <div class="news-card ${n.source === 'custom' ? 'custom' : ''}">
-          <div class="news-tag">${escapeHtml((n.type || '').replace(/_/g, ' '))}</div>
-          <div class="news-headline">${escapeHtml(n.headline)}</div>
-          <p class="news-body">${escapeHtml(n.body)}</p>
-        </div>
-      `).join('')
-    : '<div class="empty-state">No news generated this week.</div>';
+    ? data.news.map((n, i) => tweetCard(n, postedOn, i)).join('') +
+      (data.news.length > 4 ? `<button class="more-btn" data-more="news">Show ${data.news.length - 4} more posts</button>` : '')
+    : '<div class="empty-state">DonBot has nothing to say this week. Very unusual!</div>';
 
   const rankingsHtml = (data.power_rankings || []).length ? `
     <table>
       <thead>
         <tr>
-          <th>#</th><th>Team</th><th class="num">Score</th><th>Tier</th>
+          <th>#</th><th>Team</th><th class="num">Score</th><th class="num" title="Change in score since last week">WoW</th><th class="num" title="Average score across every week this season">Season Avg</th><th class="hide-sm" title="Power rank week by week">Trend</th><th>Tier</th>
         </tr>
       </thead>
       <tbody>
         ${data.power_rankings.map(r => `
           <tr>
             <td class="rank-badge">${r.Rank}</td>
-            <td>${escapeHtml(r.Team)}</td>
-            <td class="num">${Number(r['Power Rank Score']).toFixed(2)}</td>
+            <td>${teamTag(r.Team)}</td>
+            <td class="num">${fmtScore(r['Power Rank Score'])}</td>
+            ${deltaCell(r['Score Change'], r['Rank Change'])}
+            <td class="num">${fmtScore(r['Season Avg Score'])}</td>
+            <td class="hide-sm">${sparkline(r['Rank History'], teamCount)}</td>
             <td><span class="tier-chip tier-${r.Tier}">${r.Tier}</span></td>
           </tr>
         `).join('')}
@@ -444,45 +701,65 @@ function render(data) {
     </table>
   ` : '<div class="empty-state">No power rankings yet.</div>';
 
+  const cut = Number(data.playoff_spots) || 0;
+  const hasExtras = (data.standings || []).some(x => x.streak !== undefined);
+  const luckCell = v => (v === undefined || v === null) ? '<td class="num hide-sm">—</td>'
+    : `<td class="num hide-sm delta ${v > 0.25 ? 'up' : v < -0.25 ? 'down' : 'flat'}">${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(1)}</td>`;
   const standingsHtml = (data.standings || []).length ? `
     <table>
       <thead>
         <tr>
           <th>#</th><th>Team</th><th class="num">W-L</th><th class="num">PF</th>
+          ${hasExtras ? '<th class="num" title="Current win or loss streak">Strk</th><th class="num hide-sm" title="Luck: actual wins minus the wins their weekly scores deserved (record if they played every team every week)">Luck</th>' : ''}
         </tr>
       </thead>
       <tbody>
-        ${data.standings.map(s => `
-          <tr>
-            <td class="rank-badge">${s.rank}</td>
-            <td>${escapeHtml(s.team)}</td>
-            <td class="num">${s.wins}-${s.losses}</td>
-            <td class="num">${Number(s.points_for).toFixed(1)}</td>
+        ${data.standings.map(x => `
+          <tr class="${cut && x.rank === cut ? 'cut' : ''}">
+            <td class="rank-badge">${x.rank}</td>
+            <td>${teamTag(x.team)}</td>
+            <td class="num">${x.wins}-${x.losses}</td>
+            <td class="num">${Number(x.points_for).toFixed(1)}</td>
+            ${hasExtras ? `<td class="num ${String(x.streak).startsWith('W') ? 'streak-w' : 'streak-l'}">${escapeHtml(x.streak || '—')}</td>${luckCell(x.luck)}` : ''}
           </tr>
         `).join('')}
       </tbody>
     </table>
+    ${cut ? `<div class="table-note">- - - playoff line: top ${cut} get in</div>` : ''}
   ` : '<div class="empty-state">No standings yet.</div>';
 
-  const transactionsHtml = (data.transactions || []).length ? `
+  const awardsHtml = (data.awards || []).length
+    ? `<section><div class="wrap">
+        <div class="section-title">WEEK ${data.last_completed_week ?? ''} AWARDS</div>
+        <div class="awards-grid">${data.awards.map(awardCard).join('')}</div>
+      </div></section>` : '';
+
+  const games = data.matchups || [];
+  const rec = data.donbot_record || {};
+  const lockConf = games.length ? Math.max(...games.map(g => g.confidence)) : 0;
+  const recNote = (rec.wins || rec.losses) ? ` <span class="title-note">· DONBOT'S PICKS ARE ${rec.wins}-${rec.losses} THIS SEASON</span>` : '';
+  const matchupsHtml = games.length
+    ? `<section><div class="wrap">
+        <div class="section-title">WEEK ${data.upcoming_week ?? ''} MATCHUPS${recNote}</div>
+        <div class="matchup-grid">${games.map(g => matchupCard(g, g.pick && g.confidence === lockConf && lockConf >= 60)).join('')}</div>
+        <div class="table-note">Win odds come from each team's scoring average this season. DonBot takes the favorite. Every time.</div>
+      </div></section>` : '';
+
+  const moves = (data.transactions || []).filter(t => t.kind); // older-format rows are skipped
+  const kinds = [['ALL', 'All'], ['TRADE', 'Trades'], ['WAIVER', 'Waivers'], ['FREE_AGENT', 'Free agents'], ['DROP', 'Drops']]
+    .filter(([k]) => k === 'ALL' || moves.some(m => m.kind === k));
+  const transactionsHtml = moves.length ? `
+    <div class="chips">${kinds.map(([k, label]) => `<button class="chip ${k === 'ALL' ? 'active' : ''}" data-filter="${k}">${label}</button>`).join('')}</div>
     <table>
       <thead>
         <tr>
-          <th>Date</th><th>Team</th><th>Action</th><th>Player</th>
+          <th>Date</th><th>Team</th><th>Move</th><th>Players</th>
         </tr>
       </thead>
-      <tbody>
-        ${data.transactions.map(t => `
-          <tr>
-            <td class="date-cell mono">${formatShortDate(t.date)}</td>
-            <td>${escapeHtml(t.team)}</td>
-            <td><span class="action-tag ${actionClass(t.action_type)}">${escapeHtml(formatActionType(t.action_type))}</span></td>
-            <td>${escapeHtml(t.player)}</td>
-          </tr>
-        `).join('')}
-      </tbody>
+      <tbody>${moves.map(transactionRow).join('')}</tbody>
     </table>
-  ` : '<div class="empty-state">No transactions yet this season.</div>';
+    ${moves.length > 12 ? `<button class="more-btn" data-more="txns">Show all ${moves.length} moves</button>` : ''}
+  ` : `<div class="empty-state">${(data.transactions || []).length ? 'The transaction log refreshes on the next weekly update.' : 'No transactions yet this season.'}</div>`;
 
   app.innerHTML = `
     <header>
@@ -501,13 +778,16 @@ function render(data) {
 
     <section>
       <div class="wrap">
-        <div class="section-title">LEAGUE NEWS</div>
-        <div class="news-grid">${newsHtml}</div>
+        <div class="section-title">LEAGUE NEWS · @DONBOT</div>
+        <div class="news-grid" id="news-feed">${newsHtml}</div>
       </div>
     </section>
 
+    ${awardsHtml}
+    ${matchupsHtml}
+
     <section>
-      <div class="wrap two-col">
+      <div class="wrap two-col wide-left">
         <div>
           <div class="section-title">POWER RANKINGS</div>
           ${rankingsHtml}
@@ -522,7 +802,7 @@ function render(data) {
     <section>
       <div class="wrap">
         <div class="section-title">RECENT TRANSACTIONS</div>
-        ${transactionsHtml}
+        <div id="txn-log">${transactionsHtml}</div>
       </div>
     </section>
 
@@ -530,6 +810,40 @@ function render(data) {
       Built for the league. Updates every Tuesday.
     </footer>
   `;
+}
+
+// ---- Show more / filters / broken logos ----
+function wireInteractions() {
+  const app = document.getElementById('app');
+  app.addEventListener('click', e => {
+    const more = e.target.closest('[data-more]');
+    if (more) {
+      document.getElementById(more.dataset.more === 'news' ? 'news-feed' : 'txn-log').classList.add('show-all');
+      more.remove();
+      return;
+    }
+    const chip = e.target.closest('.chip');
+    if (chip) {
+      const log = document.getElementById('txn-log');
+      const kind = chip.dataset.filter;
+      log.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === chip));
+      log.querySelectorAll('tbody tr').forEach(tr => { tr.hidden = kind !== 'ALL' && tr.dataset.kind !== kind; });
+      if (kind !== 'ALL') {           // a filter shows every matching move, not just the newest dozen
+        log.classList.add('show-all');
+        const btn = log.querySelector('[data-more]');
+        if (btn) btn.remove();
+      }
+    }
+  });
+  // A team logo that fails to load falls back to the team's initials.
+  app.addEventListener('error', e => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains('team-logo')) return;
+    const span = document.createElement('span');
+    span.className = 'team-logo blank';
+    span.textContent = img.dataset.initials || '';
+    img.replaceWith(span);
+  }, true);
 }
 
 // ---- Tabs + League History ----
@@ -599,6 +913,7 @@ function setupTabs() {
   });
 }
 
+wireInteractions();
 loadData().then(setupTabs);
 
 </script>
