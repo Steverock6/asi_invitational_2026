@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15T19:48:44.446603+00:00",
+  "generated": "2026-11-17T12:54:36.186375+00:00",
   "seasons": [
     2016,
     2017,
@@ -294,20 +294,20 @@
         {
           "rank": 1,
           "owner": "Zach Curtis",
-          "value": 84.0
+          "value": 85.0
         },
         {
           "rank": 2,
           "owner": "Bill Justis",
-          "value": 78.0
+          "value": 79.0
         },
         {
           "rank": 3,
           "owner": "Joe Porcelli",
-          "value": 77.0
+          "value": 78.0
         },
         {
-          "rank": 3,
+          "rank": 4,
           "owner": "Mike Procaccini",
           "value": 77.0
         },
@@ -326,27 +326,27 @@
         {
           "rank": 1,
           "owner": "Steve Rock",
-          "value": 17470.94
+          "value": 17563.28
         },
         {
           "rank": 2,
           "owner": "Bill Justis",
-          "value": 17312.34
+          "value": 17463.96
         },
         {
           "rank": 3,
-          "owner": "Mike Procaccini",
-          "value": 17089.1
+          "owner": "Zach Curtis",
+          "value": 17192.86
         },
         {
           "rank": 4,
-          "owner": "Zach Curtis",
-          "value": 17058.14
+          "owner": "Mike Procaccini",
+          "value": 17152.18
         },
         {
           "rank": 5,
           "owner": "Matthew Rasp",
-          "value": 16875.12
+          "value": 17005.56
         }
       ]
     },
