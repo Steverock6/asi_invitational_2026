@@ -865,7 +865,6 @@
         "row_keys": [
           "bidAmount",
           "executionType",
-          "expirationDate",
           "id",
           "isActingAsTeamOwner",
           "isLeagueManager",
@@ -877,7 +876,6 @@
           "relatedTransactionId",
           "scoringPeriodId",
           "status",
-          "teamActions",
           "teamId",
           "type"
         ]
@@ -892,8 +890,8 @@
       "veto_votes_required": 6
     },
     "transaction_log_trade_rows": {
-      "TRADE_PROPOSAL/CANCELED": 2,
-      "TRADE_PROPOSAL/PENDING": 1
+      "TRADE_PROPOSAL/CANCELED": 3,
+      "TRADE_PROPOSAL/PENDING": 2
     }
   }
 }

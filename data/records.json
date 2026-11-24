@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T19:29:49.489612+00:00",
+  "generated": "2026-11-24T12:46:52.826526+00:00",
   "seasons": [
     2016,
     2017,
@@ -294,7 +294,7 @@
         {
           "rank": 1,
           "owner": "Zach Curtis",
-          "value": 85.0
+          "value": 86.0
         },
         {
           "rank": 2,
@@ -307,14 +307,14 @@
           "value": 78.0
         },
         {
-          "rank": 4,
+          "rank": 3,
           "owner": "Mike Procaccini",
-          "value": 77.0
+          "value": 78.0
         },
         {
           "rank": 5,
           "owner": "Steve Rock",
-          "value": 76.0
+          "value": 77.0
         }
       ]
     },
@@ -326,27 +326,27 @@
         {
           "rank": 1,
           "owner": "Steve Rock",
-          "value": 17563.28
+          "value": 17699.54
         },
         {
           "rank": 2,
           "owner": "Bill Justis",
-          "value": 17463.96
+          "value": 17567.22
         },
         {
           "rank": 3,
           "owner": "Zach Curtis",
-          "value": 17192.86
+          "value": 17308.06
         },
         {
           "rank": 4,
           "owner": "Mike Procaccini",
-          "value": 17152.18
+          "value": 17290.26
         },
         {
           "rank": 5,
           "owner": "Matthew Rasp",
-          "value": 17005.56
+          "value": 17095.52
         }
       ]
     },
@@ -471,8 +471,8 @@
         {
           "rank": 1,
           "owner": "Joe Porcelli",
-          "value": 430,
-          "team": "429 pickups + 1 trades"
+          "value": 434,
+          "team": "433 pickups + 1 trades"
         },
         {
           "rank": 2,
@@ -483,20 +483,20 @@
         {
           "rank": 3,
           "owner": "Matthew Rasp",
-          "value": 309,
-          "team": "309 pickups + 0 trades"
+          "value": 311,
+          "team": "311 pickups + 0 trades"
         },
         {
           "rank": 4,
           "owner": "Tom Muller",
-          "value": 283,
-          "team": "283 pickups + 0 trades"
+          "value": 286,
+          "team": "286 pickups + 0 trades"
         },
         {
           "rank": 5,
-          "owner": "Bill Justis",
-          "value": 230,
-          "team": "229 pickups + 1 trades"
+          "owner": "Steve Rock",
+          "value": 232,
+          "team": "229 pickups + 3 trades"
         }
       ]
     },
@@ -509,8 +509,14 @@
         {
           "rank": 1,
           "owner": "Dalton Schultz",
-          "value": 27,
-          "team": "17 adds, 10 drops"
+          "value": 28,
+          "team": "18 adds, 10 drops"
+        },
+        {
+          "rank": 2,
+          "owner": "Jason Myers",
+          "value": 26,
+          "team": "14 adds, 12 drops"
         },
         {
           "rank": 2,
@@ -519,19 +525,13 @@
           "team": "16 adds, 10 drops"
         },
         {
-          "rank": 3,
-          "owner": "Jason Myers",
-          "value": 25,
-          "team": "14 adds, 11 drops"
-        },
-        {
-          "rank": 3,
+          "rank": 4,
           "owner": "Chris Boswell",
           "value": 25,
           "team": "15 adds, 10 drops"
         },
         {
-          "rank": 3,
+          "rank": 4,
           "owner": "Mike Gesicki",
           "value": 25,
           "team": "14 adds, 11 drops"
@@ -595,14 +595,14 @@
         },
         {
           "rank": 2,
-          "owner": "Bill Justis",
-          "value": 739.0,
+          "owner": "Travis Delarosa",
+          "value": 741.0,
           "team": "8 seasons"
         },
         {
           "rank": 3,
-          "owner": "Travis Delarosa",
-          "value": 728.0,
+          "owner": "Bill Justis",
+          "value": 740.0,
           "team": "8 seasons"
         },
         {
@@ -640,7 +640,7 @@
         {
           "rank": 3,
           "owner": "Tom Muller",
-          "value": 546.0,
+          "value": 552.0,
           "team": "8 seasons"
         },
         {
