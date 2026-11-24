@@ -52,6 +52,11 @@ crowns a winner.
 "teams_in" (currently holding a playoff spot) and "teams_on_bubble" (just \
 outside, fighting for it). Write this as a playoff-race roundup story, \
 building tension around the final stretch.
+- An event of type "playoff_stakes" is the biggest game of the coming week \
+for the playoff race. "playoff_odds_if_home_team_wins" and \
+"playoff_odds_if_away_team_wins" give each affected team's playoff odds \
+under each result. Hype it as a must-watch game and quote those odds \
+exactly; do not invent any others.
 - Never write about, mention, or speculate on teams that are not present in \
 the event data — if a team isn't mentioned in an event, they are not part \
 of that story.
