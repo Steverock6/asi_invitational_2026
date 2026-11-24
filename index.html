@@ -479,6 +479,21 @@
   .pr-bar-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
   .pr-reset { background: none; border: 1px solid var(--line); border-radius: 4px; color: var(--text-dim); cursor: pointer; font: inherit; font-size: 12px; padding: 6px 10px; }
   @media (max-width: 720px) { .pr-grid { grid-template-columns: 1fr; } }
+  .pr-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: var(--surface-2); border-top: 2px solid var(--accent); box-shadow: 0 -8px 24px rgba(0,0,0,0.45); padding: 10px 0 calc(10px + env(safe-area-inset-bottom)); }
+  .pr-sticky .wrap { display: flex; flex-direction: column; gap: 6px; }
+  .pr-sticky-head { display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--text-dim); }
+  .pr-sticky-head button { background: none; border: 0; color: var(--accent); cursor: pointer; font: inherit; padding: 2px 0 2px 12px; }
+  .pr-mover { display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px; }
+  .pr-mover span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pr-mover b { font-family: 'IBM Plex Mono', monospace; font-weight: 600; white-space: nowrap; }
+  .pr-chg { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .pr-chg.up { color: var(--tier-a); }
+  .pr-chg.down { color: var(--tier-f); }
+  .pr-was { color: var(--text-faint); font-size: 11.5px; }
+  tr.pr-moved td { background: rgba(244,185,62,0.07); }
+  @keyframes prFlash { from { background: rgba(244,185,62,0.45); } to { background: rgba(244,185,62,0.07); } }
+  tr.pr-flash td { animation: prFlash 0.9s ease-out; }
+  .pr-spacer { height: 150px; }
 
 </style>
 </head>
@@ -995,13 +1010,15 @@ function statusChip(st) {
     : st === 'out' ? '<span class="pr-status out">OUT</span>' : '';
 }
 
-function oddsTable(race, odds, status, base) {
+function oddsTable(race, odds, status, base, prev) {
   const rows = race.table.map(r => {
     const o = odds[r.team], st = status[r.team];
     const likely = o.seeds.indexOf(Math.max(...o.seeds)) + 1;
     const d = base ? Math.round(o.playoffs - base[r.team].playoffs) : 0;
-    const delta = base && d ? `<div class="delta ${d > 0 ? 'up' : 'down'}" style="font-size:11px">${d > 0 ? '+' : '−'}${Math.abs(d)}</div>` : '';
-    return `<tr class="${r.current_seed === race.spots ? 'cut' : ''}">
+    const delta = base && d ? `<div style="white-space:nowrap"><span class="pr-chg ${d > 0 ? 'up' : 'down'}">${d > 0 ? '▲' : '▼'}${Math.abs(d)}</span> <span class="pr-was">was ${fmtPct(base[r.team].playoffs)}</span></div>` : '';
+    const flash = prev && Math.abs(o.playoffs - prev[r.team].playoffs) >= 1;
+    const cls = [r.current_seed === race.spots ? 'cut' : '', d ? 'pr-moved' : '', flash ? 'pr-flash' : ''].join(' ');
+    return `<tr class="${cls}">
       <td class="rank-badge">${r.current_seed}</td>
       <td>${teamTag(r.team)}${statusChip(st)}</td>
       <td class="num">${r.wins}-${r.losses}</td>
@@ -1070,7 +1087,12 @@ function renderRace(host) {
         </div>`).join('')}
       </div>`).join('')}
     </div>
-    <div id="pr-scenario"></div>` : ''}
+    <div id="pr-scenario"></div>
+    <div class="pr-spacer" id="pr-spacer" hidden></div>
+    <div class="pr-sticky" id="pr-sticky" hidden><div class="wrap">
+      <div class="pr-sticky-head"><span id="pr-sticky-title"></span><span><button id="pr-jump">FULL TABLE ↓</button><button id="pr-reset2">RESET</button></span></div>
+      <div id="pr-movers"></div>
+    </div></div>` : ''}
   `;
 
   if (!nextWeek) return;
@@ -1086,10 +1108,13 @@ function renderRace(host) {
     else picks[key] = btn.dataset.team;
     update();
   });
-  host.querySelector('#pr-reset').addEventListener('click', () => {
-    Object.keys(picks).forEach(k => delete picks[k]);
-    update();
+  const reset = () => { Object.keys(picks).forEach(k => delete picks[k]); update(); };
+  host.querySelector('#pr-reset').addEventListener('click', reset);
+  host.querySelector('#pr-reset2').addEventListener('click', reset);
+  host.querySelector('#pr-jump').addEventListener('click', () => {
+    host.querySelector('#pr-scenario').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  let prev = null;
 
   function update() {
     picker.querySelectorAll('.pr-game').forEach(game => {
@@ -1103,10 +1128,29 @@ function renderRace(host) {
     host.querySelector('#pr-count').textContent = n ? `${n} result${n > 1 ? 's' : ''} locked in` : 'Tap a team to make them win. Tap again to undo.';
     host.querySelector('#pr-reset').hidden = !n;
     const out = host.querySelector('#pr-scenario');
-    if (!n) { out.innerHTML = ''; return; }
-    out.innerHTML = `<div class="section-title" style="margin-top:24px">YOUR SCENARIO</div>
-      ${oddsTable(race, simulateRace(race, picks), clinchStatus(race, picks), noPicks)}
-      <div class="table-note">Green/red numbers show the change from the real odds above.</div>`;
+    const sticky = host.querySelector('#pr-sticky');
+    host.querySelector('#pr-spacer').hidden = !n;
+    sticky.hidden = !n;
+    if (!n) { out.innerHTML = ''; prev = null; return; }
+    const scen = simulateRace(race, picks);
+    const status = clinchStatus(race, picks);
+    out.innerHTML = `<div class="section-title" style="margin-top:24px">YOUR SCENARIO · PLAYOFF ODDS</div>
+      ${oddsTable(race, scen, status, noPicks, prev)}
+      <div class="table-note">▲/▼ = change from the real odds. Highlighted rows moved in your scenario.</div>`;
+    prev = scen;
+
+    // Pinned summary: the biggest movers vs. the real odds, always on screen while you tap.
+    const movers = Object.keys(scen)
+      .map(t => ({ t, now: scen[t].playoffs, was: noPicks[t].playoffs, st: status[t] }))
+      .filter(m => Math.abs(Math.round(m.now - m.was)) >= 1 || (m.st && m.st !== race.table.find(r => r.team === m.t).status))
+      .sort((a, b) => Math.abs(b.now - b.was) - Math.abs(a.now - a.was))
+      .slice(0, 4);
+    host.querySelector('#pr-sticky-title').textContent = `YOUR SCENARIO · ${n} PICK${n > 1 ? 'S' : ''}`;
+    host.querySelector('#pr-movers').innerHTML = movers.length ? movers.map(m => {
+      const d = Math.round(m.now - m.was);
+      const tag = m.st === 'in' ? ' CLINCHED' : m.st === 'bye' ? ' BYE' : m.st === 'out' ? ' OUT' : '';
+      return `<div class="pr-mover"><span>${escapeHtml(m.t)}</span><b>${fmtPct(m.was)} → ${fmtPct(m.now, m.st)}${tag ? `<span class="pr-was">${tag}</span>` : ''} <span class="pr-chg ${d >= 0 ? 'up' : 'down'}">${d > 0 ? '▲' + d : d < 0 ? '▼' + Math.abs(d) : ''}</span></b></div>`;
+    }).join('') : '<div class="pr-mover"><span>No team\'s playoff odds move with these picks.</span></div>';
   }
 }
 
