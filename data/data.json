@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T12:45:50.062636+00:00",
+  "generated_at": "2026-11-24T18:36:10.815256+00:00",
   "league_name": "The Adam Szachara Invitational",
   "current_week": 12,
   "last_completed_week": 11,
@@ -685,68 +685,68 @@
   ],
   "news": [
     {
-      "headline": "Jacob's Right Hook SHOCKS the Number One seed! Tremendous!",
-      "body": "The 6th-ranked Jacob's Right Hook just took down For Jaxson, the top-ranked team in the league! Nobody saw this coming, believe me. That's how you make a Statement in Week 11!",
+      "headline": "Jefferson Airplane vs Jacob's Right Hook: PLAYOFF DESTINY!",
+      "body": "Week 12 Game of the Week! If Jefferson Airplane wins, they're at 89% to make it. If Jacob's Right Hook pulls the upset, they jump to 75%! Many people are saying this is the most Important game of the season. Believe me, it's HUGE!",
+      "type": "playoff_stakes",
+      "source": "auto"
+    },
+    {
+      "headline": "Jacob's Right Hook SHOCKS For Jaxson. Total Upset!",
+      "body": "The 6th-ranked team just beat the top-ranked For Jaxson in Week 11! Nobody saw this coming. Jacob's Right Hook is Heating Up at exactly the right time. Very impressive!",
       "type": "upset",
       "source": "auto"
     },
     {
-      "headline": "Silence of the Lamb STUNS Who?? Big league upset!",
-      "body": "The 9th-ranked Silence of the Lamb just demolished the 2nd-ranked Who?? Nobody does it better! Many people are saying this is the upset of the year. Fantastic!",
+      "headline": "Silence of the Lamb Stuns Who?? Tremendous Upset Alert!",
+      "body": "The 9th-ranked Silence of the Lamb just took down the 2nd-ranked Who?? Nobody does it better! Week 11 brought absolute CHAOS to the power rankings. Total chaos!",
       "type": "upset",
       "source": "auto"
     },
     {
-      "headline": "Hair of the Dog DESTROYS Jefferson Airplane. Total Massacre!",
-      "body": "Hair of the Dog absolutely Dominated this week, beating Jefferson Airplane 136.26 to 87.1 by nearly 50 points! That's the kind of Performance that wins Championships. Winning!",
+      "headline": "Hair of the Dog DESTROYS Jefferson Airplane. Landslide!",
+      "body": "Hair of the Dog put up 136.26 points and demolished Jefferson Airplane 136.26-87.1 by nearly 50 points! This was a Massacre, believe me. Absolutely tremendous!",
       "type": "blowout",
       "source": "auto"
     },
     {
-      "headline": "Rashee, Sell Your Jameson! Demolishes Sack Lunch. HUGE!",
-      "body": "Rashee, Sell Your Jameson! put on a Clinic this week, crushing Sack Lunch 129.32 to 71.94 with a Massive 57-point margin! Believe me, that's not even close. Dominant!",
+      "headline": "Rashee, Sell Your Jameson! DEMOLISHES Sack Lunch. Blowout!",
+      "body": "129.32 to 71.94\u2014a stunning 57.4-point margin! Rashee, Sell Your Jameson! was like nobody has ever seen. Sack Lunch got absolutely Destroyed. Total disaster!",
       "type": "blowout",
       "source": "auto"
     },
     {
       "headline": "Trump Wall Edges Annexation of LaPorta Rico in Thriller!",
-      "body": "Trump Wall squeaked by Annexation of LaPorta Rico 119.26 to 113.6 in the TIGHTEST game of the week! Five-point decisions - that's Championship football. Incredible!",
+      "body": "119.26-113.6, just 5.7 points! Annexation of LaPorta Rico came SO close but Trump Wall squeaked it out. Many people are saying this was the greatest nail-biter of Week 11. Big league!",
       "type": "nail_biter",
       "source": "auto"
     },
     {
-      "headline": "Jacob's Right Hook Posts Week 11's Best Score. Tremendous!",
-      "body": "Jacob's Right Hook is on FIRE with 138.08 points this week - the Highest score in the entire league! That's the kind of Performance that beats Number One teams. Winning!",
+      "headline": "Jacob's Right Hook Posts MONSTER 138.08 High Score!",
+      "body": "Jacob's Right Hook is on FIRE with the Week 11 High Score of 138.08 points, beating For Jaxson 138.08-103.26! Tremendous performance. This team is Winning!",
       "type": "weekly_high_score",
       "source": "auto"
     },
     {
-      "headline": "Sack Lunch Puts Up Historic LOW this week. Total Disaster!",
-      "body": "Sack Lunch scored just 71.94 points - the Lowest in the entire league! That's a Disaster, folks. Not even close. Sad!",
+      "headline": "Sack Lunch's 71.94 Points: Total Disaster. Very Sad!",
+      "body": "Sack Lunch posted the worst score of Week 11 at just 71.94 points, getting crushed by Rashee, Sell Your Jameson! 71.94-129.32. Believe me, that's a Disaster. Sad!",
       "type": "weekly_low_score",
       "source": "auto"
     },
     {
-      "headline": "Annexation of LaPorta Rico gets Robbed. Tremendous Bad Beat!",
-      "body": "Annexation of LaPorta Rico put up 113.60 points - enough to beat 8 other teams - and LOST to Trump Wall by 5.66 points! Believe me, that's unfair. Not good!",
+      "headline": "Annexation of LaPorta Rico: Great Score, Bad Loss. Unfair!",
+      "body": "113.60 points would beat 8 of 13 teams\u2014but NOT Trump Wall! They lost 113.60-119.26 in a heartbreaker. Fake news says this league is fair. It's Not good!",
       "type": "bad_beat",
       "source": "auto"
     },
     {
-      "headline": "Annexation of LaPorta Rico: Six Straight Losses. Brutal!",
-      "body": "Annexation of LaPorta Rico is now on a 6-game Losing Streak with a 2-9 Record. Many people are saying the season is slipping away. Very Sad!",
+      "headline": "Annexation of LaPorta Rico in Free Fall: 6-Game Losing Streak!",
+      "body": "Now 2-9 overall, Annexation of LaPorta Rico has Lost 6 in a ROW! This team is Struggling big league. Many people are saying they're in trouble. Not good!",
       "type": "losing_streak",
       "source": "auto"
     },
     {
-      "headline": "Sack Lunch Reeling: Five Straight Losses. Total Collapse!",
-      "body": "Sack Lunch is in Free Fall with a 5-game Losing Streak and a 1-10 Record! Folks, this is not Good. The whole league is talking about it. Sad!",
-      "type": "losing_streak",
-      "source": "auto"
-    },
-    {
-      "headline": "DonBot's Lock of the Week: Hair of the Dog. Period!",
-      "body": "I'm 43-27 this season, and my Lock of the Week is Hair of the Dog DOMINATING Sack Lunch - 79 percent confidence! Jefferson Airplane and Jacob's Right Hook? That's a True toss-up. Believe me!",
+      "headline": "DonBot's Lock of Week 12: Hair of the Dog Over Sack Lunch!",
+      "body": "I'm 43-27 this season and I'm LOCKING Hair of the Dog over Sack Lunch at 79% confidence! Jefferson Airplane vs Jacob's Right Hook is a Total toss-up. Trust me, believe me. Winning!",
       "type": "donbot_picks",
       "source": "auto"
     }
@@ -1484,5 +1484,655 @@
       ],
       "bid": null
     }
-  ]
+  ],
+  "playoff_race": {
+    "through_week": 11,
+    "reg_season_weeks": 14,
+    "spots": 7,
+    "byes": 1,
+    "sims": 10000,
+    "spread": 25.62,
+    "teams": {
+      "For Jaxson": {
+        "wins": 9,
+        "losses": 2,
+        "pf": 1378.18,
+        "mean": 125.29
+      },
+      "Jefferson Airplane": {
+        "wins": 6,
+        "losses": 5,
+        "pf": 1294.72,
+        "mean": 117.7
+      },
+      "Rashee, Sell Your Jameson!": {
+        "wins": 3,
+        "losses": 8,
+        "pf": 1163.54,
+        "mean": 105.78
+      },
+      "Combat Knife Bald Eagle": {
+        "wins": 5,
+        "losses": 6,
+        "pf": 1155.0,
+        "mean": 105.0
+      },
+      "Jacob's Right Hook": {
+        "wins": 6,
+        "losses": 5,
+        "pf": 1227.38,
+        "mean": 111.58
+      },
+      "Hair of the Dog": {
+        "wins": 8,
+        "losses": 3,
+        "pf": 1316.02,
+        "mean": 119.64
+      },
+      "Sack Lunch": {
+        "wins": 1,
+        "losses": 10,
+        "pf": 994.16,
+        "mean": 90.38
+      },
+      "RB Graveyard": {
+        "wins": 6,
+        "losses": 5,
+        "pf": 1300.6,
+        "mean": 118.24
+      },
+      "Who??": {
+        "wins": 7,
+        "losses": 4,
+        "pf": 1394.64,
+        "mean": 126.79
+      },
+      "Hurtin For A Curtin": {
+        "wins": 7,
+        "losses": 4,
+        "pf": 1236.4,
+        "mean": 112.4
+      },
+      "Nabers B. Tuten": {
+        "wins": 6,
+        "losses": 5,
+        "pf": 1311.1,
+        "mean": 119.19
+      },
+      "Trump Wall": {
+        "wins": 5,
+        "losses": 6,
+        "pf": 1173.7,
+        "mean": 106.7
+      },
+      "Silence of the Lamb": {
+        "wins": 6,
+        "losses": 5,
+        "pf": 1239.22,
+        "mean": 112.66
+      },
+      "Annexation of LaPorta Rico ": {
+        "wins": 2,
+        "losses": 9,
+        "pf": 1050.68,
+        "mean": 95.52
+      }
+    },
+    "remaining": [
+      {
+        "week": 12,
+        "games": [
+          [
+            "Combat Knife Bald Eagle",
+            "For Jaxson"
+          ],
+          [
+            "Trump Wall",
+            "RB Graveyard"
+          ],
+          [
+            "Jefferson Airplane",
+            "Jacob's Right Hook"
+          ],
+          [
+            "Hurtin For A Curtin",
+            "Annexation of LaPorta Rico "
+          ],
+          [
+            "Sack Lunch",
+            "Hair of the Dog"
+          ],
+          [
+            "Silence of the Lamb",
+            "Nabers B. Tuten"
+          ],
+          [
+            "Who??",
+            "Rashee, Sell Your Jameson!"
+          ]
+        ]
+      },
+      {
+        "week": 13,
+        "games": [
+          [
+            "Trump Wall",
+            "Combat Knife Bald Eagle"
+          ],
+          [
+            "For Jaxson",
+            "Jefferson Airplane"
+          ],
+          [
+            "RB Graveyard",
+            "Hurtin For A Curtin"
+          ],
+          [
+            "Jacob's Right Hook",
+            "Sack Lunch"
+          ],
+          [
+            "Annexation of LaPorta Rico ",
+            "Silence of the Lamb"
+          ],
+          [
+            "Hair of the Dog",
+            "Who??"
+          ],
+          [
+            "Nabers B. Tuten",
+            "Rashee, Sell Your Jameson!"
+          ]
+        ]
+      },
+      {
+        "week": 14,
+        "games": [
+          [
+            "Combat Knife Bald Eagle",
+            "Jefferson Airplane"
+          ],
+          [
+            "Hurtin For A Curtin",
+            "Trump Wall"
+          ],
+          [
+            "Sack Lunch",
+            "For Jaxson"
+          ],
+          [
+            "Silence of the Lamb",
+            "RB Graveyard"
+          ],
+          [
+            "Who??",
+            "Jacob's Right Hook"
+          ],
+          [
+            "Rashee, Sell Your Jameson!",
+            "Annexation of LaPorta Rico "
+          ],
+          [
+            "Nabers B. Tuten",
+            "Hair of the Dog"
+          ]
+        ]
+      }
+    ],
+    "table": [
+      {
+        "team": "For Jaxson",
+        "current_seed": 1,
+        "wins": 9,
+        "losses": 2,
+        "pf": 1378.18,
+        "playoffs": 100.0,
+        "bye": 87.2,
+        "seeds": [
+          87.2,
+          10.9,
+          1.4,
+          0.4,
+          0.1,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Hair of the Dog",
+        "current_seed": 2,
+        "wins": 8,
+        "losses": 3,
+        "pf": 1316.02,
+        "playoffs": 99.8,
+        "bye": 7.4,
+        "seeds": [
+          7.4,
+          45.1,
+          24.3,
+          13.1,
+          5.6,
+          2.9,
+          1.3,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Who??",
+        "current_seed": 3,
+        "wins": 7,
+        "losses": 4,
+        "pf": 1394.64,
+        "playoffs": 98.4,
+        "bye": 5.2,
+        "seeds": [
+          5.2,
+          36.2,
+          28.3,
+          14.9,
+          8.2,
+          3.7,
+          1.9,
+          1.2,
+          0.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Hurtin For A Curtin",
+        "current_seed": 4,
+        "wins": 7,
+        "losses": 4,
+        "pf": 1236.4,
+        "playoffs": 86.2,
+        "bye": 0.2,
+        "seeds": [
+          0.2,
+          4.2,
+          17.0,
+          21.5,
+          16.8,
+          12.6,
+          13.8,
+          7.6,
+          4.0,
+          2.0,
+          0.1,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Nabers B. Tuten",
+        "current_seed": 5,
+        "wins": 6,
+        "losses": 5,
+        "pf": 1311.1,
+        "playoffs": 74.2,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          1.6,
+          9.4,
+          12.8,
+          19.3,
+          16.8,
+          14.2,
+          13.6,
+          7.8,
+          3.9,
+          0.6,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "RB Graveyard",
+        "current_seed": 6,
+        "wins": 6,
+        "losses": 5,
+        "pf": 1300.6,
+        "playoffs": 72.5,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.8,
+          8.5,
+          15.0,
+          17.2,
+          16.8,
+          14.1,
+          13.5,
+          8.3,
+          4.8,
+          0.9,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Jefferson Airplane",
+        "current_seed": 7,
+        "wins": 6,
+        "losses": 5,
+        "pf": 1294.72,
+        "playoffs": 67.4,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.8,
+          5.2,
+          10.5,
+          16.9,
+          17.8,
+          16.2,
+          15.4,
+          9.6,
+          6.4,
+          1.1,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Silence of the Lamb",
+        "current_seed": 8,
+        "wins": 6,
+        "losses": 5,
+        "pf": 1239.22,
+        "playoffs": 48.5,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.2,
+          2.9,
+          6.6,
+          8.5,
+          13.8,
+          16.5,
+          19.2,
+          21.2,
+          9.5,
+          1.6,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Jacob's Right Hook",
+        "current_seed": 9,
+        "wins": 6,
+        "losses": 5,
+        "pf": 1227.38,
+        "playoffs": 43.1,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.2,
+          2.8,
+          5.0,
+          6.6,
+          12.6,
+          16.0,
+          19.8,
+          24.0,
+          10.8,
+          2.0,
+          0.1,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Trump Wall",
+        "current_seed": 10,
+        "wins": 5,
+        "losses": 6,
+        "pf": 1173.7,
+        "playoffs": 6.6,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.0,
+          0.0,
+          0.1,
+          0.6,
+          2.0,
+          3.9,
+          5.6,
+          13.9,
+          33.9,
+          33.6,
+          6.5,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Combat Knife Bald Eagle",
+        "current_seed": 11,
+        "wins": 5,
+        "losses": 6,
+        "pf": 1155.0,
+        "playoffs": 3.3,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          1.1,
+          2.1,
+          3.8,
+          10.5,
+          26.8,
+          46.2,
+          9.4,
+          0.0,
+          0.0
+        ],
+        "status": ""
+      },
+      {
+        "team": "Rashee, Sell Your Jameson!",
+        "current_seed": 12,
+        "wins": 3,
+        "losses": 8,
+        "pf": 1163.54,
+        "playoffs": 0.0,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.3,
+          1.8,
+          13.7,
+          72.2,
+          11.8,
+          0.2
+        ],
+        "status": ""
+      },
+      {
+        "team": "Annexation of LaPorta Rico ",
+        "current_seed": 13,
+        "wins": 2,
+        "losses": 9,
+        "pf": 1050.68,
+        "playoffs": 0.0,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          11.7,
+          79.9,
+          8.2
+        ],
+        "status": "out"
+      },
+      {
+        "team": "Sack Lunch",
+        "current_seed": 14,
+        "wins": 1,
+        "losses": 10,
+        "pf": 994.16,
+        "playoffs": 0.0,
+        "bye": 0.0,
+        "seeds": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.1,
+          8.3,
+          91.6
+        ],
+        "status": "out"
+      }
+    ],
+    "stakes": [
+      {
+        "team": "Jacob's Right Hook",
+        "opponent": "Jefferson Airplane",
+        "now": 43.1,
+        "if_win": 75.1,
+        "if_lose": 18.8
+      },
+      {
+        "team": "Jefferson Airplane",
+        "opponent": "Jacob's Right Hook",
+        "now": 67.4,
+        "if_win": 89.0,
+        "if_lose": 39.0
+      },
+      {
+        "team": "Silence of the Lamb",
+        "opponent": "Nabers B. Tuten",
+        "now": 48.5,
+        "if_win": 76.1,
+        "if_lose": 28.2
+      },
+      {
+        "team": "Nabers B. Tuten",
+        "opponent": "Silence of the Lamb",
+        "now": 74.2,
+        "if_win": 93.2,
+        "if_lose": 48.3
+      },
+      {
+        "team": "RB Graveyard",
+        "opponent": "Trump Wall",
+        "now": 72.5,
+        "if_win": 86.1,
+        "if_lose": 50.0
+      },
+      {
+        "team": "Hurtin For A Curtin",
+        "opponent": "Annexation of LaPorta Rico ",
+        "now": 86.2,
+        "if_win": 94.4,
+        "if_lose": 68.6
+      },
+      {
+        "team": "Trump Wall",
+        "opponent": "RB Graveyard",
+        "now": 6.6,
+        "if_win": 17.1,
+        "if_lose": 0.2
+      },
+      {
+        "team": "Combat Knife Bald Eagle",
+        "opponent": "For Jaxson",
+        "now": 3.3,
+        "if_win": 11.4,
+        "if_lose": 0.1
+      },
+      {
+        "team": "Who??",
+        "opponent": "Rashee, Sell Your Jameson!",
+        "now": 98.4,
+        "if_win": 100.0,
+        "if_lose": 94.5
+      },
+      {
+        "team": "Hair of the Dog",
+        "opponent": "Sack Lunch",
+        "now": 99.8,
+        "if_win": 100.0,
+        "if_lose": 99.0
+      }
+    ],
+    "game_of_week": {
+      "home": "Jefferson Airplane",
+      "away": "Jacob's Right Hook",
+      "total_swing": 113.6,
+      "teams_affected": [
+        {
+          "team": "Jefferson Airplane",
+          "if_home_wins": 89.0,
+          "if_away_wins": 39.0
+        },
+        {
+          "team": "Jacob's Right Hook",
+          "if_home_wins": 18.8,
+          "if_away_wins": 75.1
+        }
+      ]
+    }
+  }
 }
