@@ -421,7 +421,8 @@
   }
   /* ---- Tabs + League History ---- */
   .tabs { border-bottom: 1px solid var(--line); background: var(--bg); }
-  .tabs .wrap { display: flex; gap: 4px; }
+  .tabs .wrap { display: flex; gap: 4px; overflow-x: auto; }
+  .tab { white-space: nowrap; flex-shrink: 0; }
   .tab {
     background: none;
     border: 0;
@@ -452,6 +453,32 @@
   .rb-card tr:first-child td.num { color: var(--accent); }
   .rb-sub { color: var(--text-faint); font-size: 12px; }
   @media (max-width: 720px) { .rb-grid { grid-template-columns: 1fr; } }
+
+  /* ---- Playoff Race ---- */
+  .pr-pct { font-weight: 600; }
+  .pr-status { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 2px 6px; border-radius: 3px; margin-left: 6px; white-space: nowrap; }
+  .pr-status.in { background: var(--tier-a); color: var(--bg); }
+  .pr-status.bye { background: var(--accent); color: var(--bg); }
+  .pr-status.out { background: var(--surface-2); color: var(--text-faint); }
+  .pr-bar { display: inline-block; width: 46px; height: 5px; background: var(--surface-2); border-radius: 3px; vertical-align: middle; margin-left: 6px; overflow: hidden; }
+  .pr-bar i { display: block; height: 100%; background: var(--accent); }
+  .pr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .pr-card { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 4px; padding: 12px 14px; }
+  .pr-card .vs { color: var(--text-faint); font-size: 12px; margin: 2px 0 8px; }
+  .pr-split { display: flex; gap: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
+  .pr-split .up { color: var(--tier-a); }
+  .pr-split .down { color: var(--tier-f); }
+  .pr-week { margin-bottom: 18px; }
+  .pr-week h4 { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 8px; }
+  .pr-game { display: grid; grid-template-columns: 1fr auto 1fr; gap: 6px; align-items: center; margin-bottom: 6px; }
+  .pr-game .at { color: var(--text-faint); font-size: 11px; font-family: 'IBM Plex Mono', monospace; }
+  .pr-pick { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; color: var(--text-dim); cursor: pointer; font: inherit; font-size: 13px; padding: 9px 8px; text-align: center; }
+  .pr-pick:hover { color: var(--text); border-color: var(--text-faint); }
+  .pr-pick.won { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600; }
+  .pr-pick.lost { opacity: 0.4; text-decoration: line-through; }
+  .pr-bar-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+  .pr-reset { background: none; border: 1px solid var(--line); border-radius: 4px; color: var(--text-dim); cursor: pointer; font: inherit; font-size: 12px; padding: 6px 10px; }
+  @media (max-width: 720px) { .pr-grid { grid-template-columns: 1fr; } }
 
 </style>
 </head>
@@ -544,6 +571,7 @@ function deltaCell(change, spots) {
 }
 
 let TEAMS = {};
+let RACE = null;
 
 // Team name with its ESPN logo, plus a crown for the defending champ.
 function teamTag(name) {
@@ -665,6 +693,7 @@ function tweetCard(n, when, i) {
 function render(data) {
   const app = document.getElementById('app');
   TEAMS = data.teams || {};
+  RACE = data.playoff_race || null;
   const teamCount = (data.power_rankings || []).length;
 
   const tickerItems = (data.news || []).length
@@ -882,33 +911,240 @@ async function loadHistory(host) {
   }
 }
 
+// ---- Playoff Race ----
+// Same math as scripts/playoff_odds.py, so the What-If picker can re-run it
+// in the browser. A seeded random generator keeps results steady between taps.
+function seededRandom(seed) {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6D2B79F5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function simulateRace(race, picks, sims = 10000) {
+  const rnd = seededRandom(race.through_week * 7919 + 1);
+  const gauss = () => {
+    const u = 1 - rnd(), v = rnd();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  };
+  const names = Object.keys(race.teams);
+  const made = {}, bye = {}, seeds = {};
+  names.forEach(n => { made[n] = 0; bye[n] = 0; seeds[n] = new Array(names.length).fill(0); });
+  for (let s = 0; s < sims; s++) {
+    const w = {}, pf = {};
+    names.forEach(n => { w[n] = race.teams[n].wins; pf[n] = race.teams[n].pf; });
+    race.remaining.forEach(wk => wk.games.forEach(([home, away]) => {
+      let hs = race.teams[home].mean + race.spread * gauss();
+      let as = race.teams[away].mean + race.spread * gauss();
+      const forced = picks[pickKey(wk.week, home, away)];
+      // A locked-in pick keeps the simulated scores but hands the higher one to your winner.
+      if ((forced === home && hs < as) || (forced === away && as < hs)) [hs, as] = [as, hs];
+      w[hs >= as ? home : away] += 1;
+      pf[home] += hs; pf[away] += as;
+    }));
+    names.slice().sort((a, b) => (w[b] - w[a]) || (pf[b] - pf[a])).forEach((n, i) => {
+      seeds[n][i]++;
+      if (i < race.spots) made[n]++;
+      if (i < race.byes) bye[n]++;
+    });
+  }
+  const out = {};
+  names.forEach(n => {
+    out[n] = { playoffs: 100 * made[n] / sims, bye: 100 * bye[n] / sims, seeds: seeds[n].map(c => 100 * c / sims) };
+  });
+  return out;
+}
+
+function pickKey(week, home, away) { return `${week}|${home}|${away}`; }
+
+// Mathematically certain labels (mirrors clinch_status in playoff_odds.py).
+function clinchStatus(race, picks) {
+  const wins = {}, left = {};
+  Object.keys(race.teams).forEach(n => { wins[n] = race.teams[n].wins; left[n] = 0; });
+  race.remaining.forEach(wk => wk.games.forEach(([home, away]) => {
+    const forced = picks[pickKey(wk.week, home, away)];
+    if (forced) wins[forced]++;
+    else { left[home]++; left[away]++; }
+  }));
+  const status = {};
+  Object.keys(wins).forEach(n => {
+    const lo = wins[n], hi = wins[n] + left[n];
+    const others = Object.keys(wins).filter(o => o !== n);
+    const canCatch = others.filter(o => wins[o] + left[o] >= lo).length;
+    const sureAhead = others.filter(o => wins[o] > hi).length;
+    status[n] = (race.byes && canCatch < race.byes) ? 'bye' : canCatch < race.spots ? 'in' : sureAhead >= race.spots ? 'out' : '';
+  });
+  return status;
+}
+
+function fmtPct(v, status) {
+  if (status === 'out') return '—';
+  if (status === 'in' || status === 'bye') return '100%';
+  if (v >= 99.5) return '>99%';
+  if (v < 0.5) return '<1%';
+  return Math.round(v) + '%';
+}
+
+function statusChip(st) {
+  return st === 'bye' ? '<span class="pr-status bye">BYE</span>'
+    : st === 'in' ? '<span class="pr-status in">CLINCHED</span>'
+    : st === 'out' ? '<span class="pr-status out">OUT</span>' : '';
+}
+
+function oddsTable(race, odds, status, base) {
+  const rows = race.table.map(r => {
+    const o = odds[r.team], st = status[r.team];
+    const likely = o.seeds.indexOf(Math.max(...o.seeds)) + 1;
+    const d = base ? Math.round(o.playoffs - base[r.team].playoffs) : 0;
+    const delta = base && d ? `<div class="delta ${d > 0 ? 'up' : 'down'}" style="font-size:11px">${d > 0 ? '+' : '−'}${Math.abs(d)}</div>` : '';
+    return `<tr class="${r.current_seed === race.spots ? 'cut' : ''}">
+      <td class="rank-badge">${r.current_seed}</td>
+      <td>${teamTag(r.team)}${statusChip(st)}</td>
+      <td class="num">${r.wins}-${r.losses}</td>
+      <td class="num pr-pct">${fmtPct(o.playoffs, st)}<span class="pr-bar hide-sm"><i style="width:${o.playoffs}%"></i></span>${delta}</td>
+      ${race.byes ? `<td class="num">${st === 'out' ? '—' : fmtPct(o.bye, st === 'bye' ? 'bye' : '')}</td>` : ''}
+      <td class="num hide-sm">${st === 'out' ? '—' : likely}</td>
+    </tr>`;
+  }).join('');
+  return `<table>
+    <thead><tr><th>#</th><th>Team</th><th class="num">W-L</th><th class="num">Playoffs</th>${race.byes ? '<th class="num">Bye</th>' : ''}<th class="num hide-sm" title="The seed this team lands in most often">Likely seed</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+  <div class="table-note">- - - current playoff line: top ${race.spots} get in${race.byes ? `, top ${race.byes} get a bye` : ''}. Ties go to Points For.</div>`;
+}
+
+function renderRace(host) {
+  const race = RACE;
+  if (!race) {
+    host.innerHTML = '<div class="empty-state">The playoff race shows up here during the regular season once the weekly job has run.</div>';
+    return;
+  }
+  const baseOdds = {};
+  race.table.forEach(r => { baseOdds[r.team] = r; });
+  const baseStatus = {};
+  race.table.forEach(r => { baseStatus[r.team] = r.status; });
+  const nextWeek = race.remaining.length ? race.remaining[0].week : null;
+  const weeksLeft = race.remaining.length;
+
+  const stakes = (race.stakes || []).slice(0, 8).map(s => `
+    <div class="pr-card">
+      ${teamTag(s.team)}
+      <div class="vs">vs ${escapeHtml(s.opponent)} · now ${fmtPct(s.now)}</div>
+      <div class="pr-split"><span class="up">Win → ${fmtPct(s.if_win)}</span><span class="down">Lose → ${fmtPct(s.if_lose)}</span></div>
+    </div>`).join('');
+
+  const g = race.game_of_week;
+  const gotw = g && g.teams_affected.length ? `
+    <div class="pr-card" style="margin-bottom:16px">
+      <div style="font-family:Oswald,sans-serif;font-size:17px">${escapeHtml(g.away)} <span style="color:var(--text-faint)">at</span> ${escapeHtml(g.home)}</div>
+      <div class="vs">Playoff odds depending on who wins</div>
+      <table><thead><tr><th>Team</th><th class="num">${escapeHtml(g.away.trim().split(' ')[0])} win</th><th class="num">${escapeHtml(g.home.trim().split(' ')[0])} win</th></tr></thead><tbody>
+      ${g.teams_affected.map(t => `<tr><td>${escapeHtml(t.team)}</td><td class="num">${fmtPct(t.if_away_wins)}</td><td class="num">${fmtPct(t.if_home_wins)}</td></tr>`).join('')}
+      </tbody></table>
+    </div>` : '';
+
+  host.innerHTML = `
+    <div class="section-title">PLAYOFF ODDS · ${weeksLeft ? `${weeksLeft} WEEK${weeksLeft > 1 ? 'S' : ''} LEFT` : 'REGULAR SEASON FINAL'} · ${race.sims.toLocaleString()} SIMULATED SEASONS</div>
+    ${oddsTable(race, baseOdds, baseStatus, null)}
+    <div class="table-note">Each remaining game is simulated from both teams' scoring average this season. CLINCHED, BYE and OUT are mathematically locked.</div>
+
+    ${nextWeek ? `
+    <div class="section-title" style="margin-top:36px">GAME OF THE WEEK · WEEK ${nextWeek}</div>
+    ${gotw || '<div class="empty-state">No single game swings the race much this week.</div>'}
+
+    <div class="section-title" style="margin-top:28px">WHAT'S ON THE LINE · WEEK ${nextWeek}</div>
+    ${stakes ? `<div class="pr-grid">${stakes}</div>` : '<div class="empty-state">Nobody\'s playoff odds hinge on this week.</div>'}
+
+    <div class="section-title" style="margin-top:36px">WHAT IF? · PICK THE WINNERS</div>
+    <div class="pr-bar-row"><span class="table-note" id="pr-count" style="margin:0">Tap a team to make them win. Tap again to undo.</span><button class="pr-reset" id="pr-reset" hidden>Reset</button></div>
+    <div id="pr-picker">${race.remaining.map(wk => `
+      <div class="pr-week"><h4>WEEK ${wk.week}</h4>
+        ${wk.games.map(([home, away]) => `<div class="pr-game" data-key="${escapeHtml(pickKey(wk.week, home, away))}">
+          <button class="pr-pick" data-team="${escapeHtml(away)}">${escapeHtml(away)}</button>
+          <span class="at">@</span>
+          <button class="pr-pick" data-team="${escapeHtml(home)}">${escapeHtml(home)}</button>
+        </div>`).join('')}
+      </div>`).join('')}
+    </div>
+    <div id="pr-scenario"></div>` : ''}
+  `;
+
+  if (!nextWeek) return;
+  const picks = {};
+  const noPicks = simulateRace(race, {});   // same random draws, so the +/− only reflects your picks
+  const picker = host.querySelector('#pr-picker');
+  picker.addEventListener('click', e => {
+    const btn = e.target.closest('.pr-pick');
+    if (!btn) return;
+    const game = btn.closest('.pr-game');
+    const key = game.dataset.key;
+    if (picks[key] === btn.dataset.team) delete picks[key];
+    else picks[key] = btn.dataset.team;
+    update();
+  });
+  host.querySelector('#pr-reset').addEventListener('click', () => {
+    Object.keys(picks).forEach(k => delete picks[k]);
+    update();
+  });
+
+  function update() {
+    picker.querySelectorAll('.pr-game').forEach(game => {
+      const winner = picks[game.dataset.key];
+      game.querySelectorAll('.pr-pick').forEach(b => {
+        b.classList.toggle('won', !!winner && b.dataset.team === winner);
+        b.classList.toggle('lost', !!winner && b.dataset.team !== winner);
+      });
+    });
+    const n = Object.keys(picks).length;
+    host.querySelector('#pr-count').textContent = n ? `${n} result${n > 1 ? 's' : ''} locked in` : 'Tap a team to make them win. Tap again to undo.';
+    host.querySelector('#pr-reset').hidden = !n;
+    const out = host.querySelector('#pr-scenario');
+    if (!n) { out.innerHTML = ''; return; }
+    out.innerHTML = `<div class="section-title" style="margin-top:24px">YOUR SCENARIO</div>
+      ${oddsTable(race, simulateRace(race, picks), clinchStatus(race, picks), noPicks)}
+      <div class="table-note">Green/red numbers show the change from the real odds above.</div>`;
+  }
+}
+
 function setupTabs() {
   const app = document.getElementById('app');
   const ticker = app.querySelector('.ticker-outer');
   if (!ticker) return; // league data didn't load, so there is nothing to tab between
 
   const hubSections = [...app.querySelectorAll(':scope > section')];
-  const hist = document.createElement('section');
-  hist.hidden = true;
-  hist.innerHTML = '<div class="wrap" id="history-host"><div class="empty-state">Loading…</div></div>';
-  app.insertBefore(hist, app.querySelector('footer'));
+  const makePanel = id => {
+    const sec = document.createElement('section');
+    sec.hidden = true;
+    sec.innerHTML = `<div class="wrap" id="${id}"><div class="empty-state">Loading…</div></div>`;
+    app.insertBefore(sec, app.querySelector('footer'));
+    return sec;
+  };
+  const panels = { race: makePanel('race-host'), history: makePanel('history-host') };
+  const loaders = {
+    race: () => renderRace(document.getElementById('race-host')),
+    history: () => loadHistory(document.getElementById('history-host')),
+  };
 
   const nav = document.createElement('nav');
   nav.className = 'tabs';
-  nav.innerHTML = '<div class="wrap"><button class="tab active" data-tab="hub">League Hub</button><button class="tab" data-tab="history">League History</button></div>';
+  nav.innerHTML = '<div class="wrap"><button class="tab active" data-tab="hub">League Hub</button><button class="tab" data-tab="race">Playoff Race</button><button class="tab" data-tab="history">League History</button></div>';
   ticker.after(nav);
 
-  let loaded = false;
+  const loaded = {};
   nav.addEventListener('click', e => {
     const btn = e.target.closest('.tab');
     if (!btn) return;
-    const showHistory = btn.dataset.tab === 'history';
+    const tab = btn.dataset.tab;
     nav.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b === btn));
-    hubSections.forEach(s => { s.hidden = showHistory; });
-    hist.hidden = !showHistory;
-    if (showHistory && !loaded) {
-      loaded = true;
-      loadHistory(document.getElementById('history-host'));
+    hubSections.forEach(s => { s.hidden = tab !== 'hub'; });
+    Object.entries(panels).forEach(([k, sec]) => { sec.hidden = tab !== k; });
+    if (loaders[tab] && !loaded[tab]) {
+      loaded[tab] = true;
+      loaders[tab]();
     }
   });
 }

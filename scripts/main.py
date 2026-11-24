@@ -20,6 +20,7 @@ from custom_stories import ensure_file_exists, load_custom_events, clear_custom_
 from rankings_history import save_current_rankings
 from transactions import get_transactions, _owner_by_team_id
 import weekly_extras as extras
+from playoff_odds import build_playoff_race, playoff_race_event
 
 OUTPUT_PATH = "data/data.json"
 TRANSACTIONS_LIMIT = 40  # most recent N moves shown on the site
@@ -27,7 +28,7 @@ MAX_AUTO_STORIES = 10    # DonBot posts per week, not counting your custom ideas
 
 # When there's more news than room, DonBot covers these first.
 STORY_PRIORITY = [
-    "trade", "playoff_picture", "upset", "blowout", "nail_biter", "weekly_high_score",
+    "trade", "playoff_stakes", "playoff_picture", "upset", "blowout", "nail_biter", "weekly_high_score",
     "weekly_low_score", "bad_beat", "win_streak", "losing_streak", "big_waiver_bid",
     "bench_blunder", "rank_jump", "rank_drop", "player_of_the_week",
 ]
@@ -146,6 +147,9 @@ def run():
     matchups = safely("matchup preview", lambda: extras.build_matchups(league, upcoming_week, rank_by_team), [])
     record = safely("pick record", lambda: extras.pick_record(league), {"wins": 0, "losses": 0})
 
+    print("Simulating the playoff race...")
+    race = safely("playoff race", lambda: build_playoff_race(league), None) if in_regular_season else None
+
     print("Detecting newsworthy events...")
     auto_events = get_weekly_events(league, rankings_df, previous_rankings_df)
     now_ms = int(datetime.now(timezone.utc).timestamp() * 1000)
@@ -153,6 +157,9 @@ def run():
     if in_regular_season:
         auto_events += extras.award_events(awards, week)
         auto_events += safely("streak news", lambda: extras.streak_events(league), [])
+        stakes_event = playoff_race_event(race)
+        if stakes_event:
+            auto_events.append(stakes_event)
     auto_events = pick_stories(auto_events)
     picks = extras.picks_event(matchups, record, upcoming_week) if upcoming_week <= reg_season else None
     if picks:
@@ -187,6 +194,7 @@ def run():
         "matchups": matchups,
         "donbot_record": record,
         "transactions": all_moves[:TRANSACTIONS_LIMIT],
+        "playoff_race": race,
     }
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
